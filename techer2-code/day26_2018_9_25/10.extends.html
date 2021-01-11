@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Dog(name,age){
+				//实例
+				this.name = name;
+				this.age = age;
+				this.showName = function(){
+					return this.name;
+				}
+				this.showAge = function(){
+					return this.age;
+				}
+			}
+			
+			var dog1 = new Dog('小黑',3);
+			var dog2 = new Dog('小黑',3);
+			console.log(dog1.showName === dog2.showName);
+			//浪费空间
+			
+			//实例继承(经典继承、冒充继承)
+			//call() /  apply()
+			//call(对象,参数1，参数2，参数3，……)
+			//apply(对象,数组（或arguments))
+			function Huskie(name,age){
+				//Dog.call(this,name,age);
+				//Dog.apply(this,[name,age]);
+				Dog.apply(this,arguments);
+			}
+			var hk = new Huskie('二哈',3);
+			console.log(hk.showName());
+		</script>
+	</body>
+</html>

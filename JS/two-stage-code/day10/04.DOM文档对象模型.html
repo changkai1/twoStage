@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="u">
+        <li>孩子1</li>
+        <li>孩子2</li>
+        <li id="s">孩子3</li>
+    </ul>
+    <ol id="ol">
+        <li>ol-1</li>
+        <li>ol-2</li>
+        <li>ol-3</li>
+    </ol>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        1.
+            1.1.html元素是    元素节点
+            1.2.元素的属性是   属性节点
+            1.3.元素的内容时   文本节点
+
+        2.节点关系
+            parentNode                  父节点
+            children                    孩子节点
+            childNodes                  孩子节点(会将换行识别成文本节点) 用的不多
+            firstElementChild           第一个孩子节点
+            lastElementChild            最后一个孩子节点
+            nextElementSibling          下一个兄弟节点
+            previousElementSibling      前一个兄弟节点
+
+
+        3.节点类型  nodeType
+            元素节点  1
+            属性节点  2
+            文本节点  3
+
+        4.获取查找到的元素的标签名  大写
+            tagName
+            nodeName
+    */ 
+
+        // 1.children  和  childNodes  区别
+        var oUl = document.querySelector("#u");
+        var list = oUl.children;
+        var _list = oUl.childNodes;
+        // alert(list.length);  //3  三个元素
+        // alert(_list.length);   // 7  会将换行作为节点
+        
+        // 2.节点关系使用
+        oUl.children[1].style.color = "red";
+        oUl.firstElementChild.style.color = "blue";
+        oUl.nextElementSibling.style.color = "green";
+        var name = oUl.nextElementSibling.nodeName;
+        console.log(name); //OL  大写
+        var _name = oUl.nextElementSibling.tagName;
+        console.log(_name); //OL
+
+
+
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、	统计字符串中每个字符的个数
+	function fnCount(str){
+		//统计str中a的个数
+		for( var code = 32 ; code <= 126 ; code++ ){
+			//根据code得到对应的字符
+			var _ch = String.fromCharCode( code );
+			//判断 _ch 字符在str中出现了几次
+			var count = 0;
+			for( var i = 0 ; i < str.length ; i++ ){
+				var ch = str.charAt(i);
+				if( ch == _ch ){
+					count++;
+				}
+			}
+			if( count > 0 ){
+				console.log("字符"+_ch+"出现了"+count+"次");
+			}
+		}
+	}
+	fnCount("aaa$$$8A88astr");
+</script>

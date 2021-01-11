@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//定义一个年龄，判断这个年龄是否大于20，如果大于20，提示 ： “欢迎来千锋学习h5”
+	//  否则  提示 ： 继续好好读大学 
+	//单分支结构
+	/*var age = 28;
+	if( age > 20 ){
+		alert( "欢迎来千锋学习h5" ); 
+	}else{
+		alert( "继续好好读大学" );
+	}
+	等价 ： alert( age>20 ? "欢迎来千锋学习h5" : "继续好好读大学" ) 
+	* */
+	
+	//多分支结构 
+	// 定义一个学生的成绩  判断成绩等级
+	//80--100  优秀
+	//70--80  良
+	//60--70 中
+	//小于60 下个班再见
+	var score = 98;
+	if( score > 100 ){
+		alert( "请输入正确的成绩" );
+	}else{
+		if( score > 80 && score <= 100 ){
+			document.write( "成绩优秀" );
+		}else if( score > 70 ){
+			document.write( "成绩良好" );
+		}else if( score >= 60 ){
+			document.write( "成绩需要努力啦" );
+		}else{
+			document.write( "下个班再见" );
+		}
+	}
+	//条件表达式 ：  表达式1 ？  表达式2 ：表达式3 
+</script>

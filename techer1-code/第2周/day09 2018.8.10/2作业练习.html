@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#btn{
+			position: absolute;
+			left: 100px;
+			top:100px;
+		}
+	</style>
+	<body>
+		<input type="button" value="no" id="btn" />
+		<input type="text" id="t1" /> + 
+		<input type="text" id="t2" /> =
+		<input type="text" id="t3"/>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	$id("t1").onkeyup = function(){
+		fnKeyUp();
+	}
+	$id("t2").onkeyup = function(){
+		fnKeyUp();
+	}
+	function fnKeyUp(){
+		var num1 = $id("t1").value.trim();
+		var num2 = $id("t2").value.trim();
+		if( num1.length == 0 || num2.length == 0 ){
+			$id("t3").value = "不能为空";
+			return;
+		}
+			
+		if( isNaN(num1) || isNaN(num2) ){
+			$id("t3").value = "必须是数字";
+			return;
+		}
+		//根据勾股定理定理
+		$id("t3").value = Math.sqrt( num1*num1 + num2*num2 );
+	}
+	
+	//点不到的按钮
+	$id("btn").onmouseover = function(){
+		$id("btn").style.left = rand(0,900) + "px";
+		$id("btn").style.top = rand(0,600) + "px";
+	}
+</script>

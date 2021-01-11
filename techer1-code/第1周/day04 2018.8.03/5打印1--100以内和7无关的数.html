@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//2、	函数实现  输出1—100中（7的倍数和带7的数除外）的数
+	function fnPrint(){
+		for( var i = 1 ; i <= 100 ; i++ ){
+			if( i%7==0 || i%10==7 || parseInt(i/10)==7 ){
+				continue;
+			}
+			document.write( i + " " );
+		}
+	}
+	fnPrint();
+</script>

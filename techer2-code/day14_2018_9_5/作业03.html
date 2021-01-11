@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//[1,2,[3,[4,5]]]   [1,2,3,4,5]
+			function fn(arr){
+				var list = [];
+				if(arr instanceof Array){
+					for(var i = 0,len = arr.length;i < len;i ++){
+						list = list.concat(fn(arr[i]));
+					}
+				}else{
+					list.push(arr);
+				}
+				return list;
+			}
+			//arr =[1,2,[3,[4,5]]]   list = [1,2,3,4,5]
+			//arr = 1    list = [1]   XXXX
+			//arr = 2    list = [2]   XXXX
+			//arr = [3,[4,5]]  list = [3,4,5]
+			//arr = 3    list = [3]   XXXX
+			//arr = [4,5]   list = [4,5]
+			//arr = 4   list = [4]   XXXX
+			//arr = 5   list = [5]   XXXX
+			console.log(fn([1,2,[3,[4,5]]])); //[1,2,3,4,5]
+		</script>
+	</body>
+</html>

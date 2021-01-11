@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//    数组去重  思路一
+    // 1.编写函数has(arr,num)，判断数组中是否存在num这个元素，返回布尔类型
+        function has(arr,num){
+            for(var i = 0; i < arr.length; i++){
+                if(arr[i] == num){
+                    return true
+                }
+            }
+            return false;
+        }
+        // console.log(has([1,2,3,4,5],5));
+
+    // 2.编写函数norepeat(arr)将数组的重复元素去掉，并返回新的数组
+        function norepeat(arr){
+            var brr = [];
+            for(var i = 0; i < arr.length; i++){
+                if(!has(brr,arr[i])){
+                    brr.push(arr[i]);
+                }
+            }
+            return brr;
+        }
+        // console.log(norepeat([1,1,2,2,3,3,4,4])); // [1, 2, 3, 4]
+
+
+/*
+    数组去重思路二
+      先将数组按照一定的顺序排好(升序或降序)
+      用数组相邻的两个数作比较，如果相邻的两个数不相等，就将前一个数存入到新数组中
+*/ 
+    function norepeat2(arr){
+        var crr = [];
+        // 数组先排序，在去重
+        arr.sort(function(x,y){return x-y});
+        for(var i = 0; i < arr.length; i++){
+            if( arr[i] != arr[i+1] ){
+                crr.push(arr[i]);
+            }
+        }
+        return crr;
+    }
+    // console.log(norepeat2([11,2,4,21,2,11,3])); //[2, 3, 4, 11, 21]
+
+/*
+    数组去重思路三  indexOf()
+*/
+    function norepeat3(){
+        var arr = [23,1,5,6,7,6,23,1,5];
+        var brr = [];
+        for(var i = 0; i < arr.length; i++){
+            if( brr.indexOf(arr[i]) == -1 ){
+                brr.push(arr[i]);
+            }
+        }
+        return brr;
+    }
+    // console.log(norepeat3()); //[23, 1, 5, 6, 7]
+
+
+    // 2.编写函数map(arr) 把数组中的每一位数字都增加30%
+        function map(arr){
+            for(var i = 0; i < arr.length; i++){
+                arr[i] *= 1.3;
+            }
+            return arr;
+        }
+        // console.log(map([1,2,3]));
+
+
+    // 3.有一个从小到大排好的数组，现输入一个数，要求按原来的规律将它插入到原数组中
+    // var = [3,10,49,89,100]
+   
+    function addNum(arr,num){
+        var index = arr.length;
+        for(var i = 0; i < arr.length; i++){
+            if( arr[i] > num ){
+                index = i
+                break;
+            }
+        }
+        arr.splice(index,0,num);
+        return arr;
+    }
+    // console.log(addNum([3,10,49,89,100],15)); //[3, 10, 15, 49, 89, 100]
+</script>

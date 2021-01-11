@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+		<input type="button" value="校验" id="btn"/>
+	</body>
+</html>
+<script>
+	//正则表达式对象 ： 
+	//正则 ： 正确的规则
+	//定义 ： reg = /普通字符或特殊字符组成/; 规则
+	var oBtn = document.querySelector("#btn");
+	var oTxt = document.querySelector("#txt");
+	oBtn.onclick = function(){
+		var str = oTxt.value;
+		var reg = /123/;//包含123
+		var reg = /\d/; //包含一个数字
+		var reg = /\d{6}/; //包含六个数字
+		var reg = /^\d{6}$/; //写一个正则 表示一个邮编
+		var reg = /^a{3,6}$/ //表示至少出现三个a至多出现6个a
+		var reg = /^\w{1,10}$/; //定义一个正则 表示一个变量 ：变量组成-字母 数字 下划线  至少1一个  至多10个
+		var reg = /^\w+$/; //定义一个正则 表示一个变量 变量组成-字母 数字 下划线  至少1一个 
+		var reg = /^.{6,}$/; //定义一个正则  表示密码  可以由任意字符组成  至少6位
+		var reg = /^(13|15)\d{9}$/; //定义一个正则 表示以13或15开头的手机号
+		var reg = /^[1-9]\d{4,9}$/ //定义一个正则 表示一个5--10位的qq号  不能用0开头
+		var reg = /^[\u4e00-\u9fa5]{2,6}$/;//定义一个姓名正则
+		var reg = /^www\.baidu\.com$/;  // www.baidu.com 
+		//test() 校验某个字符串是否符合某个字符规范 符合返回true 不符合返回false
+		if( reg.test( str ) ){
+			alert("正确");
+		}else{
+			alert("错误");
+		}
+	}
+</script>

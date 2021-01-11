@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 350px;
+			height: 350px;
+			border:1px solid #000;
+			margin: 200px;
+			position: relative;
+		}
+		#mask{
+			width: 175.5px;
+			height: 175.5px;
+			/*background: pink;*/
+			/*opacity: .3;*/
+			background: url(001.jpg);
+			position: absolute;
+			left: 0;
+			top: 0;
+			cursor: move;
+			display: none;
+		}
+		#big{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			position: absolute;
+			top : 0;
+			left :  355px;
+			overflow: hidden;
+			display: none;
+		}
+		#bigImg{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#center{
+			width: 350px;
+			height: 350px;
+			background: gray;
+			opacity: 0.3;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<div id="small">
+				<img src="001.jpg" alt="" id="smallImg"/>
+				<div id="center"></div>
+				<div id="mask"></div>
+			</div>
+			<div id="big">
+				<img src="0001.jpg" alt="" id="bigImg"/>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="public.js"></script>
+<script>
+	//涉及的事件 ： onmouseover  onmouseout onmousemove
+	var box = $id("box"), //整个放大镜容器
+		small = $id("small"),//小图区
+		mask = $id("mask"),//遮罩
+		smallImg = $id("smallImg"),//小图
+		bigImg = $id("bigImg"), //大图
+		big = $id("big"); //大图显示区
+		
+	//第一步 ： 鼠标移入移出到small上 显示和隐藏mask和big
+	small.onmouseover = function(){
+		big.style.display = "block";
+		mask.style.display = "block";
+	}
+	small.onmouseout = function(){
+		big.style.display = "none";
+		mask.style.display = "none";
+	}
+	//第二步 ： 鼠标在small上移动  操作mask跟随鼠标移动
+	//改变mask的left和top
+	small.onmousemove = function(e){
+		var e = e || event;
+		var x = e.pageX - mask.offsetWidth/2-box.offsetLeft;
+		var y = e.pageY - mask.offsetHeight/2-box.offsetTop;
+		//得到mask移动时的最大的left和top
+		var maxL = small.offsetWidth-mask.offsetWidth-2;
+		var maxT = small.offsetHeight - mask.offsetHeight-2;
+		//边界处理
+		/*if( x<0 ){
+			x = 0;
+		}else if(x > maxL){
+			x = maxL;
+		}*/
+		x = x < 0 ? 0 : ( x > maxL ? maxL : x);
+		y = y < 0 ? 0 : ( y > maxT ? maxT : y);
+		
+		//设置mask的移动
+		mask.style.left = x + "px";
+		mask.style.top = y + "px";
+		
+		//设置mask的背景位置 x 和 y的反向
+		mask.style.backgroundPosition = -x +"px -" + y + "px";
+		
+		//分析大图向上或向左移动的距离
+		//比例关系 ： 大图的left/mask的left = (大图宽度-大图显示区宽度)/(small的宽度-mask的宽度) 
+		//大图的left/mask的left = 大图宽度/小图宽度  = 大图显示区宽度/mask宽度
+		/*var bigImgLeft = x*(bigImg.offsetWidth-big.offsetWidth)/(small.offsetWidth-mask.offsetWidth);
+		var bigImgTop = y*(bigImg.offsetHeight-big.offsetHeight)/(small.offsetHeight-mask.offsetHeight);*/
+		var bigImgLeft = x*(bigImg.offsetWidth)/(small.offsetWidth);
+		var bigImgTop = y*(bigImg.offsetHeight)/(small.offsetHeight);
+		
+		//设置大图的移动
+		bigImg.style.left = -bigImgLeft + "px";
+		bigImg.style.top = -bigImgTop + "px";
+		
+	}
+</script>

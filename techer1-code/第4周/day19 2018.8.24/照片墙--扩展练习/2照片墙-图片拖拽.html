@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"/>
+
+<title>照片墙一多实例演示（面向对象版）</title>
+<style type="text/css">
+body,div,h2,ul,li{margin:0;padding:0;}
+body{font:12px/1.5 Arail;}
+.box{width:860px;margin:10px auto;background:#eee;border:1px solid #b8b8b8; height: }
+.title{height:30px;line-height:30px;font-size:14px;padding:0 15px 0 35px;border-bottom:1px solid #b8b8b8;background:#fafafa 5px 50% no-repeat;}
+.title span{float:left;}
+.title a{float:right;color:#06f;outline:none;}
+.title a:hover{color:red;}
+.box ul{width:660px;  height: 400px;margin: 10px auto;/*display:inline-block;*/ padding:0 15px 15px 0;}
+.box li{float:left;width:140px;height:105px;padding:6px;background:#fff;border:1px solid #c3c3c3;display:inline;margin:15px 0 0 15px;list-style:none;}
+.box li img{float:left;width:140px;height:105px;}
+.box li.hig{padding:5px;border:2px dashed #f30;opacity:0.5;filter:alpha(opacity=50);}
+</style>
+<script src="sport6.js"></script>
+</head>
+<body>
+<div class="box" style="">
+    <h2 class="title"><span>一堆90后</span></h2>
+    <ul id="ul1">
+		<li><img src="imgs/1.jpg" alt="" /></li>
+		<li><img src="imgs/2.jpg" alt="" /></li>
+		<li><img src="imgs/3.jpg" alt="" /></li>
+		<li><img src="imgs/4.jpg" alt="" /></li>
+		<li><img src="imgs/5.jpg" alt="" /></li>
+		<li><img src="imgs/6.jpg" alt="" /></li>
+		<li><img src="imgs/7.jpg" alt="" /></li>
+		<li><img src="imgs/8.jpg" alt="" /></li>
+		<li><img src="imgs/9.jpg" alt="" /></li>
+    </ul>
+</div>
+</body></html>
+<script src="public.js"></script>
+<script>
+	/*
+	第一步 ： 因为每一张图片都有可能被拖拽  每一个li都需要做定位
+	  设置li位置时，需要先将每一个li的坐标存入到一个数组中[{},{},....]
+	第二步 ： 每一张图片都会被拖拽，封装一个函数完成拖拽功能
+	*/
+	
+	var list = document.getElementsByTagName("li");
+	var zindex = 1;//控制每一张图片的定位层级
+	var arr = [];
+	//设置li位置时，需要先将每一个li的坐标存入到一个数组中[{},{},....]
+	for( var i = 0 ; i < list.length;i++ ){
+		arr.push( { x : list[i].offsetLeft , y : list[i].offsetTop } );
+	}
+	
+	//第一步 ： 因为每一张图片都有可能被拖拽  每一个li都需要做定位
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].style.position = "absolute";
+		//设置每一个li的坐标  （坐标在数组中）
+		list[i].style.left = arr[i].x + "px";
+		list[i].style.top = arr[i].y + "px";
+		list[i].style.margin = 0;
+	}
+	
+	//定义一个函数 实现拖拽
+	function drag(obj){//obj代表要拖拽的元素
+		obj.onmousedown = function(e){
+			//调整当前拖拽的图片的层级
+			obj.style.zIndex = ++zindex;			
+			var e = e || event;
+			var disx = e.pageX - obj.offsetLeft;
+			var disy = e.pageY - obj.offsetTop;
+			document.onmousemove = function(e){
+				var e = e || event;
+				obj.style.left = e.pageX - disx + "px";
+				obj.style.top = e.pageY - disy + "px";
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+			
+			return false;
+		}
+	}
+	//每一张图片都有可能被拖拽  循环调用拖拽函数
+	for( var i = 0 ; i < list.length ; i++ ){
+		drag( list[i] );
+	}
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				right: 0;
+				top : 4000px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body style="height: 5000px;">
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("box");
+			document.onscroll = function(){
+				//console.log(1);
+				//document.documentElement : html
+				//var scrollTop = document.documentElement.scrollTop;
+				//var scrollTop = document.body.scrollTop;
+				//scrollTop的兼容
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				if(scrollTop >= 4000){
+					oDiv.style.display = 'block';
+				}
+				
+				console.log(scrollTop);
+			}
+			oDiv.onclick = function(){
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+	</body>
+</html>

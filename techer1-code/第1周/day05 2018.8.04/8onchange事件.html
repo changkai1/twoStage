@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="" id="sel">
+			<option value="30px">大字体</option>
+			<option value="20px">中号字体</option>
+			<option value="15px">小号字体</option>
+		</select>
+		<p id="p1">只有在学习中不断采坑，工作中才会少采坑</p>
+	</body>
+</html>
+<script>
+	//为select标签添加一个onchange事件  当改变option选项时，改变页面的字体大小
+	var oSel = document.getElementById("sel");
+	var oP = document.getElementById("p1");
+	oP.style.fontSize = oSel.value;//提前设置字体大小和下拉列表一致
+	oSel.onchange = function(){
+		//oSel.value 获取被选中的option的value
+		//获取被选中的value值  并将这个值设置为 页面中p元素的字体大小
+		oP.style.fontSize = oSel.value;
+	}
+</script>

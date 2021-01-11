@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	*
+	**
+	* *
+	*  *
+	*   *
+	******
+	 */
+	for( var i = 1 ; i <= 6 ; i++ ){
+		for( var j = 1 ; j <= i ; j++ ){
+			//第一列    ||  最后一行  ||   斜边 打印 *
+			if( j == 1 || i == 6 || i == j ){
+				document.write("*");
+			}else{
+				document.write("&ensp;");
+			}
+		}
+		document.write("<br>");
+	}
+</script>

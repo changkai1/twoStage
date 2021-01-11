@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//fn();
+	//定义一个函数
+	function fn(){
+		alert("hello function");
+	}
+	
+	
+	var fun = function(){
+		alert("hello");
+	}
+	//fun();
+	
+	//定义一个函数  功能是在浏览器上打印一个 5行6列的表格
+	function fnPrintTable(){
+		document.write("<table border=1 width=500>"); 
+		for( var i = 1 ; i <= 5 ; i++ ){
+			document.write("<tr>");
+			for( var j = 1 ; j <= 6 ; j++ ){
+				document.write("<td>111</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	
+	/*fnPrintTable();
+	fnPrintTable();
+	fnPrintTable();*/
+	
+	for( var i = 1 ; i <= 3 ; i++ ){
+		fnPrintTable();
+	}
+	
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//素数(质数)：   只能被1 和 其本身整除的数 
+	//用户输入一个数，判断这个数是否是素数
+	//5  7  11  17  13  
+	//方案一 ： 因子一定有两个
+/*	var num = 100; //要判断的数
+	var count = 0;//统计因子个数
+	for( var i = 1 ; i <= num ; i++ ){
+		if( num%i == 0 ){//因子
+			count++;
+		}
+	}
+	//循环结束后 如果 count == 2  一定是素数
+	if( count == 2 ){
+		document.write( num + "是素数" );
+	}else{
+		document.write( num + "不是素数" );
+	}*/
+	//方案二 ： 因子和 == num + 1
+	//方案三 ： 假设法   假设flag = true 是素数
+	// 分析假设不成立 ： 
+	// 7：  % 2--6  如果是素数   该区间内没有因子
+	// 13 ：% 2--12  
+	// 15 ：% 2---14   该区间内有因子 一定不是素数    说明 假设不成立  flag = false
+	var num = 1;//要判断的数
+	var flag = true;//假设变量  值为true 是素数 
+	for( var i = 2 ; i < num ; i++ ){
+		if( num % i == 0 ){//满足这个条件  说明有因子了  不是素数
+			flag = false;//不是素数
+			break;
+		}
+	}
+	//如果假设成立  
+	if( flag && num != 1 ){ //1不是素数
+		document.write( num + "是素数" );
+	}else{
+		document.write( num + "不是素数" );
+	}
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			(一)对象的创建
+				1. JSON的方式（字面量的方式）   {}
+				2. new Object()
+				3. new 构造函数()
+			(二)面向对象和面向过程的区别
+			
+			有一辆法拉利，速度是500/小时，跑在一条10000公里的路上，问需要多少时间？
+			时间 = 路程 / 速度     "数学逻辑"
+			车
+			路
+			
+			车场（构造函数）
+			属性： 速度 ： 500/小时   名字： 法拉利
+			方法： 跑
+			路（构造函数）
+			属性： 10000
+			
+			
+			盖房子： 备料---打地基---砌墙----封顶----装修
+					工程队-----装修公司
+			(三)关于面向对象中的一些概念
+			 
+			 对象 ： 具有本质特征和行为的事物
+			 属性 ： 描述事物的本质特征
+			 方法： 事物的行为
+			 类： 具有相同属性和行为的一类事物
+			 
+			 类是对象的抽象化
+			 对象是类的具象化
+			(四)Json与字符串之间的转换
+			 1. eval()
+			 2. JSON.parse()  /  JSON.stringify()
+			*/
+		   
+// 		   var PC = {
+// 			   type : "T460p",
+// 			   color : "black"
+// 		   }
+// 		   
+// 		   var ps = new Object();
+// 		   ps.name = "张三";
+// 		   
+// 		   function Dog(name,age){
+// 			   this.name = name;
+// 			   this.age = age;
+// 		   }
+// 		   var dog = new Dog();
+// 		   console.log(PC,ps,dog);
+
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+				this.showName = function(){
+					return this.name;
+				}
+			}
+			//构造函数中的缺点: 相同的方法,每new一次,开辟一次空间,所浪费空间.
+			var ps = new Person('张三',18);
+			var ps1 = new Person("张三",18);
+			console.log(ps.name === ps1.name);
+			console.log(ps.showName == ps1.showName);
+			
+			//原型 prototype : 每一个函数都有一个原型对象. prototype这个属性就是指向函数后的原型对象的指针.   原型的特点:共享一次空间,无论new多少个对象,原型中的属性和方法,只开辟一次空间.
+			
+			function Dog(){} //狗类
+			//原型属性
+			Dog.prototype.name = '小黑';
+			Dog.prototype.age = 3;
+			//原型方法
+			Dog.prototype.showName = function(){
+				return this.name;
+			}
+			var dog1 = new Dog();
+			var dog2 = new Dog();
+			console.log(dog1.showName === dog2.showName);
+			console.log(dog1.name,dog2.name);
+			//原型的缺点: 因为原型无法传参,所以所有的对象属性都是相同的.
+			
+			
+			//使用混合模式: 属性创建成实例属性,方法创建成原型方法
+			
+			function Cat(name,age){
+				//实例
+				this.name = name;
+				this.age = age;
+			}
+			//原型方法
+			Cat.prototype.showName = function(){
+				return this.name;
+			}
+			
+			class PC{
+				constructor(name,age) {
+				    //实例
+				}
+				//原型
+			}
+		</script>
+	</body>
+</html>

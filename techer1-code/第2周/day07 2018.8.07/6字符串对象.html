@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*var str = "hello";
+	var str = new String("hello");*/
+	//charAt()       返回某个索引位置处的字符
+	//charCodeAt()  返回某个索引位置处的编码值
+	//String.fromCharCode( 编码 )  根据编码 得到对应的字符
+	function fnCharAt(){
+		var str = "how-old-are-you"; //str.length
+		//var res = str.charAt( 2 );
+		var res = str.charCodeAt( 2 );
+		alert( res );
+	}
+	//fnCharAt();
+	
+	function fnFromCharCode(){
+		for( var code = 65 ; code <= 90 ; code++ ){
+			document.write( String.fromCharCode( code ) + " " );
+		}
+	}
+	//fnFromCharCode();
+	
+	//indexOf()  返回某个字符在原字符串中首次出现的位置  找不到返回-1
+	//lastIndexOf()返回某个字符在原字符串中最后出现的位置
+	function fnIndexOf(){
+		var str = "how-old-are-you"; 
+		//var res = str.indexOf( "-" );
+		var res = str.lastIndexOf( "-" );
+		alert( res );
+	}
+	//fnIndexOf();
+	
+	
+	//replace()  替换 
+	function fnReplace(){
+		var str = "我想吃大鸡腿，大鸡腿好吃吗？？"
+		var newstr = str.replace( "鸡" , "鸭" );
+		alert( newstr );
+	}
+	//fnReplace();
+	
+	//split() 字符串拆分 
+	function fnSplit(){
+		/*var str = "how-old-are-you";
+		var arr = str.split("-");
+		alert( arr );*/
+		
+		var str = "http://www.sin.com?uname=lce&pwd=688";
+		//lce    688
+		var arr = str.split("?");// ["http://www.sin.com", "uname=lce&pwd=688"]
+		
+		str = arr[1];//"uname=lce&pwd=688"
+		
+		arr = str.split("&");//["uname=lce","pwd=688"]
+		var username = arr[0].split("=")[1];
+		var userpwd = arr[1].split("=")[1];
+		console.log( username , userpwd );
+	}
+	//fnSplit();
+	
+	// 全局替换
+	function fn(){
+		//join   split
+		var str = "你好tmd，祝你tmd幸福，tmd再见tmd";
+		/*var arr = str.split("tmd");
+		str = arr.join("");
+		alert( str );*/
+		str = str.split("tmd").join("");
+		alert( str );
+		
+		//join("<span style='color:red;'>我们</span>")
+	}
+	//fn();
+	
+	//字符串截取
+	//substr(start)  substr(start,length)
+	//substring(start,end) 从开始位置截取 到end位置结束，但是截取的字符不包括end位置处字符
+	function fnSubstr(){
+		var str = "helloworld";
+		//var res = str.substr(1);//elloworld
+		//var res = str.substr(1,3);//ell
+		var res = str.substring(3,3);//el    (3,-3)
+		alert( res );
+	}
+	fnSubstr();
+	
+		
+</script>

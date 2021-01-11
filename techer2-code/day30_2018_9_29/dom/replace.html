@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<a href="javascript:;">按钮一</a>
+		<a href="javascript:;">按钮二</a>
+		<a href="javascript:;">按钮三</a>
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			/*
+			1.replaceWith():将指定元素替换成匹配元素
+			2.replaceAll():用匹配元素替换成指定元素
+			*/
+			var $a = $('a');
+			$.each($a,function(){
+				$(this).click(function(){
+					//$(this).replaceWith(`<input type='button' value='${$(this).html()}'>`);
+					$(`<input type='button' value='${$(this).html()}'>`).replaceAll($(this));
+				})
+			})
+		</script>
+	</body>
+</html>

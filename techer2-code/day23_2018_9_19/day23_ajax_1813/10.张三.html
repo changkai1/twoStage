@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="请求张三的资料" />
+		<div id="box">
+			
+		</div>
+		
+		<script src="js/ajaxOOP.js"></script>
+		<script type="text/javascript">
+			let oBtn = document.getElementById("btn");
+			let oDiv = document.getElementById("box");
+			oBtn.onclick = function(){
+// 				ajax.get('php/index.php?name=张三&pwd=124',function(data){
+// 					oDiv.innerHTML = data;
+// 				})
+
+				ajax.post('php/index.php',"name=张三&pwd=123",function(data){
+					oDiv.innerHTML = data;
+				})
+			}
+		</script>
+	</body>
+</html>

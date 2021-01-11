@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 冒泡排序: 相邻的两个数作比较，大数下沉，小数上浮(如果前一个数大于后一个数，就交换)  第一轮可以得到最大值
+    /*
+                第1趟比较4次       第2趟比较3次       第3趟比较2次      第4趟比较1次
+        123         67                 13               13                 8
+        67          13                 67               8                  13
+        13          78                 8                67                 67
+        78          8                  78               78                 78
+        8           123                123              123                123
+
+        1   4
+        2   3
+        3   2
+        4   1
+    */
+
+    function mySort(arr){
+        var t = 0;
+        for(var i = 0; i < arr.length-1; i++){
+            for(var j = 0; j < arr.length-1-i; j++){
+                if(arr[j] > arr[j+1]){
+                    t = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = t;
+                }
+            }
+        }
+        return arr;
+    }
+    // console.log(mySort([123,67,13,78,8])); // [8, 13, 67, 78, 123]
+
+    /*
+        选择排序：比较时，用数组中的某个数和后面的数依次比较，如果这个数大于>后面的数，就交换。  第一轮可以得到最小值
+
+                   第1趟比较4次       第2趟比较3次       第3趟比较2次      第4趟比较1次
+        123         8                 8                     8                   8
+        67          123               13                    13                  13
+        13          67                123                   67                  67
+        78          78                78                    123                 78
+        8           13                67                    78                  123
+
+    */
+    function mySort1(arr){
+        var t = 0;
+        for(var i = 0; i < arr.length-1; i++){
+            for(var j = i+1; j <= arr.length-1; j++){
+                if(arr[i] > arr[j]){
+                    t = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = t;
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(mySort1([123,67,13,78,8])); //[8, 13, 67, 78, 123]
+</script>

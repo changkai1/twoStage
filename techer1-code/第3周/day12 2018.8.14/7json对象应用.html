@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="u">
+			
+		</ul>
+	</body>
+</html>
+<script>
+	//要求 ：  将每一个商品对象存放到一个li中
+	var json = {
+		"c1":"001",
+		"info" : [ 
+					{"pid":1,"pname":"iphone","price":8887},
+					{"pid":2,"pname":"ipad","price":8997},
+					{"pid":3,"pname":"xiaomi","price":7886},
+					{"pid":4,"pname":"huawei","price":6789}
+				 ]
+	}
+	
+	/*console.log( json.info[0].pname , json.info[0]["price"] )
+	console.log( json.info[2].pname ,json.info[2].price );*/
+	
+	var oUl = document.getElementById("u");
+	var str = "";
+	for( var i = 0 ; i < json.info.length ; i++ ){
+		var item = json.info[i];
+		//console.log( item.pid,item.pname,item.price );
+		str += "<li>编号："+item.pid+"--名称："+item.pname+"--价格："+item.price+"</li>";
+	}
+	//将str 存入到 ul中
+	oUl.innerHTML = str;
+</script>

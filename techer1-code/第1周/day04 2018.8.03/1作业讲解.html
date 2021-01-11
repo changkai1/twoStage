@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、	打印出1000-2017年中所有的闰年，并以每行四个数的形式输出
+	/*var count = 0;
+	for( var i = 1000; i <= 2017 ; i++ ){
+		if( i%4==0&&i%100!=0 || i%400==0 ){
+			count++;
+			document.write(i + " ");
+			if( count%4==0 ){
+				document.write("<br>");
+			}
+		}
+	}*/
+	/*
+	 3、	任意输入一个正整数，判断这个数的位数？
+	   例如：输入326     输出 3
+	   输入 1235  输出4
+	   
+	  循环过程中改变num的值 每次除以10 知道num为0时退出循环
+	 */
+//	var count = 0;
+//	var num = 10000000000000000000000;
+//	while( num>=1 ){
+//		/*num = parseInt( num/10 );
+//		count++;*/
+//		num = num/10;
+//		count++;
+//	}
+//	alert(count);
+	
+	/*
+	 4、	输出m---n自然数中奇数和 偶数和 并计算奇数和偶数分别有几个？
+		m和n的值从键盘输入（prompt() ）
+	 */
+	/*var m =parseInt( prompt("请输入m") );//100
+	var n =parseInt( prompt("请输入n") );//1
+	if( m > n ){
+		//交换
+		var t = m;
+			m = n;
+			n = t;
+	}
+	var oddCount = 0,oddSum = 0;
+	var evenCount = 0,evenSum = 0;
+	//假设m<n
+	for( var i = m ; i <= n ; i++ ){
+		if( i%2 == 1 ){
+			oddCount++;
+			oddSum += i;
+		}else{
+			evenCount++;
+			evenSum += i;
+		}
+	}
+	console.log( oddSum,oddCount,evenSum,evenCount );*/
+	
+	//5、	输出所有水仙花数的和。
+	/*var sum = 0;
+	for( var i = 100 ; i <= 999 ; i++ ){
+		var digit = i%10;
+		var ten = parseInt(i/10)%10;
+		var hund = parseInt(i/100);
+		var s = Math.pow( digit,3 ) + Math.pow(ten,3) + Math.pow(hund,3);
+		if( s == i ){
+			sum += i;
+		}
+	}
+	alert( sum );*/
+	
+	//一个员工的入职薪水10K, 每年涨幅5%，问 10年后月薪是多少？
+	/*var salary = 10000;
+	for( var i = 1 ; i <= 10; i++ ){
+		//salary = salary + salary*0.05
+		salary *= 1.05;
+	}*/
+	//alert( salary );
+	
+	
+	/*
+	 编程实现 山上有一口缸可以装50升水，现在有15升水。
+	 老和尚叫小和尚下山挑水，每次可以挑5升。
+	 问：小和尚要挑几次水才可以把水缸挑满？通过编程解决这个问题。
+	 */
+	/*var count=0;
+	for( var i = 15 ; i < 50 ; i+=5 ){
+		count++;
+	}*/
+	//alert(count);
+	//alert( "循环结束后i = " + i );
+	
+	/* 
+	 
+ 8、有一个棋盘，有64个方格，在第一个方格里面放1粒芝麻重量是0.00001kg， 第二个里面放2粒，第三个里面放4，计算 棋盘上放的所有芝麻的重量
+
+	1  1
+	2  2
+	3  4
+	4  8
+	n  Math.pow(2,n-1)
+	 */
+	/*var weight = 0;
+	for( var i = 1 ; i <= 64 ; i++ ){
+		weight += Math.pow(2,i-1)*0.00001;
+	}
+	alert( weight );*/
+</script>

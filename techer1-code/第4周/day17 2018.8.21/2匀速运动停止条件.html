@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+	<body>
+		<input type="button" value="向右运动" id="b1"/>
+		<input type="button" value="向左运动" id="b2" />
+		<div id="box"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oBtnRight = document.querySelector("#b1");
+	var oBtnLeft = document.querySelector("#b2");
+	var oDiv = document.querySelector("div");
+	var timer = null;
+	oBtnRight.onclick = function(){
+		startMove(300);
+	}
+	oBtnLeft.onclick = function(){
+		startMove(0);
+	}
+	
+	function startMove(target){
+		clearInterval( timer );
+		timer = setInterval( function(){
+			var speed = target - oDiv.offsetLeft>0 ? 7 : -7;
+			if( Math.abs( target - oDiv.offsetLeft ) < 7 ){
+				oDiv.style.left = target + "px";
+				clearInterval( timer );
+			}else{
+				oDiv.style.left = oDiv.offsetLeft + speed + "px";
+			}
+		},30 )
+	}
+</script>

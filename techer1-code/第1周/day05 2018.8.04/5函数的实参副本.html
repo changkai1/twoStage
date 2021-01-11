@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function fn(a,b){
+		//alert( arguments.length );
+		// fn.length   获取形参个数
+		//alert( fn.length )
+		if( arguments.length != fn.length ){
+			alert( "形参和实参个数不一致" );
+			return ;//阻止后面代码的执行
+		}
+		//形参和实参个数相等
+		alert( a+b );
+	}
+	//fn(1,2);
+	
+	//定义一个函数 功能计算任意n个数的和
+	function fnSum(){
+		var s = 0;
+		//alert( arguments[0] );
+		for( var i = 0; i < arguments.length ; i++ ){
+			s += arguments[i];
+		}
+		return s;//返回所有实参的和
+	}
+	var s = fnSum(2,3,5,6,9);
+	alert( s );
+</script>

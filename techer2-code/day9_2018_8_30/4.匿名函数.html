@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				1.将匿名函数赋值给一个变量
+				var fn = function (){
+					alert("hehe");
+				}
+				fn();
+				2.将匿名函数绑定给一个事件
+				document.onclick = function (){
+					alert("hehe");
+				}
+				3.匿名函数自我执行
+				(function (){
+					alert("呵呵");
+				})()
+				4.匿名函数传参
+				5.处理匿名函数的返回值
+					1》将返回值赋值给一个变量
+					var sum = function (a,b){
+						return a + b;
+					}(2,3)
+					alert(sum);
+					2》直接输出返回值
+					alert((function (a,b){
+						return a + b;
+					})(2,3));
+			*/
+		 
+			alert((function (a,b){
+				return a + b;
+			})(2,3));
+			//alert(sum);
+// 			alert(fn);
+// 			alert(fn());
+		</script>
+	</body>
+</html>

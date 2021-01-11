@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>动态图片切换</title>
+        <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <!-- 游戏区域 -->
+        <div id="container">
+            <img src="images/dice_1.png" id="dice" alt="">
+        </div>
+        <div id="command">
+            <input type="button" onclick="shake()" value="摇一摇">
+        </div>
+    </body>
+</html>
+<script src="../../../public.js"></script>
+<script>
+	/*
+	思路：
+	1、将img的src路径换成 .gif 图片
+	2、获取随机时间   500---3000
+	3、经过随机的时间后  得到一个随机点数 （获取随机点数 1--6）
+	4、定时器中完成将gif图片换成 随机点数
+	 */
+	//定义一个变量 控制按钮是否被点击
+	var flag = true;//值为true时  按钮可以点击
+    function shake(){
+    	if( flag ){
+    		flag = false;
+    		$id("dice").src = "images/diceDynamic.gif";
+    		var time = rand( 500,3000 );
+    		setTimeout( function(){
+    			flag = true;
+    			var diceRand = rand(1,6);
+    			$id("dice").src = "images/dice_"+diceRand+".png";
+    		},time )
+    	}
+    }
+    
+</script>

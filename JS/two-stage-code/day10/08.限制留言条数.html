@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <input type="button" value="留言" id="btn">
+    <ul id="u">
+
+    </ul>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    $id("btn").onclick = function(){
+        var content = $id("txt").value;
+        // 创建li
+        var oLi = document.createElement("li");
+        oLi.innerHTML = content;
+        if( content != ""){
+            $id("u").insertBefore( oLi,$id("u").children[0] );
+        }
+        $id("txt").value = "";
+        // 限制留言条数为5条
+        if($id("u").length = 6){
+            $id("u").children[5].remove();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

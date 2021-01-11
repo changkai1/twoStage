@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>兼容所有浏览器的CSS3圆角</title>
+	<style type="text/css">
+		    body{
+			    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+		    }
+		    .roundedCorners{ 
+			    width:220px; padding:10px;
+			    background-color:#DDEEF6; 
+			    box-shadow: 0px 0px 10px 0px #888888;
+			    border:1px solid #DDEEF6;
+			    border-radius:6px;
+			    margin: auto;
+		    }
+		    .roundedCorners-textbox{ 
+				border:1px solid #999; width:160px;
+		    }
+			.checkbox {
+				margin-left: 30px;
+				border:1px solid #999; width:20px;
+			}
+	</style>
+</head>
+<body>
+	<form action="http://www.baidu.com" method="get">	
+		<div class="roundedCorners">
+			<label>账号</label>&nbsp;
+			<input id="username" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label>密码</label>&nbsp;
+			<input id="password" type="text" class="roundedCorners-textbox" /><br /><br />	
+		    	<input name="saveNP" type="checkbox" class="checkbox" id="ck" />
+				<label>记住用户名和密码</label>
+		    	<br/><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button id="submitbtn" >确定</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="清空" />
+		</div>
+	</form>	
+</body>
+</html>
+<script>
+	/*
+		1、当点击确定时   判断复选框是否被选中，如果被选中就存储用户名和密码  并设置生存期
+		2、页面再次加载后，判断是否有cookie数据，如果有就将cookie中的数据取出来  回填到文本框中
+	* */
+	var oBtn = document.querySelector("#submitbtn");
+	var ck = document.querySelector("#ck");
+	var txtName = document.querySelector("#username");
+	var txtPwd = document.querySelector("#password");
+	oBtn.onclick = function(){
+		var now = new Date();
+		now.setDate( now.getDate() + 10 );
+		//判断复选框是否被选中
+		if( ck.checked ){
+			document.cookie = "username="+txtName.value+";expires="+now;
+			document.cookie = "password="+txtPwd.value+";expires="+now;
+		}
+	}
+	//打开浏览器  判断是否有cookie数据  如果有cookie就取出用户名和密码填入到文本框中
+	window.onload = function(){
+		var str = document.cookie;
+		str = str.replace(/\s/g,"");
+		if( str ){
+			//"username=aaa; password=aaaa"
+			var arr = str.split(";");
+			for( var i = 0 ; i < arr.length ; i++ ){
+				var item = arr[i].split("=");
+				if( item[0] == "username" ){
+					txtName.value = item[1];
+				}
+				if( item[0] == "password" ){
+					txtPwd.value = item[1];
+				}
+			}
+		}
+	}
+</script>

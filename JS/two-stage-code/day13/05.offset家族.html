@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #parent{
+            width: 300px;
+            height: 300px;
+            background:blue;
+            margin:300px;
+            position:absolute;
+        }
+        #child{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border:1px solid black;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child">
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        1.offsetWidth / offsetHeight  
+            获取的值包括 实际宽度 + padding + border
+            获取的值类型是number
+        2.clientWidth / clientHeight 
+            获取的值包括 实际宽度 + padding
+        3.offsetLeft / offsetTop  
+            获取距离上一级中具有定位的元素的左偏移或上偏移  如果该元素的上一级没有定位，获取的值相对于body
+        4.offsetX / offsetY  
+            获取鼠标按下时的内部偏移量，需要事件对象   e.offsetX   e.offsetY
+    */ 
+    console.log($id("child").offsetWidth,$id("child").offsetHeight); // 122  122   包括padding,border
+    console.log($id("child").clientWidth,$id("child").clientHeight); // 120  120   包括padding,不包括border
+    // console.log($id("child").offsetLeft);     //300,父元素没有定位，相对于body
+    // console.log($id("child").offsetTop);      //300,父元素没有定位,相对于body
+    // console.log($id("child").offsetLeft);     //0,父元素有定位,相对于父元素
+    // console.log($id("child").offsetTop);      //0，父元素有定位,相对于父元素
+    
+    $id("child").onmousedown = function(e){
+        var e = e || event;
+        console.log(e.offsetX);     //获取内部偏移量
+        console.log(e.offsetY);     //获取内部偏移量
+    }
+
+
+
+
+
+</script>

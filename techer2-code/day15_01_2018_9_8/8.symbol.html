@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="" />
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<script type="text/javascript">
+			var sym = Symbol("hehe");
+			var sym2 = Symbol("hehe");
+// 			console.log(sym === sym2);
+// 			console.log(typeof sym);
+			var a = {},b = {},c = {};
+			//alert(a);
+			c[a] = 1; //"[object Object]" = 1;
+			c[b] = 2; //"[object Object]" = 2;
+			console.log(c);
+			
+			c[sym] = 3;
+			c[sym2] = 4;
+			console.log(c);
+			
+		</script>
+	</body>
+</html>

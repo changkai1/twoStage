@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://127.0.0.1/php1811/xss.php" method="post">
+			请留言 ：  <input type="text" name="content" id="con"/>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+	什么是xss ？  跨站脚本攻击   cross  site  scripting
+	当向表单中输入一些具有特定含义的字符时，这些字符会被服务器解析
+	 */
+	//使用正则表达式校验
+	var oForm = document.querySelector("form");
+	oForm.onsubmit = function(){
+		var reg = /^\w+$/;
+		if( !reg.test( con.value ) ){
+			alert("不合法");
+			return false;
+		}
+		return true;
+	}
+</script>

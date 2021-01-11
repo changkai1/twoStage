@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            border:1px solid #333333;
+        }
+        #J-btn{
+            position:absolute;
+            left:100px;
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="d"></div>
+    <br/>
+    <input type="button" value="点不到" id="J-btn">
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+      1.  随机抽学生   定义一个含有10个学生姓名的数组，随机抽取五个不重名的学生存放到新数组中并打印出来
+        定义一个空数组，取出原数组中的某个随机名字，判断这个学生在新数组中是否存在  如果不存在就存入到空数组中，如果存在就重新抽取
+    */
+        // 随机数
+        function rand( min,max){
+            return  Math.round( Math.random() * (max-min) + min );
+        }
+        function getSname( arr ){
+            var brr = [];
+            for( var i = 0; i < 5; i++ ){
+                var sname = arr[ rand(0,9) ];
+                if( brr.indexOf(sname) != -1){  //判断在brr中是否存在，用indexOf,  != -1,说明在brr中存在
+                    i--;  // 存在，重新抽取
+                }else{
+                    brr.push(sname);
+                }
+            }
+            return brr;
+        }
+        // console.log( getSname([1,2,3,4,5,6,7,8,9,10]) );
+
+
+
+
+
+    /*
+     2. 如下图，点击按钮  实现随机改变div的颜色，五种不同的颜色随机切换，同时颜色值显示到div中
+    */ 
+        $id("btn").onclick = function(){
+            $id("d").style.backgroundColor = getColor();
+            $id("d").innerHTML = getColor();
+        }
+
+
+
+
+    /*
+     3. 计算星期几   输入年月日  计算星期几
+    */ 
+   var year = "2018" , month = "08" , _date = "10";
+   var d = new Date(year + "-" + month + "-" + _date); //Fri Aug 10 2018 08:00:00 GMT+0800 (中国标准时间)
+   var day = d.getDay();
+   var arrDay = ["天","一","二","三","四","五","六"];
+//    console.log(arrDay[day]);
+
+
+    // 4.点不到按钮，其实改变的就是按钮的left值和top值
+    $id("J-btn").onmouseover = function(){
+        $id("J-btn").style.left = rand(0,900) + "px";
+        $id("J-btn").style.top = rand(0,600) + "px";
+    }
+
+</script>

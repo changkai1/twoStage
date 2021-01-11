@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//定义一个函数  功能是在浏览器上打印一个m行n列的表格
+	function fnPrintTable(m,n){
+		document.write("<table border=1 width=500>"); 
+		for( var i = 1 ; i <= m ; i++ ){
+			document.write("<tr>");
+			for( var j = 1 ; j <= n ; j++ ){
+				document.write("<td>111</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	var row = 9,col = 10;
+	fnPrintTable(row,col);
+	fnPrintTable(7,8);
+	fnPrintTable(2,6);
+</script>

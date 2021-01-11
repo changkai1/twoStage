@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li class="box">孩子多个1</li>
+			<li class="box">孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+			<li>孩子多个7</li>
+			<li>孩子多个8</li>
+			<li>孩子多个9</li>
+			<li>孩子多个10</li>
+		</ul>
+	</body>
+</html>
+<script>
+	//伪数组（集合） ：使用时必须加下标  但是不能使用数组的操作方法 push  pop等
+	//var divs = document.querySelectorAll(".box");
+	
+	//鼠标移入到某个li上 当前li高亮显示 
+	//鼠标离开时 该li颜色清空
+	var list = document.getElementsByTagName("li");
+	//循环为10个li添加鼠标移入和移出事件
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].onmouseover = function(){
+			// i = 10  不能使用
+			//this : 指向事件触发者
+			this.style.backgroundColor = "red";
+		}
+		list[i].onmouseout = function(){
+			this.style.backgroundColor = ""; 
+		}
+	}
+	
+	//alert("循环结束后i=" + i);//10
+</script>

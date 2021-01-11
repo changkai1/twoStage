@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    // 1. 身份证号(18位)，不能是0开头
+        var reg = /^[1-9]\d{16}(\d|x)$/;
+
+    // 2. 手机号1  3|5|8|7  (11位)
+        var reg = /^1[3587]\d{9}$/;
+
+    // 3. 电子邮箱(@符号前后用单词字符即可)
+        var reg = /^\w+@\w+(\.\w+)+$/;
+
+    // 4. 账户名只能使用数字字母下划线，不能数字开头，长度6--18之间
+        var reg = /^[a-zA-Z_]\w{5,17}$/;
+
+    // 5. 检验压缩包   xxx.zip 或 xxx.rar 或 xxx.tar
+        var reg = /^\w+\.(zip|rar|tar)$/;
+
+    // 
+
+</script>

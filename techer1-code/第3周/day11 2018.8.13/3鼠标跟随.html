@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		}
+		body{
+			height: 1000px;
+		}
+	</style>
+	<body>
+		<div id="box">鼠标跟随</div>
+	</body>
+</html>
+<script>
+	var oDiv = document.querySelector("div");
+	document.onmousemove = function(e){
+		var e = e || event;
+		//操作div的left值和top值
+		oDiv.style.left = e.pageX + "px";
+		oDiv.style.top = e.pageY + "px";
+	}
+</script>

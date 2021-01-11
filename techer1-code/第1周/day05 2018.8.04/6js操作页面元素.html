@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="操作div" id="btn" />
+		<div id="d"></div>
+	</body>
+</html>
+<script>
+	//通过某个方法 查找到页面元素
+	//根据id查找页面元素
+	var oBtn = document.getElementById("btn");
+	var oDiv = document.getElementById("d");
+	//给按钮添加单击事件
+	oBtn.onclick = function(){
+		//改变div的样式 
+		oDiv.style.color = "white";
+		oDiv.style.backgroundColor = "pink";
+		oDiv.style.textAlign = "center";
+		oDiv.style.fontSize = "30px";
+		//为div添加内容
+		oDiv.innerHTML = "一想到学习我就不想睡觉了";
+	}
+</script>

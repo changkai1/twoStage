@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+				1. 先将公用的变量提升为全局变量
+				2. 将所有的函数独立出来
+				3. 将window.onload 改为构造函数
+				4. 将所有的全局变量绑定this，成为属性。
+				5. 将所有的函数加原型对象，形成方法
+			*/
+
+			function Drag(){
+				this.oDiv = document.getElementById("box");
+				this.oDiv.onmousedown = 
+			}
+			function(evt){
+				var e = evt || window.event;
+				this.disX = e.offsetX;
+				this.disY = e.offsetY;
+				document.onmousemove = 
+				document.onmouseup = 
+				document.ondragstart = function(){
+					return false;
+				}
+			}
+			function(evt){
+				var e = evt || window.event;
+				this.oDiv.style.left = e.pageX - this.disX + 'px';
+				this.oDiv.style.top = e.pageY - this.disY + 'px';
+			}
+			function(){
+				document.onmousemove = null;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

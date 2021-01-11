@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            position:absolute;
+            background: pink;
+            top:100px;
+            left:100px;
+            cursor:move;
+        }
+    </style>
+</head>
+<body>
+    <div id="d">1111</div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        拖拽：需要用到三个事件
+              1.鼠标按下  onmousedown
+              2.鼠标移动  onmousemove
+              3.鼠标抬起  onmouseup
+    */
+    var oDiv = document.getElementById("d");
+    // 鼠标按下
+    oDiv.onmousedown = function(e){
+        var e = e || event;
+        // 阻止浏览器的默认行为
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;  
+        // 获取鼠标在div里的内部偏移量
+        var disX = e.offsetX;
+        var disY = e.offsetY;
+        // 鼠标移动,在文档上移动
+        document.onmousemove = function(e){
+            var e = e || event;
+            var x = e.pageX - disX;
+            var y = e.pageY - disY;
+            // 边界处理
+            // 获取x的最大值
+            var maxL = window.innerWidth - 100;
+            // 获取y的最大值
+            var maxT = window.innerHeight - 100;
+            
+            if(x < 0){ //x轴边界
+                x = 0;
+            }else if( x > maxL){
+                x = maxL;
+            }
+
+            if(y < 0){ //y轴边界
+                y = 0;
+            }else if(y > maxT){
+                y = maxT;
+            }
+
+            // 获取div的坐标
+            oDiv.style.left = x + "px";
+            oDiv.style.top = y + "px";
+        }
+        // 鼠标抬起，取消移动
+        document.onmouseup = function(){
+            document.onmousemove = null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

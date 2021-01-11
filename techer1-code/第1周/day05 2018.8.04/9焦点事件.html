@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		输入qq号码 ： <input type="text" id="txt" value="请输入"/> <span id="s"></span>
+	</body>
+</html>
+<script>
+	var oTxt = document.getElementById("txt");
+	var oSpan = document.getElementById("s");
+	//获取焦点
+	oTxt.onfocus = function(){
+		oTxt.value = "";
+	}
+	
+	//失去焦点
+	oTxt.onblur = function(){
+		//获取用户输入的信息
+		var str = oTxt.value;
+		if( str == "" ){
+			oSpan.innerHTML = "不能为空";
+			oSpan.style.color = "red";
+		}else if( isNaN(str) ){ //非数字
+			oSpan.innerHTML = "必须是数字";
+			oSpan.style.color = "red";
+		}else if( str.length < 6 ){ //str.length 获取字符串的长度
+			oSpan.innerHTML = "字符串长度必须大于6";
+			oSpan.style.color = "red";
+		}else{
+			oSpan.innerHTML = "正确";
+			oSpan.style.color = "green";
+		}
+	}
+</script>

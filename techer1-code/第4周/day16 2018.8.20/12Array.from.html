@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//Array.from()
+	//将一个具有length属性的对象(伪数组，集合)   转成一个数组
+	//伪数组 ： 不能使用数组的操作方法   
+	var list = document.getElementsByTagName("li");
+	var arr = Array.from( list );
+	arr.forEach( ( item )=>{
+		console.log( item.innerHTML );
+	} )
+	
+	var json = {
+		"0" : 12,
+		"1" : 23,
+		"length" : 8
+	}
+	var arr = Array.from( json );
+	console.log( arr );
+</script>

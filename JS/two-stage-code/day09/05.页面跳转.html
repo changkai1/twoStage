@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height:100px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <input type="button" value="跳转" onclick="location.href = '02.BOM浏览器对象.html'"> -->
+    <p>页面3秒后跳转</p>
+    <div id="d"></div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    var i = 3;
+    var timer = setInterval(function(){
+        if(i < 0){
+            clearInterval(timer);
+            location.href = "http://www.baidu.com";
+        }else{
+            $id("d").innerHTML = i; 
+            i--;
+        }
+    },1000)
+
+    var _url = location.href;  //获取路径
+    console.log(_url);
+
+
+</script>

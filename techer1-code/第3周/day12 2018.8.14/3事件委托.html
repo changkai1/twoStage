@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li>孩子多个1</li>
+				<li>孩子多个2</li>
+				<li>孩子多个3</li>
+				<li>孩子多个4</li>
+				<li>孩子多个5</li>
+				<li>孩子多个6</li>
+				<li>孩子多个7</li>
+				<li>孩子多个8</li>
+				<li>孩子多个9</li>
+				<li>孩子多个10</li>
+				<li>孩子多个11</li>
+				<li>孩子多个12</li>
+				<li>孩子多个13</li>
+				<li>孩子多个14</li>
+				<li>孩子多个15</li>
+				<li>孩子多个16</li>
+				<li>孩子多个17</li>
+				<li>孩子多个18</li>
+				<li>孩子多个19</li>
+				<li>孩子多个20</li>
+				<p>孩子多个20</p>
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	//事件委托 ： 将事件委托给其他元素
+	//当为多个同类的元素添加相同事件时 可以将事件添加到这些元素的父级元素上  
+	
+	//为所有的li添加单击事件(事件源是li)
+	var oUl = document.querySelector("ul");
+	oUl.onclick = function(e){
+		var e = e || event;
+		//重新获取事件源
+		var target = e.target || e.srcElement;
+		//alert( target.tagName );
+		if( target.tagName.toLowerCase() == "li" ){
+			target.style.backgroundColor = "pink";
+		}
+	}
+	
+	/*oUl.addEventListener( "click" , function(e){
+		var e = e || event;
+		//重新获取事件源
+		var target = e.target || e.srcElement;
+		alert( target.tagName );
+	},false )*/
+</script>

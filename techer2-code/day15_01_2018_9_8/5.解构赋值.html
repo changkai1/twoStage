@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="" />
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<script type="text/javascript">
+// 			var a = 3;
+// 			var b = 4;
+// 			var c = 5;
+// 			let [a,b,c] = [1,2,3];
+// 			let [m,[n,[x,u],y],z] = [1,[2,[3],4],5];
+// 			console.log(m,n,x,u,y,z);
+// 			console.log(a,b);
+// 			[a,b] = [b,a];
+// 			console.log(a,b);
+			
+			
+// 			let {a = 4,b,c} = {b:1,c:2,a:10};
+// 			console.log(a,b,c);
+			
+			
+			function fn({a = 1,b = 2,c = 3}){
+				if(a < b){
+					[a,b] = [b,a];
+				}
+				if(a < c){
+					[a,c] = [c,a];
+				}
+				if(b < c){
+					[b,c] = [c,b];
+				}
+				return [a,b,c];
+			}
+			
+			var [a,b,c] = fn({b : 30,a:100,c:50});
+			console.log(a,b,c);
+		</script>
+	</body>
+</html>

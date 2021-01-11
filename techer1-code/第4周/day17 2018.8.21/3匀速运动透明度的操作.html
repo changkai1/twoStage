@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background: deepskyblue;
+			opacity: .3;
+			margin: 200px;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//鼠标移入到div上透明度增加1
+	//鼠标移出div  透明度恢复0.3
+	var oDiv = document.querySelector("div");
+	var alpha = 30;// 操作透明度的变化
+	oDiv.onmouseover = function(){
+		startMove(100);
+	}
+	oDiv.onmouseout = function(){
+		startMove(30);
+	}
+	var timer = null;
+	function startMove(target){
+		clearInterval( timer );
+		timer = setInterval( function(){
+			var speed = target-alpha>0 ? 1 : -1;
+			if( target == alpha ){
+				clearInterval( timer );
+			}else{
+				alpha += speed;
+				oDiv.style.opacity =  alpha/100;
+			}
+		},30 )
+	}
+</script>

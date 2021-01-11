@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			border:1px solid red;
+			display : none;
+		}
+	</style>
+	<body>
+		<input type="button" value="显示" id="btn"/>
+		<div id="box"></div>
+	</body>
+</html>
+<script>
+	/*
+	 1、	一个按钮控制二维码的显示和隐藏效果   
+如果二维码显示了，按钮文字显示的是   隐藏
+如果二维码隐藏了，按钮文字显示的是   显示
+	 */
+	var oBtn = document.getElementById("btn");
+	var oDiv = document.getElementById("box");
+	var flag = true;//假设值为true时 div显示 (开关变量)
+	oBtn.onclick = function(){
+		oDiv.style.display = "block";
+		/*if( flag ){
+			oDiv.style.display = "block";
+			oBtn.value = "隐藏";
+			//flag = false;
+		}else{
+			oDiv.style.display = "none";
+			oBtn.value = "显示";
+			//flag = true;
+		}
+		
+		flag = !flag;*/
+	}
+</script>

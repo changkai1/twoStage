@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="post请求" />
+		<div id="box">
+			
+		</div>
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$('#btn').click(function(){
+// 				$.post('index.json',function(response){
+// 					$('#box').html(response[0]);
+// 				})
+// 				$.post('index.php','uname=张三&pwd=123',function(response){
+// 					$('#box').html(response);
+// 				})
+				$.post('index.php',{'uname':'张三','pwd':'123'},function(response){
+					$('#box').html(response);
+				})
+			})
+		</script>
+	</body>
+</html>

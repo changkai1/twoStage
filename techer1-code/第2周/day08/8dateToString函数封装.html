@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function dateToString(now,sign){
+		var sign = sign || "-";//默认的拼接使用 "-"
+		var year = now.getFullYear();
+		var month =toTwo(  now.getMonth()+1 );
+		var d =toTwo(  now.getDate() );
+		var h = toTwo( now.getHours() ) ;
+		var m = toTwo( now.getMinutes() );
+		var s = toTwo( now.getSeconds() );
+		return year+sign+month+sign+d + " " + h + ":" + m + ":" +s;
+	}
+	function toTwo( str ){
+		return str<10 ? "0"+str : str;
+	}
+	var now = new Date();
+	document.write( dateToString( now  ) );
+	
+	
+	
+	
+</script>

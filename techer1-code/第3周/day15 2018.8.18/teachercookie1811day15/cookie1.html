@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="存cookie" id="btn1" />
+		<input type="button" value="取cookie" id="btn2" />
+	</body>
+</html>
+<script>
+	var setBtn = document.querySelector("#btn1");
+	var getBtn = document.querySelector("#btn2");
+	setBtn.onclick = function(){
+		document.cookie = "username=admin";
+		alert("用户名存储成功");
+		location.href = "index.html";
+	}
+</script>

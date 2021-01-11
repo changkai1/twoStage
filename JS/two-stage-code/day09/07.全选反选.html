@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="qx">全选
+    <input type="checkbox" name="fx">反选
+    <input type="checkbox" name="h">
+    <input type="checkbox" name="h">
+    <input type="checkbox" name="h">
+    <input type="checkbox" name="h">
+    <input type="checkbox" name="h">
+    <input type="checkbox" name="h">
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    var qx = document.getElementsByName("qx")[0];
+    var h = document.getElementsByName("h");
+    var fx = document.getElementsByName("fx")[0];
+    qx.onclick = function(){ //全选
+      
+        for(var i = 0; i < h.length; i++){
+            h[i].checked = qx.checked;
+        }
+    }
+
+    fx.onclick = function(){ //反选  
+        for(var i = 0; i < h.length; i++){
+            if( h[i].checked ){  //判断某个复选框是否被选中
+                h[i].checked = false;
+            }else{
+                h[i].checked = true;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

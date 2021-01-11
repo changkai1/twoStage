@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul">
+			<li>1</li>
+			第二个li:<li>2</li>
+			<li>3</li>
+		</ul>
+		<script type="text/javascript">
+			var oUl = document.getElementById("ul");
+			removeSpace(oUl);
+			var oUlChilds = oUl.childNodes;
+			alert(oUlChilds.length);
+			
+			function removeSpace(node){
+				//获取所有子节点
+				var childs = node.childNodes;
+				//遍历所有的子节点
+				for(var i = 0;i < childs.length;i ++){
+					//找出文本节点且是空白文本
+					if(childs[i].nodeType === 3 && /^\s+$/.test(childs[i].nodeValue)){
+						node.removeChild(childs[i]); //删除子节点
+					}
+				}
+				return node;
+			}
+			var childs = oUl.children; //只获取元素子节点
+			alert(childs.length);
+		</script>
+	</body>
+</html>

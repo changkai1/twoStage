@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//条件运算符
+	console.log( 3>4 );        //false
+ 	console.log( "3">4 );      //false
+	console.log( "31">"4" );   //false  比较编码值
+	console.log( "abc">"df" ); //false  比较编码值
+	console.log( "2a">45 );    //false
+	console.log( "2"==2 );     //true
+	console.log( "2"!=2 );     //false
+	console.log( "2"===2 );    //false
+	console.log( "2"!==2 );		 //true
+	// == ： 只比较值是否相等
+	// === ： 先比较类型，在比较值
+	
+//********************************************************
+
+	//逻辑运算符  &&与   ||或     ！非
+	//闰年条件
+	(i%4 == 0 && i%100 != 0)||i%400 == 0
+	
+	//计算机中表示真假的几种情况
+	/*
+	1.非0为真，0为假
+	2.所有字符串为真，空串为假(""假)，" "(中间有空格，不是空串，为真)
+	3.多有对象为真
+	4.所有函数为真
+	5.null和underfined 为假
+	*/
+</script>

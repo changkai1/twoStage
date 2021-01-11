@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+	
+	<script type="text/javascript">
+		/*
+			创建对象
+				1. 字面量方式 ： var obj = {key : value,key : value}
+				2. 构造函数的方式 ： new 构造函数名()
+				3. new Object()
+				
+			如何访问对象中的属性和方法
+				对象名.属性
+				对象名.方法()
+				
+				对象名['属性']
+				对象名['方法']()
+		*/
+	   //工厂模式
+	   function createObj(name,age,sex,phone){
+		   var stu1 = new Object();
+		   stu1.name = name;
+		   stu1.age = age;
+		   stu1.sex = sex;
+		   stu1.phone = phone;
+		   return stu1;
+	   }
+		//缺点: 1.无法区分对象具体属于哪一类的对象
+		//     2.不符合程序员创建对象的习惯
+// 		var stu1 = createObj('张三',18,'男',100);
+// 		var dog = createObj('bigYellow',3,'公',"007")
+// 		console.log(typeof stu1,typeof dog);
+
+		//构造函数
+		function Person(name,age,sex,phone){
+		  //this : 代表new出的对象
+		  //属性
+		   this.name = name;
+		   this.age = age;
+		   this.sex = sex;
+		   this.phone = phone;
+		   //方法
+		   this.showName = function(){
+			   return this.name;
+		   }
+		   
+	   }
+	   function Dog(name,age){
+		   this.name = name;
+		   this.age = age;
+	   }
+	   var ps1 = new Person('张三',18,'男',110);
+	  // alert(ps1.name);
+	   var dog = new Dog('bigyellow',3);
+	   //instanceof : 判断一个对象是否属于某个类,如果属于,返回true,否则 返回false
+// 	   console.log(typeof ps1,typeof dog);
+// 	   console.log(ps1 instanceof Person);
+// 	   console.log(dog instanceof Person);
+		alert(ps1.name);
+		alert(ps1['age']);
+		alert(ps1.showName());
+		alert(ps1['showName']())
+	</script>	
+	</body>
+</html>

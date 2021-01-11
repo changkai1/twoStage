@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>瀑布</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style: none;
+			}
+			#box {
+				margin: 0 auto;
+				width: 700px;
+			}
+			ul {
+				width: 200px;
+				float: left;
+				margin: 0 auto;
+				margin-right: 10px;
+			}
+			img {
+				width: 200px;
+				padding-top: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				
+				//获取所有的ul
+				let oUl = document.querySelectorAll('#box ul');
+				window.onscroll = function(){
+					let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					let scrollHeight = document.body.scrollHeight;//求页面的实际高度
+					if(scrollTop + clientHeight >= scrollHeight * 0.8){
+						loadImg(oUl);
+					}
+				}
+				loadImg(oUl);
+				//求最小高度的列所在的下标
+				function minHeight(arr){
+					var min = arr[0].offsetHeight; //先取出第一个元素的高度
+					var index = 0;
+					for(let i = 0,len = arr.length;i < len;i ++){
+						if(min > arr[i].offsetHeight){
+							min = arr[i].offsetHeight;
+							index = i;
+						}
+					}
+					return index;
+				}
+				//加载图片
+				function loadImg(arr){
+					for(let i = 0;i < 56;i ++){
+						let li = document.createElement('li');
+						let img = document.createElement('img');
+						img.src = "images/" + (i + 1) + ".jpg";
+						li.appendChild(img);
+						arr[minHeight(arr)].appendChild(li);
+					}
+				}
+			}
+			
+		</script>
+	</head>
+
+	<body>
+		<!--<input type="button" name="btn" id="btn" value="加载图片" />-->
+		<div id="box">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+
+		</div>
+	</body>
+
+</html>

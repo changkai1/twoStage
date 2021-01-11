@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>孩子多个1</li>
+        <li>孩子多个2</li>
+        <li>孩子多个3</li>
+        <li>孩子多个4</li>
+        <li>孩子多个5</li>
+        <li>孩子多个6</li>
+        <li>孩子多个7</li>
+        <li>孩子多个8</li>
+        <li>孩子多个9</li>
+        <li>孩子多个10</li>
+    </ul>
+    <input type="button" value="按钮" id="btn">
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        this关键字 ---当前对象
+
+        1.this出现在事件中，指向的是事件的触发者(事件源)
+            document.onclick = function(){
+                alert(this);   指向document
+            }
+        2.this如果出现在某个方法或函数中，指向方法或函数的调用者
+            function fn(){
+                alert(this)
+            }
+        3.如果不确定是哪个事件触发 或 哪个对象调用的   默认指向window
+    */ 
+        $id("btn").onclick = function(){
+            // console.log(this);  //指向input
+        }
+
+        function fn(){
+            console.log(this); //指向方法的调用者，window
+        }
+        // fn();
+
+        // 高亮显示，this使用
+        var list = document.getElementsByTagName("li");
+        for(var i = 0; i < list.length; i++){
+            list[i].onmousemove = function(){
+                this.style.backgroundColor = "red";
+            }
+            list[i].onmouseout = function(){
+                this.style.backgroundColor = "";
+            }
+        }
+
+
+</script>

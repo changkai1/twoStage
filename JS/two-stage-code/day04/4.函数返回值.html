@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1.比较两个数的和
+    // function fn (a,b) {
+    //     return a+b;
+    // }
+    // var m = fn(1,2);
+    // var n = fn(3,4);
+    // console.log(m,n);
+
+    // 2.判断一个数是否是素数，是返回true，不是返回false
+        function isPrimer(num){
+            for(var i = 2; i < num; i++){
+                if(num%i == 0){ //素数
+                    return false;
+                }
+            }
+            return true;
+        }
+        // console.log(isPrimer(9));
+    
+    // 3.计算100--200之间素数的和
+    function sum(){
+        var sum = 0;
+        for(var i = 100; i <= 200; i++){
+            var res = isPrimer(i);
+            if( res ){
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    // alert(sum());
+
+    // 4. 100可以拆成哪两个素数的和
+    function fnSum(){
+        for( var i = 1; i <= 50; i++){
+            var res1 = isPrimer(i);
+            var res2 = isPrimer(100-i);
+            if( res1 && res2){
+                console.log(i,100-i)
+            }
+        }
+    }
+    // fnSum();
+
+    // 5.求2的平方的阶乘 + 3的平方的阶乘
+    function fnSquare(num){
+        return num*num;
+    }
+    function fnFac(num){
+        var fac = 1;
+        for(var i = 1; i <= num; i++){
+            fac *= i;
+        }
+        return fac;
+    }
+    function fnSum1(){
+        return fnFac(fnSquare(2)) + fnFac(fnSquare(3));
+    }
+    alert(fnSum1());
+</script>

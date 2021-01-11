@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			img{
+				vertical-align: top;
+			}
+			.scroll{
+				width: 200px;
+				height: 400px;
+				margin: 100px auto;
+				border: 1px solid black;
+				padding: 5px;
+				overflow: hidden;
+				position: relative;
+			}
+			.box{
+				width: 200px;
+				height: 400px;
+				overflow: hidden;
+				position: relative;
+			}
+			.box ul{
+				width: 600%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.box ul li{
+				float: left;
+			}
+			.scroll ol{
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			.scroll ol li{
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: pink;
+				text-align: center;
+				line-height: 20px;
+				border-radius: 50%;
+				/*background-color: pink;*/
+				margin-left: 10px;
+				cursor: pointer;
+				color: green;
+			}
+			.scroll ol li.current{
+				background: purple;
+			}
+		</style>
+	</head>
+	<body >
+		<div id="scroll" class="scroll">
+			<div id="box" class="box">
+				<ul id="ul">
+					<li><img src="img/1.jpg" width="200" height="400"/></li>
+					<li><img src="img/2.jpg" width="200" height="400"/></li>
+					<li><img src="img/3.jpg" width="200" height="400"/></li>
+					<li><img src="img/4.jpg" width="200" height="400"/></li>
+					<li><img src="img/5.jpg" width="200" height="400"/></li>
+				</ul>
+				<ol id="ol">
+					<li class="current">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ol>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//获取大盒子
+			let scroll = document.getElementById("scroll");
+			//获取ul
+			let ul = document.getElementById("ul");
+			//获取ul中的li
+			let ulLis = ul.children;
+			//获取每个li的宽度
+			let liWidth = ulLis[0].offsetWidth;
+			
+			//1.克隆元素
+			ul.appendChild(ulLis[0].cloneNode(true));
+			
+			
+			function animate(obj,target){
+				clearInterval(obj.timer);
+				let speed = obj.offsetLeft < target ? 15 : -15;
+				obj.timer = setInterval(()=>{
+					
+					obj.style.left = obj.offsetLeft + speed + 'px';
+					if(Math.abs(target - obj.offsetLeft) <= Math.abs(speed)){
+						clearInterval(obj.tiemr);
+						obj.style.left = target + 'px';
+					}
+				},30);
+			}
+			
+		var timer = null;
+		var key = 0; //控制播放的数量
+		var circle = 0;
+		var olLis = document.querySelectorAll('#ol li');
+		timer = setInterval(autoPlay,3000);
+		function autoPlay(){
+			key ++;
+			if(key > ulLis.length - 1){
+				ul.style.left = 0;
+				key = 1;
+			}
+			animate(ul,-key * liWidth);
+			
+			circle ++;
+			if(circle > olLis.length - 1){
+				circle = 0;
+			}
+			for(var i = 0,len = olLis.length;i < len;i ++){
+				olLis[i].className = '';
+			}
+			olLis[circle].className = 'current';
+		}
+		</script>
+	</body>
+</html>

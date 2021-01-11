@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2 id="h">距离商品下架时间还有xx小时xx分钟xx秒</h2>
+	</body>
+</html>
+<script>
+	var h5 = document.getElementById("h");
+	//定义开始时间和结束时间
+	var now = new Date();
+	var end = new Date("2018-09-08 15:36:00");
+	//获取时间差   (总的剩余秒数)
+	var t = (end.getTime()-now.getTime())/1000;
+	var  flag = true;//假设值为true时 启动定时器
+	function showTime(){
+		if( t < 0 ){
+			h5.innerHTML = "商品下架了33333";
+			flag = false;
+			return;
+		}
+		//剩余的小时
+		var h = parseInt(t/3600);
+		//剩余分钟 = (t - h*3600)/60
+		var m = parseInt( (t - h*3600)/60 );
+		//剩余的秒数 = 取整()
+		var s = parseInt( t-h*3600-m*60 );
+		h5.innerHTML = "距离商品下架时间还有"+h+"小时"+m+"分钟"+s+"秒"
+	}
+	showTime();
+	
+	var time = setInterval( function(){
+		if( flag ){
+			t--;
+			if( t<0 ){
+				h5.innerHTML = "商品下架了";
+				clearInterval(time);
+			}else{
+				showTime();
+			}
+		}
+	},1000 )
+</script>

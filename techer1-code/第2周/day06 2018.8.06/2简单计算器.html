@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t1"/>
+		<select name="" id="sel">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="t2"/>
+		<input type="button" value="=" id="eq" />
+		<input type="text" id="t3"/>
+	</body>
+</html>
+<script>
+	//点击按钮 =  ， 判断下拉列表的运算符   ，根据运算符  将计算的结果回填到 t3的文本框中
+	var oTxtNum1 = document.getElementById("t1");
+	var oTxtNum2 = document.getElementById("t2");
+	var oTxtNum3 = document.getElementById("t3");
+	var oBtn = document.getElementById("eq");
+	var oSel = document.getElementById("sel");
+	 
+	
+	oBtn.onclick = function(){
+		//获取运算符
+		var sign = oSel.value;
+		//获取操作数
+		var num1 = parseFloat( oTxtNum1.value ); 
+		var num2 = parseFloat( oTxtNum2.value );
+		
+		var res = 0;//存储结果的变量
+		/*switch( sign ){
+			case "+": res = num1 + num2 ; break;
+			case "-": res = num1 - num2 ; break;
+			case "*": res = num1 * num2 ; break;
+			case "/": res = num1 / num2 ; break;
+		}
+		//将结果回填到文本框中
+		oTxtNum3.value = res;*/
+		oTxtNum3.value = eval( num1 + sign + num2 );
+	}
+</script>

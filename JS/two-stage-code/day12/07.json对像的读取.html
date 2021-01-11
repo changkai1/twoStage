@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="u">
+
+    </ul>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        1.获取json数据方法有两种
+            1. json.键
+            2. json["键"]  常用
+
+        2.json对象的遍历
+        for...in..
+    */ 
+
+    // 1.
+    var json = {
+        "uname":"hehe",
+        "age"  :18,
+        "adr"  :"北京",
+        "tel"  :"123456789"
+    }
+    // 两种方法获取json数据
+    console.log(111,json.uname);
+    console.log(222,json["uname"]);  //常用方法
+
+    for( var i in json ){
+        console.log(i); //uname age adr tel   i表示json的键，for...in 遍历键
+        // 获取json的值方法
+        console.log(json[i]); //得到的是json的值  hehe  18  北京  123456789
+    }
+
+
+
+    // 2.
+    var json1 = {
+        "sname" : ["jack","lily","xm","xh"],
+        "age" : [12,19,23,27]
+    };
+    // 获取json数据
+    // for( var i = 0; i < json1.sname.length; i++ ){
+    //     console.log(json1.sname[i]); //"jack","lily","xm","xh"
+    //     console.log(json1.age[i]);   //12,19,23,27
+    // }
+
+    // 双层for循环，外层必须用for...in
+    for(var i in json1){
+        for(var j = 0; j < json1[i].length; j++){
+            console.log(json1[i][j]);
+        }
+    }
+
+
+    // 3.
+    var json2 = {
+        "c1" : "001",
+        "info" : [
+                {"pid":1,"pname":"iphone","price":8887},
+                {"pid":2,"pname":"ipad","price":1354},
+                {"pid":3,"pname":"xiaomi","price":2457},
+                {"pid":4,"pname":"huawei","price":3547},
+        ]
+    }
+    // 把info的信息放到li里
+    var oUl = document.getElementById("u");
+    var str = "";
+    for(var i = 0; i < json2.info.length;i++){
+        var item = json2.info[i];
+        str += "<li>编号："+ item.pid +" --- 名称："+ item.pname +" --- 价格："+ item.price +"</li>";
+    }
+    oUl.innerHTML = str;
+
+
+
+</script>  

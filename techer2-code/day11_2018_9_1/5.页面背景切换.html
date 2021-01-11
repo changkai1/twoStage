@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="start" id="start" value="开始切换" />
+		<input type="button" name="stop" id="stop" value="停，就你了" />
+		<script type="text/javascript">
+			var oStart = document.getElementById("start");
+			var oStop = document.getElementById("stop");
+			var oBody = document.body; //获取body
+			var arrImg = ['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg','img/6.jpg'];
+			var index = 0;
+			var timer = null;
+			oStart.onclick = function(){
+				
+				timer = setInterval(function(){
+					oBody.style.background = "url(" + (arrImg[index ++ % arrImg.length]) + ")";
+				},3000)
+			}
+			oStop.onclick = function(){
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+</html>

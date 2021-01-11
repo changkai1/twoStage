@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//数组增删改查  数组排序算法  数组去重
+	
+	//冒泡排序
+	function mySort( arr ){
+		var t = 0;
+		//外层循环 控制比较的趟数
+		for( var i = 0 ; i < arr.length-1 ; i++ ){
+			//里层循环控制每一趟比较的次数
+			for( var j = 0 ; j < arr.length-1-i ; j++  ){
+				//如果数组中前一个数 大于 后一个数  就交换
+				if( arr[j] > arr[j+1] ){
+					t = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = t;
+				}
+			}
+		}
+		return arr;
+	}
+	
+	alert( mySort( [34,2,56,78,6,8,9] ) );
+</script>

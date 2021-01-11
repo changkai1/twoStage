@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" /><input type="button" name="btn" id="btn" value="请留言" />
+		<ul id="ul"></ul>
+		
+		<script type="text/javascript">
+			//获取所要操作的元素
+			var oTxt = document.querySelector('#txt');
+		
+			var oBtn = document.querySelector('#btn');
+			var oUl = document.querySelector('ul');
+			oBtn.onclick = function(evt){
+				var e = evt || window.event;
+				if(e.ctrlKey){
+					msg();
+				}
+			}
+			document.onkeydown = function(evt){
+				var e = evt || window.event;
+			//	alert(e.keyCode);
+				//ctrl
+				if(e.ctrlKey && e.shiftKey && e.altKey && e.keyCode === 13){
+					msg();
+				}
+			}
+			function msg(){
+				var str = oTxt.value; //获取文本框中的字符串
+				var li = document.createElement('li'); //创建li
+				var txt = document.createTextNode(str); //将字符串变成文本节点对象
+				li.appendChild(txt); //将文本节点对象追加到li中
+				var a = document.createElement('a'); //创建a
+				a.href = "javascript:;"; //设置a的href属性
+				a.innerHTML = "删除"; //设置a标签中的内容
+				//给a添加事件
+				a.onclick = function(){
+					this.parentNode.parentNode.removeChild(this.parentNode); //删除当前a所在的li
+				}
+				li.appendChild(a); //将a追加到li中
+				if(oUl.children[0]){
+					oUl.insertBefore(li,oUl.firstElementChild);
+				}else{
+					oUl.appendChild(li); //li
+				}
+				
+			}
+		</script>
+	</body>
+	
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//为document对象绑定一个onclick
+	/*document.addEventListener("keyup",function(e){
+		var e = e || event;
+		alert(e.keyCode);
+	})*/
+	
+	//事件监听好处 ： 
+	//1--可以为多个同类对象添加多个同样的事件
+	/*document.onclick = function(){
+		alert(1);
+	}
+	document.onclick = function(){
+		alert(2);
+	}*/
+	document.addEventListener("click",function(){
+		alert(1);
+	})
+	document.addEventListener("click",function(){
+		alert(2);
+	})
+	//2--通过事件监听方式可以实现冒泡或捕获行为
+</script>

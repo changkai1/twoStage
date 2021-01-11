@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t"/>
+		<input type="button" id="btn" value="留言" />
+		<ul id="u">
+			
+		</ul>
+	</body>
+</html>
+<script src="public.js"></script>
+<script>
+	$id("btn").onclick = function(){
+		//获取留言内容
+		var content = $id("t").value;
+		
+		//创建 li
+		var oli = document.createElement("li");
+		
+		oli.innerHTML = content;
+		
+		$id("u").insertBefore( oli , $id("u").children[0] );
+	
+		//判断ul的第六个孩子li是否存在  如果存在就删除
+		if( $id("u").children[5] ){
+			$id("u").children[5].remove();
+		}
+		
+		$id("t").value = "";
+	}
+</script>

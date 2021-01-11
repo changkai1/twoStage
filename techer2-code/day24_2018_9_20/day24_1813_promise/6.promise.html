@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			//加载图片
+			function loadImg(url){
+				return new Promise(function(resolve,reject){
+					let img = new Image(); //创建img对象
+					img.src = url;
+					//图片加载成功
+					img.onload = function(){
+						resolve(this);
+					}
+					//图片加载错误
+					img.onerror = function(){
+						reject('图片加载失败');
+					}
+				})
+			}
+			let arrImg = ['img/0.jpg','img/1.jpg','img/2.jpg'];
+			var oP = loadImg(arrImg[5]);
+			oP.then(function(img){
+				document.body.appendChild(img);
+			}).catch(function(msg){
+				console.log(msg);
+			})
+		</script>
+	</body>
+</html>

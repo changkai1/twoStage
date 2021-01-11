@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		222222
+	</body>
+</html>
+<script>
+	//this指向
+	//this指向事件的触发者  或  方法的调用者
+	/*function fn(){
+		alert( this );//window
+	}
+	window.fn();*/
+	
+	
+	/*document.body.onclick = function(){
+		alert( this );
+	}*/
+	
+	
+	setTimeout( function(){
+		alert( this );
+	} ,1000 )
+	 
+	 
+	/*var arr = [1];
+	arr.forEach(function(){
+		alert( this );
+	})*/
+</script>

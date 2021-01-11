@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1.自定义日期时间格式  转字符串
+    function dateToString(now){
+        var y = now.getFullYear();
+        var m = toTwo(now.getMonth()+1);
+        var date = toTwo(now.getDate());
+        var h = toTwo(now.getHours());
+        var mte = toTwo(now.getMinutes());
+        var s = toTwo(now.getSeconds()); 
+        return y + "-" + m + "-" + date + " " + h + ":" + mte + ":" + s;
+    }
+    function toTwo(num){
+        return num < 10 ? "0"+num : num;
+    }
+    var now = new Date();
+//  console.log(dateToString(now));
+
+
+   //2. 字符串转日期
+    var str = "1998-09-18"
+   	var birth = new Date( str );
+// 	console.log(birth.getMonth()+1);
+   	//字符串转日期时间格式
+   	function stringToDate(str){
+   		return new Date(str);
+   	}
+   	var d = "2019-11-12";
+   	console.log(stringToDate(d));
+		
+</script>

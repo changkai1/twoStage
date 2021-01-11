@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建cookie
+			// document.cookie = "key=value[;expires=日期对象;path=路径]"
+			//document.cookie = "姓名=张三";
+			//encodeURIComponent() : 编码
+			//decodeURIComponent() : 解码
+			var date = new Date();
+			date.setDate(date.getDate() + 3);
+			document.cookie = encodeURIComponent("姓名") + "=" + encodeURIComponent("张三") + ";expires=" + date;
+			alert(decodeURIComponent(document.cookie));
+		</script>
+	</body>
+</html>

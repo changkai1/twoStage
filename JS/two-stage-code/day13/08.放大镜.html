@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 350px;
+			height: 350px;
+			border:1px solid #000;
+			margin: 200px;
+			position: relative;
+		}
+		#mask{
+			width: 175px;
+			height: 175px;
+			background: pink;
+			opacity: .3;
+			position: absolute;
+			left: 0;
+			top: 0;
+			cursor: move;
+			display: none;
+		}
+		#big{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			position: absolute;
+			top : 0;
+			left :  355px;
+			overflow: hidden;
+			display: none;
+		}
+		#bigImg{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<div id="small">
+				<img src="001.jpg" alt="" id="smallImg"/>
+				<div id="mask"></div>
+			</div>
+			<div id="big">
+				<img src="0001.jpg" alt="" id="bigImg"/>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	// 鼠标移动到small上显示隐藏big和mask
+	var box = $id("box");
+	var small = $id("small");
+	var big = $id("big");
+	var mask = $id("mask");
+	var smallImg = $id("smallImg");
+	var bigImg = $id("bigImg");
+	small.onmouseover = function(){
+		big.style.display = "block";
+		mask.style.display = "block";
+	}
+	small.onmouseout = function(){
+		big.style.display = "none";
+		mask.style.display = "none";
+	}
+
+	// 鼠标在small上移动
+	small.onmousemove = function(e){
+		var e = e || event;
+		x = e.pageX - box.offsetLeft - mask.offsetWidth/2;
+		y = e.pageY - box.offsetTop - mask.offsetHeight/2;
+		// 边界处理
+		var maxL = small.offsetWidth - mask.offsetWidth;
+		var maxT = small.offsetHeight - mask.offsetHeight;
+		x = x < 0 ? 0 : ( x > maxL ? maxL : x );
+		y = y < 0 ? 0 : ( y > maxT ? maxT : y );
+		mask.style.left = x + "px";
+		mask.style.top = y + "px";
+
+		// 小图和大图的比例关系
+		//大图的left/mask的left = 大图宽度/小图宽度  = 大图显示区宽度/mask宽度
+		var bigImgLeft = x*(bigImg.offsetWidth)/smallImg.offsetWidth;
+		var bigImgTop = y*(bigImg.offsetHeight)/smallImg.offsetHeight;
+		// 设置大图的移动
+		bigImg.style.left = -bigImgLeft + "px";
+		bigImg.style.top = -bigImgTop + "px";
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

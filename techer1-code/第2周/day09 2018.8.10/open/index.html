@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		主窗口
+	</body>
+</html>
+<script>
+	var subWin = open( "sub.html" , "_blank" , "width=300,height=300,left=200,top=300" );
+	
+	//让子窗口随着主窗口一起关闭
+	//当主窗口关闭时  自动关闭子窗口
+	window.onunload = function(){
+		subWin.close();//关闭子窗口
+	}
+</script>

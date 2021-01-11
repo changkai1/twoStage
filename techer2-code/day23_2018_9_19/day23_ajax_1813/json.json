@@ -1,0 +1,20 @@
+{
+	"nav" : [
+		"男装",
+		"女装",
+		"童装",
+		"孕妇装"
+	],
+	"slider" : [
+		"img/1.jpg",
+		"img/2.jpg",
+		"img/3.jpg"
+	],
+	"header" : {
+		"logo" : "img/logo.jpg",
+		"msg" : [
+			"千锋",
+			"北科"
+		]
+	}
+}

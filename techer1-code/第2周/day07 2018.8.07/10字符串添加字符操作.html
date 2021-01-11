@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// "abfhkmn" 向字符串中添加一个字符g  保持原字符串的顺序不改变
+	//方案一 ： 可以将字符串转成 数组
+	//方案二： 找到 g 的位置  （遍历字符串） 
+		//  从g位置处 将原字符串拆成两个字符串  然后进行拼接处理
+	function fnAddChar(str,c){
+		for( var i = 0 ; i < str.length ; i++ ){
+			var ch = str.charAt(i);//取出某个位置处的字符
+			if( ch > c ){
+				//将str从i位置处拆成两个字符串
+				var leftStr = str.substring(0,i);
+				var rightStr = str.substr(i);
+				break;
+			}
+		}
+		//循环结束后 i == str.length
+		if( i == str.length ){
+			return str + c;
+		}else{
+			return leftStr + c + rightStr;
+		}
+	}
+	var res = fnAddChar( "abffhhkmn" , "g" );
+	alert( res );
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名 ： <input type="text" id="uname" /> <br>
+		密码 ：   <input type="text" id="upwd" /><br>
+		<input type="button" value="注册" id="btn"/>
+		<a href="login3.html">去登录</a>
+	</body>
+</html>
+<script>
+	//注册功能
+	var saveBtn = document.querySelector("#btn");
+	var txtName = document.querySelector("#uname");
+	var txtPwd = document.querySelector("#upwd");
+	var arr = []; //[{},{},{},{},...] 
+	saveBtn.onclick = function(){
+		var strName = txtName.value;
+		var strPwd = txtPwd.value;
+		//将用户名和密码作为整体对象 存入到数组中
+		arr.push( {
+			"username":strName,
+			"userpwd":strPwd
+		} )
+		
+		//JSON.stringify()
+		//将数组存入到cookie中
+		document.cookie = "userlist=" + JSON.stringify( arr );
+		//location.href = "login2.html";
+	}
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	编写函数实现：
+	求2的平方的阶乘  + 3的平方的阶乘（至少用两个函数实现，一个函数实现平方，一个函数实现阶乘）
+	*/
+	function fnSquare(num){
+		return num*num;
+	}
+	 
+	function fnFac(num){
+		var fac = 1;
+		for( var i = 1 ; i <= num ; i++ ){
+			fac *= i;
+		}
+		return fac;
+	}
+	
+	//求2的平方的阶乘  + 3的平方的阶乘
+	function fnSum(){
+		return fnFac( fnSquare(2) )  + fnFac( fnSquare(3) ) ;
+	}
+	/*var res = fnSum()
+	alert( res );*/
+	
+	
+	
+</script>

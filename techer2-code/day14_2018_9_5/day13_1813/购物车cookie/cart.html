@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+		<style>
+			table{border-collapse:collapse;}
+			td{border:1px solid;}
+		</style>
+		<script>
+			window.onload = function(){
+				//alert(document.cookie);
+				//product_1={"id":1,"name":"水杯","price":29,"num":1}; product_2={"id":2,"name":"电脑","price":4999,"num":2}; product_3={"id":3,"name":"手机","price":1999,"num":2}
+				//['product_1={"id":1,"name":"水杯","price":29,"num":1}','product_2={"id":2,"name":"电脑","price":4999,"num":2}','product_3={"id":3,"name":"手机","price":1999,"num":2}']
+				var arr = document.cookie.split('; ');
+				for(var i = 0,len = arr.length;i < len;i ++){
+					var list = arr[i].split('=');
+					if(list[0].indexOf('product_' != -1)){
+						//将字符串转为对象
+						var json = eval('(' + list[1] + ')');
+						//console.log(json);
+						//在表格中插入一行
+						var _tr = document.getElementById("tab").insertRow();
+						//在行内插入一个单元格
+						var _td = _tr.insertCell();
+						_td.innerHTML = json.id;
+						_td = _tr.insertCell();
+						_td.innerHTML = json.name;
+						_td = _tr.insertCell();
+						_td.innerHTML = json.price;
+						_td = _tr.insertCell();
+						_td.innerHTML = json.num;
+					}
+				}
+			};
+		</script>
+    </head>
+    <body>
+		<table id="tab">
+			<tr><td>序号</td><td>商品名称</td><td>商品单价</td><td>数量</td></tr>
+		</table>
+    </body>
+</html>

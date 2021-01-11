@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1.
+    // var a = 10;
+    // function fn(){
+    //     var a;
+    //     a = 20;
+    // }
+    // fn();
+    // console.log(a); 
+
+
+    // 2.
+    // var a = 10;
+    // function fn(a){ //形参也是局部变量
+    //     a = 20;
+    // }
+    // fn();
+    // console.log(a); //10
+
+
+    // 3.
+    // var a = 10;
+    // function fn(b){
+    //     a = 20;  //操作的是全局变量
+    // }
+    // fn();
+    // console.log(a); //20
+
+
+    // 4.
+    // function fn(b){
+    //     a = 20;  //操作的是全局变量
+    // }
+    // fn();
+    // console.log(a); //20
+
+    // 5.变量提升，输出undefined
+    // function fn(){  
+    //     console.log(a);
+    //     var a = 20;
+    // }
+    // fn();
+    // 变量提升后,只提升变量，不赋值
+    function fn(){
+        var a;
+        console.log(a); //undefined
+        a = 20;
+    }
+    fn();
+
+
+
+
+</script>

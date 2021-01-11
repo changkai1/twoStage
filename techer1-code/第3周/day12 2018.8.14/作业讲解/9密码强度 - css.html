@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="UTF-8">
+          <title></title>
+     </head>
+     <style type="text/css">
+          *{
+              margin: 0; padding: 0;
+          }
+          input{
+              outline: 0;
+          }
+          #pwd_level {
+              list-style: none; margin: 10px; border-radius: 15px;
+              width: 174px; border: solid 1px gainsboro; height: 16px;
+          }
+          #pwd_level li{
+              background: silver;  float: left;
+              width: 50px; margin: 4px; height: 8px;
+          }
+          #pwd_level_tip {
+              margin: 10px; width: 174px; height: 16px;
+          }
+          #pwd_level_tip div{
+              float: left; width: 58px; height: 16px;
+              text-align: center; line-height: 16px;
+              visibility: hidden;
+          }
+     </style>
+     <body>
+          <input type="text" name="pwd" id="pwd" value="" size="30"/>
+          <ul id="pwd_level">
+              <li style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;"></li>
+              <li></li>
+              <li style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"></li>
+          </ul>
+          <div id="pwd_level_tip">
+              <div id="r">弱</div>
+              <div id="z">中</div>
+              <div id="q">强</div>
+          </div>
+     </body>
+</html>
+<script src="../../public.js"></script>
+<script>
+ /*要求：
+         至少有一个特殊符号-----强（三个div都变背景色）
+         至少有一个数字和一个字母---中（两个div变背景色）
+         其余的都是弱  （第一个div变背景色）
+		 如果长度小于5  不做任何判断*/
+	//定义几个变量 用来控制是否含有字母  或 数字  或  特殊字 
+	var list = $id("pwd_level").children;
+	var divs = $id("pwd_level_tip").children;
+	$id("pwd").onkeyup = function(){
+		var flagChar = false;//没有特殊字符
+		var flagNum = false;//没有数字
+		var flagLetter = false;//没有字母
+		
+		var str = this.value;
+		str = str.toLowerCase();//判断小写字母
+		
+		//排他思想
+		for( var i = 0 ; i < list.length ; i++ ){
+			list[i].style.backgroundColor = "#CCCCCC";
+			divs[i].style.visibility = "hidden";
+		}
+		
+		if( str.length < 5 ){
+			return;
+		}
+		//遍历字符串str  判断是否有字母 或 数字 或特殊字符 
+		//如果有 就改变上面几个变量的值为true
+		for( var i = 0 ; i < str.length ; i++ ){
+			var ch = str.charAt(i);
+			if( ch>="0"&&ch<="9" ){
+				flagNum = true;
+			}else if( ch>="a"&&ch<="z" ){
+				flagLetter = true;
+			}else{
+				flagChar = true;
+			}
+		}
+		
+		//循环结束后  判断是否有数字 或 字母 或特殊字符
+		if( flagChar ){//强
+			list[2].style.backgroundColor = "orange";
+			$id("q").style.visibility = "visible";
+		}else if( flagNum && flagLetter ){//中
+			list[1].style.backgroundColor = "orange";
+			$id("z").style.visibility = "visible";
+		}else{ //弱
+			list[0].style.backgroundColor = "orange";
+			$id("r").style.visibility = "visible";
+		}
+	}
+</script>

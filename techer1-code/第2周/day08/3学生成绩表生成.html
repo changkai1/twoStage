@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h3>千峰H5成绩计算表</h3>
+ 
+		<table>
+			<tr>
+				<td>班级名称：</td>
+				<td><input type="text" id="bname" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>请输入班级人数：</td>
+				<td><input type="text" id="num" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>班级总成绩：</td>
+				<td><input type="text" id="sum" /></td>
+				<td><input type="button" value="提交" id="btn" /></td>
+			</tr>
+			<tr>
+				<td>最高成绩：</td>
+				<td><input type="text" id="max" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>最低成绩：</td>
+				<td><input type="text" id="min" /></td>
+				<td></td>
+			</tr><tr>
+				<td>平均成绩：</td>
+				<td><input type="text" id="avg" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>成绩高低排序：</td>
+				<td><textarea name="" id="sortScore" cols="30" rows="10"></textarea></td>
+				<td></td>
+			</tr>			
+		</table>
+		 
+	</body>
+</html>
+<script type="text/javascript">
+	//定义一个函数  功能  通过id获取页面元素
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("btn").onclick = function(){
+		if( isNaN( $("bname").value ) ){
+			alert("班级号为数字");
+			return;
+		}
+		
+		if( isNaN( $("num").value ) ){
+			alert("班级人数为数字");
+			return;
+		}
+		
+		var bNum = parseInt( $("num").value );
+		var arr = new Array( bNum );
+		var sum = 0;
+		for( var i = 0 ; i < arr.length ; i++  ){
+			arr[i] =parseInt( prompt("第"+(i+1)+"个人数的分数是") ) ;
+			sum += arr[i];
+		}
+		
+		//得到平均数
+		var avg = sum / bNum;
+		//冒泡排序
+		for( var i = 0 ; i < arr.length - 1 ; i++ ){
+			for( var j = 0 ; j < arr.length - 1 - i ; j++ ){
+				if( arr[j] < arr[j+1] ){ //升序
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		$("sum").value = sum;
+		$("avg").value = avg;
+		$("max").value = arr[0];
+		$("min").value = arr[arr.length-1];
+		$("sortScore").value = arr;
+	}
+</script>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // switch(表达式){
+    //      case 常量表达式 : 语句 break;
+    //      case 常量表达式 : 语句;
+    //      case 常量表达式 : 语句;
+    //      default : 语句；
+    // }
+
+    //1. 表达式一般是一个变量 或一个式子，但必须要有一个具体的值
+    //2. switch在进行比较时，进行全等比较
+    // 判断星期几
+    var day = 2;
+    switch( day ) {
+        case 0 : console.log("星期天"); break;
+        case 1 : console.log("星期一"); break;
+        case 2 : console.log("星期二"); break;
+        case 3 : console.log("星期三"); break;
+        case 4 : console.log("星期四"); break;
+        case 5 : console.log("星期五"); break;
+        case 6 : console.log("星期六"); break;
+        default : console.log("输入错误");
+    }
+
+    // 输入月份显示当月的天数
+    var month = parseInt(prompt("请输入月份"));
+    switch( month ){
+        case 1 :
+        case 3 :
+        case 5 :
+        case 7 :
+        case 8 :
+        case 10 :
+        case 12 : alert(31); break;
+        case 4 :
+        case 6 :
+        case 9 :
+        case 11 : alert(30); break;
+        case 2 : { //花括号加不加都可以
+            var year = parseInt(prompt("请输入年份"));
+            year%4 == 0 && year%100 != 0 || year%400 == 0 ? alert(29) : alert(28);
+            break;
+        }
+        default : alert("输入有误");
+    }
+
+
+
+
+
+</script>

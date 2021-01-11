@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、	编写函数map(arr) 把数组中的每一位数字都增加30%
+	function map( arr ){
+		for( var i = 0 ; i <arr.length ; i++ ){
+			arr[i] *= 1.3;
+		}
+		return arr;
+	}
+	//alert( map( [10,20,30,40] ) );
+	
+	/*
+		 4、	有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+	例如  原数组  [3,10,49,89,100] 
+	 插入一个数 15   
+	   新数组为   [3,10,15,49,89,100]
+	
+	思路 ： 查找num在数组中的位置   
+		   遍历数组，如果数组中某个数大于num，就停止遍历
+		   	此时 下标 i 就是 num的位置
+		  
+		 如果 没有满足大于num的数，说明num是放在数组的最后
+		 
+		定义一个变量，初始为 数组的长度 （如果没有满足条件的  就放到最后）
+	*/
+	function addNum( arr, num ){
+		var index = arr.length;//如果数组中没有大于num的数  num就放到index位置
+		for( var i = 0 ; i <arr.length ; i++ ){
+			if( arr[i] > num ){
+				index = i;//记录num的位置
+				break;
+			}
+		}
+		//循环结束后 将 num 添加到数组的index位置
+		arr.splice( index , 0 , num );
+		return arr;
+	}
+	
+	//alert(  addNum( [3,10,49,89,100] , 150 )  );
+	
+	
+	/*
+	 6、	某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：
+每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，
+ 请编写一个函数，传入原文，输出密文
+	 */
+	/*
+	 [个位、十位、百位、千位]
+	 先操作num的个位  存入到数组中 
+	再依次操作 十位   百位  千位 
+	 此时 第一位和第四位交换，第二位和第三位交换   已经交换完毕
+	*/
+	function getCode( num ){ //  1238    3876
+		var arr = [];//存储每一个密文
+		for( var i = 0 ; i <4 ; i++ ){
+			arr[i] = num%10;
+			arr[i] += 5;   
+			arr[i] %= 10;  
+			num = parseInt(num/10); 
+		}
+		return arr.join("");
+	}
+	alert( getCode(1238) );
+</script>

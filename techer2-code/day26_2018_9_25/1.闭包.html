@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function fn(){
+				var a = 3;
+				return function (){ //闭包函数 : 写在另一个函数中的函数.作用:让它所在函数中声明的变量和参数长期驻留在内存中,以供其它地方访问.同时也可能造成内存泄露.(长期占用内存而不被释放)
+					return a;
+				}
+			}
+			
+			//闭包的原理:利用JS中的垃圾回收机制,在回收被销毁的变量和函数时,如果发现被销毁的变量和函数正在被另一个函数使用,那么使用中的变量和函数将不被释放,长期驻留在内存中,直到整个程序退出时才被释放.
+			alert(fn()());
+		</script>
+	</body>
+</html>

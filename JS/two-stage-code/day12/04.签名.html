@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.active{
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			border-radius: 50%;
+		}
+	</style>
+	<body>
+	</body>
+</html>
+<script src="../public.js">
+</script>
+<script>
+	/*
+		涉及的事件 ： 
+		onmousedown
+		onmousemove ： 创建div  并设置div的位置 为鼠标当前位置
+		onmouseup ： 取消移动
+	 */
+	// 鼠标在文档按下事件
+	document.onmousedown = function(e){
+		// 阻止浏览器的默认行为
+		var e = e || event;
+		e.preventDefault ? e.preventDefault() : e.returnValue = false;
+		// 鼠标在文档移动
+		document.onmousemove = function(e){
+			var e = e || event;
+			// 动态创建div
+			var oDiv = document.createElement("div");
+			// 把动态创建的div放到body中
+			document.body.appendChild(oDiv);
+			// 设置div的样式
+			oDiv.className = "active";
+			oDiv.style.backgroundColor = getColor();
+			// 设置div移动的坐标
+			oDiv.style.left = e.pageX + "px";
+			oDiv.style.top = e.pageY + "px";
+		}
+		// 鼠标抬起事件
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+
+		return false;
+	}
+
+	// 获取随机十六位颜色值
+	function getColor(){
+		var str = "0123456789abcdef";
+		var color = "#";
+		for(var i = 0; i < 6; i++){
+			color += str.charAt(rand(0,15));
+		}
+		return color;
+	}
+
+	// 获取随机数
+	function rand(min,max){
+		return Math.round( Math.random() * (max-min) + min );
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="em" id="em" value="清空" />
+		<input type="button" name="re" id="re" value="删除" />
+		<p>清空</p>
+		<p>删除</p>
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$("#em").click(function(){
+				$('p:first').empty();
+			})
+			$('#re').click(function(){
+				$('p:last').remove();
+			})
+		</script>
+	</body>
+</html>

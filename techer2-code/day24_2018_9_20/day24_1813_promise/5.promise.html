@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			new Promise(function(resolve,reject){
+				ajax.get('1.txt',function(str){
+					resolve(str);
+				})
+			}).then(function(str){
+				return new Promise(function(resolve,reject){
+					ajax.get(str,function(str){
+						resolve(str);
+					})
+				})
+			}).then(function(str){
+				ajax.get(str,function(str){
+					alert(str);
+				})
+			})
+		</script>
+	</body>
+</html>

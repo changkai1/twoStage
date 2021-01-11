@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//  add()  向集合中添加一个数据
+	//  delete()  删除集合中的一个数
+	//  has()  判断集合中是否含有某个数据 返回布尔值
+	//  clear()  清空集合中的数据
+	var set = new Set([3,4,5,6,7,8]);
+	set.delete(5);
+	console.log( set.has( 5 ) );
+	set.clear();
+	console.log( set );
+</script>

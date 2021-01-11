@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-top: 10px;
+				opacity: 1;
+				filter: alpha(opacity=100);
+				font-size: 16px;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我要变宽</div>
+		<div>我要变高</div>
+		<div>我要变透明</div>
+		<div>我要变大</div>
+		<div>我的边框要变粗</div>
+		<script src="js/sport_07.js"></script>
+		<script type="text/javascript">
+			const oDivs = document.querySelectorAll('div');
+			oDivs[0].onmouseenter = function(){
+				sport_07(this,"width",400);
+			}
+			oDivs[0].onmouseleave = function(){
+				sport_07(this,'width',100);
+			}
+			oDivs[1].onmouseenter = function(){
+				sport_07(this,"height",400);
+			}
+			oDivs[1].onmouseleave = function(){
+				sport_07(this,'height',100);
+			}
+			oDivs[2].onmouseenter = function(){
+				sport_07(this,"opacity",30);
+			}
+			oDivs[2].onmouseleave = function(){
+				sport_07(this,'opacity',100);
+			}
+			oDivs[3].onmouseenter = function(){
+				sport_07(this,"fontSize",40);
+			}
+			oDivs[3].onmouseleave = function(){
+				sport_07(this,'fontSize',16);
+			}
+			oDivs[4].onmouseenter = function(){
+				sport_07(this,"borderWidth",40);
+			}
+			oDivs[4].onmouseleave = function(){
+				sport_07(this,'borderWidth',2);
+			}
+		</script>
+	</body>
+</html>

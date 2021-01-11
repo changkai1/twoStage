@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // arguments  1.实参副本 2.必须出现在函数体中 3.含有一个length属性，代表实参的个数
+    // arguments.length(获取的是实参的个数)
+    // 函数名.length(获取的是形参的个数)
+    // 1.
+    // function fn(a,b){
+    //     // alert(arguments.length); //获取实参的个数 3
+    //     // alert(fn.length); //获取形参的个数  2
+    // }
+    // fn(1,2,3);
+
+    // 2.
+    function fnSum () {
+        var sum = 0;
+        for(var i = 0; i < arguments.length; i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    var s = fnSum(2,3,5,6);
+    alert(s);
+</script>

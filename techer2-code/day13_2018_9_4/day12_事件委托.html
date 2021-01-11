@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<ul id='ul'>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<h4>hhhh4444</h4>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<p>ppppppppM</p>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+				一、 i = 10
+					ullis[0].index = 0;
+					ullis[0].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[1].index = 1;
+					ullis[1].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[2].index = 2;
+					ullis[2].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[3].index = 3;
+					ullis[3].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[4].index = 4;
+					ullis[4].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[5].index = 5;
+					ullis[5].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[6].index = 6;
+					ullis[6].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[7].index = 7;
+					ullis[7].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[8].index = 8;
+					ullis[8].onclick = function(){
+						alert(this.index);
+					}
+					
+					ullis[9].index = 9;
+					ullis[9].onclick = function(){
+						alert(this.index);
+					}
+			*/
+// 			var ullis = document.getElementById('ul').getElementsByTagName('li');
+// 			for(var i = 0,len = ullis.length;i < len;i ++){
+// 				ullis[i].index = i;
+// 				ullis[i].onclick = function(){
+// 					alert(this.index);
+// 				}
+// 			}
+			//事件委托:为了提高性能
+			//利用了事件冒泡
+			var oUl = document.getElementById("ul");
+			//事件源
+			oUl.onclick = function(evt){
+				var e = evt || window.event;
+				//event.target : 标准浏览器获取事件源
+				//var target = e.target;
+				//event.srcElement : iE
+				//var target = e.srcElement;
+				var target = e.target || e.srcElement;
+				if(target.nodeName.toUpperCase() === 'LI'){
+					alert(target.innerHTML);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

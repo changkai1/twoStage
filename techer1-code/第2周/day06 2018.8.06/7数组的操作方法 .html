@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function fnReverse(){
+		var arr = [2,3,4];
+		arr.reverse();
+		alert( arr );
+	}
+	//fnReverse();
+	
+	
+	function fnConcat(){
+		var arr = [2,3,4];
+		var brr = [6,7,8];
+		var newarr = brr.concat( arr ); //将arr连入到 brr的尾部  返回生成的新数组
+		alert( newarr );
+	}
+	//fnConcat();
+	
+	function fnJoin(){
+		var arr = [1,2,3,4,5,6];
+		var str = arr.join("-");
+		alert( str );
+	}
+	//fnJoin();
+	
+	
+	function fnSort(){  
+		var arr = ["a","f","afs","df","w","u"];
+		var arr = [100,34,78,234,789,1000];
+		// arr.sort(); 没有参数按 字符 来排序
+		arr.sort( function(x,y){
+			//return x-y>0;
+			return x-y<0;
+		} )
+		alert( arr );
+	}
+	//fnSort();
+	
+	function fnSplice(){
+		var arr = [34,56,7,8,9,1,2,3];
+		//arr.splice( 2 );//[34,56]
+		//arr.splice( 2,3 );//[34,56,1,2,3]
+		//arr.splice( 2,1,23,78 );//[34,56,23,78,8,9,1,2,3];
+		arr.splice( 2,0,23 );//[34,56,23,7,8,9,1,2,3];;
+		alert( arr );
+	}
+	//fnSplice();
+	
+	function fnShift(){
+		/*var arr = [3,4,5,6,7];
+		arr.shift();
+		alert( arr );*/
+		
+		var arr = [3,4,5,6,7];
+		arr.unshift(1,2);
+		alert( arr );
+	}
+	//fnShift();
+	function fnPush(){
+		var arr = [3,4,5,6,7];
+		arr.push( 89 );//向数组尾部添加一个或多个元素
+		alert( arr );
+		
+		/*var arr = new Array(8);
+		arr.push(90);
+		alert( arr.length );*/
+	}
+	//fnPush();
+	
+	function fnPop(){
+		var arr = [3,4,5,6,7];
+		arr.pop();
+		alert( arr );
+	}
+	//fnPop();
+</script>

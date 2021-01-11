@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        scrollTop  获取页面垂直方向的滚走距离
+        
+        滚动条事件: onscroll
+        获取页面滚走距离兼容
+        document.documentElement.scrollTop || document.body.scrollTop
+    */
+    window.onscroll = function(){
+        // 获取滚动条的滚走距离
+        var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(scroll)
+    }
+
+    
+
+
+
+
+
+
+
+</script>

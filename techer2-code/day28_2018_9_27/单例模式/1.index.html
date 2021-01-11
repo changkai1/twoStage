@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="飞秋" />
+		<script type="text/javascript">
+// 			function Person(){}
+// 			var ps1 = new Person();
+// 			var ps2 = new Person();
+// 			console.log(ps1 === ps2);
+
+			var obj = {};
+			function Person(){
+				if(!Person.instance){ //静态属性 : 与全局变量一样,从程序开始开辟空间,到程序结束,释放空间.
+					Person.instance = {}
+				}
+				return Person.instance;
+			}
+			var ps1 = new Person();
+			var ps2 = new Person();
+			console.log(ps1 === ps2);
+			const oBtn = document.getElementById("btn");
+			oBtn.onclick = (function(){
+				var div = null;
+				return function(){
+					if(!div){
+						div = document.createElement('div');
+						div.style.cssText = "width : 200px;height : 500px;border:1px solid black;background:#ddd;";
+						
+					}
+					document.body.appendChild(div);
+				}
+			})()
+
+			
+		</script>
+	</body>
+</html>

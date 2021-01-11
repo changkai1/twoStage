@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="获取json" />
+		<div id="box">
+			
+		</div>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			let oBtn = document.getElementById("btn");
+			let oDiv = document.getElementById("box");
+			oBtn.onclick = function(){
+				ajax('json.txt',function(data){
+					//alert(data[1]); 
+					let json = JSON.parse(data);
+					alert(json[1]);
+				})
+			}
+		</script>
+	</body>
+</html>

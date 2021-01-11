@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 构造函数  使用new关键字创建对象的函数就 是构造函数
+    //构造函数体内的称为实例对象，原型上定义的称为原型对象
+    //属性定义在构造函数内，方法定义在原型上
+    var num1 = new Number(90); //构造函数
+    num1.aa = 100;
+    var num2 = 90;
+    console.log(num1.aa); //100
+    console.log(typeof num1);  //object
+    console.log(typeof num2);  //number
+
+
+    // 构造函数
+    function fn(){}
+    // alert(fn); //函数   function fn(){} 
+    console.log(typeof fn) //function
+
+    var ff = new fn();
+    console.log(typeof ff); //object
+
+    ff.run = function(){ //构造函数加方法
+        return "奔跑...";
+    }
+    console.log(ff.run());
+
+
+
+
+</script>

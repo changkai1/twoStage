@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+			#pox{
+				width: 100px;
+				height: 100px;
+				background: green;
+				position: absolute;
+				left: 110px;
+			}
+			img{
+				width: 100px;
+				position: absolute;
+				height: 100px;
+				left: 220px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<div id="pox">
+			
+		</div>
+		<img src="img/1.jpg" id="img">
+		<script type="text/javascript">
+			
+			drag("box");
+			drag('pox');
+			drag('img');
+			function drag(id){
+				var obj = document.getElementById(id);
+				obj.onmousedown = function(evt){
+					var e = evt || window.event;
+					var disX = e.offsetX;
+					var disY = e.offsetY;
+					document.onmousemove = function(evt){
+						evt = evt || window.event;
+						obj.style.left = evt.pageX - disX + 'px';
+						obj.style.top = evt.pageY - disY + 'px';
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					}
+					//阻止拖拽的默认行为
+					document.ondragstart = function(){
+						return false;
+					}
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

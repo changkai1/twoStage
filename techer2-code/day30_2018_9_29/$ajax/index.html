@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				type : 'post',
+				//url : "index.php?user=刘俊一&pwd=123",
+				url : 'index.php',
+				//data : 'user=刘俊一&pwd=123',
+				data : {
+					user : '刘俊一',
+					pwd : 123
+				},
+				success : function(re){
+					alert(re);
+				}
+			})
+		</script>
+	</body>
+</html>

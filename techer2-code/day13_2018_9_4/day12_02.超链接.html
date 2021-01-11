@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 150px;
+				border: 1px solid black;
+				position: absolute;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<script type="text/javascript">
+			var oA = document.getElementsByTagName('a')[0];
+			oA.onclick = function(evt){
+				var e = evt || window.event;
+				//e.preventDefault(); 标准浏览器阻止超链接的默认行为
+				//e.returnValue = false; IE阻止超链接的默认行为
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+			}
+		</script>
+	</body>
+</html>

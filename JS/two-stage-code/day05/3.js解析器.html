@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // js解析器，1.预解析，找var  function
+    // 找到了var 就意味着找到了一个变量，会提前为这个变量赋予一个值 undefined
+    // 找到了function 就意味着找到了函数，会提前为这个函数名赋予一个值，这个值就是函数块本身
+    // 如果找到的变量和函数重名，保留函数
+    // 2.逐行解读代码  如果遇到表达式 改变了变量的值  那么  预解析时，仓库中变量的值也会随着发生改变
+
+
+    // 1.
+    /*
+        仓库
+        预解析找var，找到后赋值 var a = undefined;
+    */
+    // console.log(a); //undefined  输出仓库的值
+    // var a = 10;
+    // console.log(a); //10
+
+    // 2.
+    /*
+    仓库
+    预解析找到function，找到后为这个 函数名 赋予函数块本身
+    fn = function fn(){console.log(111)};
+    */
+    // alert(fn); //function fn(){console.log(111)}
+    // function fn(){console.log(111)};
+
+    // 3.
+    /*
+     仓库
+    预解析找到function，找到后为这个 函数名 赋予函数块本身
+    fn = function fn(){console.log(111)};
+    fn = function fn(){console.log(222)};
+    找到两个函数名一样的函数，后一个会覆盖前一个
+    */  
+    // alert(fn);  //function fn(){console.log(222)};
+    // function fn(){console.log(111)};
+    // function fn(){console.log(222)};
+
+    // 4.
+    /*
+      仓库
+    var fn = 10; 找到函数名和变量重命名，保留函数
+    fn = function fn(){console.log(111)};
+    fn = function fn(){console.log(222)};
+    找到两个函数名一样的函数，后一个会覆盖前一个
+    */ 
+    // alert(fn);  //function fn(){console.log(222)};
+    // var fn = 10;
+    // function fn(){console.log(111)};
+    // function fn(){console.log(222)};
+
+
+
+    // 5.
+    /*
+    预解析
+    a =  function a(){alert(3)};
+    */ 
+    alert(a); //function a(){alert(3)};
+    var a = 1;
+    alert(a); //1
+    function a(){alert(2)};
+    alert(a); //1
+    var a = 3;
+    alert(a); //3
+    function a(){alert(3)};
+    alert(a); //3
+</script>

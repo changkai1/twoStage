@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        window对象的属性和方法在使用时可以省略  window
+        
+        1.所有的全局变量都是window对象的属性、
+        2.所有的全局函数都是window对象的方法
+
+        3.window对象的常见方法
+            3.1 三个弹出框
+               alert()警告框    prompt()输入框   confirm()确定框
+            3.2 两个定时器
+                3.2.1 setInterval( 要执行的任务，间隔时间 ) 连续执行   停止计数器  clearInterval()
+                        用法一：
+                        setInterval(function(){},1000);
+                        用法二：
+                        setInterval( fn , 1000);
+                        function fn(){}
+                3.3.2 setTimeout( 要执行的任务，间隔时间 )   停止计时器  clearTimeout() 
+            3.3  一个弹出窗口
+                open("url","名称","外观")  返回弹出的子窗口   外观设置：width/height/top/height
+                主窗口关闭，子窗口自动关闭   window.onunload = function(){ subWin.close() }  subWin是子窗口的返回值
+    
+    
+        4.location对象和history对象
+            location.href  或   location  或   location.assign()   跳转  还可以获取路径
+            location.reload()  刷新
+            history.go(0)      刷新
+            history.go(1)      前进   或  history.forward()
+            history.go(-1)     后退   或  history.back()
+
+
+    */
+
+
+
+
+
+        var num = 90;
+        // alert(window.num);
+
+        function fn(){
+            alert("haha");
+        }
+        // window.fn();
+
+
+
+
+
+
+</script>

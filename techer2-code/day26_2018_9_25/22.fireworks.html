@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #000000;
+			}
+			.fire {
+				width: 3px;
+				height: 5px;
+				background: white;
+				position: absolute;
+			}
+			.spark{
+				width: 5px;
+				height: 5px;
+				position: absolute;
+			}
+		</style>
+		<script src="js/sport.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				document.onclick = function(evt){
+					var e = evt || window.event;
+					fire({x : e.offsetX,y : e.offsetY});
+				}
+				function fire(target){
+					var ele = document.createElement('div');
+					ele.className = 'fire';
+					ele.style.left  = target.x + 'px';
+					ele.style.top = document.documentElement.clientHeight - 50 + 'px';
+					document.body.appendChild(ele);
+					sport(ele,{top : target.y},function(){
+						ele.remove();
+						boom(target);
+					})
+				}
+				function boom(target){
+					var num = Math.floor(Math.random() * (80 - 50 + 1) + 50);
+					for(var i = 0;i < num;i ++){
+						new Spark(target);
+					}
+				}
+				function Spark(target){
+					this.target = target;
+					this.ele = document.createElement('div');
+					this.init();
+				}
+				Spark.prototype.init = function(){
+					document.body.appendChild(this.ele);
+					this.ele.className = "spark";
+					this.ele.style.background = "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+					this.ele.style.left = this.target.x + 'px';
+					this.ele.style.top = this.target.y + 'px';
+					console.log(this.ele.offsetLeft,this.ele.offsetTop)
+					this.speedX = Math.floor(Math.random() * 6 + 5) * (Math.random() > 0.5 ? 1 : -1);
+					this.speedY = Math.floor(Math.random() * 6 + 5) * (Math.random() > 0.5 ? 1 : -1);
+					this.sport();
+				}
+				Spark.prototype.sport = function(){
+					var that = this;
+					this.timer = setInterval(function(){
+						that.ele.style.left = that.ele.offsetLeft + that.speedX + 'px';
+						that.ele.style.top = that.ele.offsetTop + that.speedY ++ + 'px';
+						if(that.ele.offsetTop >= document.documentElement.clientHeight){
+							clearInterval(that.timer);
+							that.ele.remove();
+						}
+					},30)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

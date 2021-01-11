@@ -1,0 +1,13 @@
+{
+	"header_top" : {
+		"img" : "img/logo.jpg",
+		"title" : "国庆七天乐！"
+	},
+	"header_middle" : {
+		"nav" : [
+			"家里狂欢",
+			"野外烧烤",
+			"景点旅游"
+			]
+	}
+}

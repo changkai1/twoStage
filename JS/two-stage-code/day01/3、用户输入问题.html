@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//prompt  弹窗输入
+//	var num1 = prompt("请输入一个数");  //得到的是string类型的数值
+	//parseInt()  尝试叫一个字符串转换成整数，转不了结果就是NaN
+//	alert(num1)
+	
+	//判断平年或闰年
+	var year = 2020;
+	console.log(year%4==0 && year%100!=0 || year%400==0?"闰年":"平年");
+	
+	//两个数交换，借助变量
+	var ione = 1;
+	var itwo = 2;
+	var temp = 0;
+	temp = ione;
+	ione = itwo;
+	itwo = temp;
+	console.log(ione,itwo)
+	// 两个数交换不借助变量
+	var one = 3;
+	var two = 5;
+	one = one + two; //one = 8
+	two = one - two; //two = 3
+	one = one - two; //one = 5
+	console.log(one,two) //5 3
+</script>

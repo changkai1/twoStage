@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dd{
+            width:100px;
+            height:100px;
+            background: pink;
+            margin-bottom:10px;
+        }
+        #con{
+            width:115px;
+            height: 111px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="创建div" id="btn">
+    <div id="container">
+
+    </div>
+    <ul id="u">
+        <li>孩子1</li>
+        <li>孩子2</li>
+        <li>孩子3</li>
+    </ul>
+    <div id="con">
+        <img src="1.jpg" alt="" >
+    </div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        1.动态操作节点
+            1.1动态创建节点
+                document.createElement("标签名")  元素节点
+                document.createTextNode()        创建文本节点
+            1.2动态添加节点
+                appendChild()   用法  父元素.appendChild(要添加的子元素)
+                insertBefore()  用法  父元素.insertBefore(要添加的子元素,参照节点)   将要添加的子元素 添加 到参照节点的前面
+            1.3删除节点
+                父元素.removeChild(要删除的子元素)
+                要删除的元素.remove()
+        
+        2.节点克隆
+            cloneNode()      只克隆元素本身
+            cloneNode(true)  即克隆元素本身又克隆元素内容
+
+        3.节点属性操作
+            getAttribute()  获取元素属性值
+            setAttribute()  设置元素属性值
+    */ 
+
+        // 1.appendChild()
+        $id("btn").onclick = function(){
+            // 创建一个div
+            var oDiv = document.createElement("div");
+            // 把div放到container中
+            var con = $id("container");
+            con.appendChild(oDiv);
+            oDiv.className = "dd";
+            oDiv.innerHTML = "动态创建的div";
+        }
+
+        // 2.insertBefore()
+        var oUl = document.getElementById("u");
+        var oLi = document.createElement("li");
+        oLi.innerHTML = "xxx";
+        oUl.insertBefore( oLi,oUl.children[0] );
+
+        // 3. cloneNode()
+        var con = document.getElementById("con");
+        // var cloneDiv = con.cloneNode();
+        var cloneDiv = con.cloneNode(true);
+        con.appendChild(cloneDiv);
+</script>

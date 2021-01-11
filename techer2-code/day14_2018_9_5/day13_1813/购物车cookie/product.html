@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+		<style>
+			table{border-collapse:collapse;}
+			td{border:1px solid;}
+		</style>
+		
+		<script>
+			function byClassName(obj,className){
+				if(obj.getElementsByClassName){ //支持byClassName
+					return obj.getElementsByClassName(className);
+				}else{
+					var arr = [];
+					var eles = obj.getElementsByTagName('*'); //获取所有标签
+					//遍历所有标签,寻找具有指定className的元素
+					for(var i = 0,len = eles.length;i < len;i ++){
+						if(eles[i].className == className){
+							arr.push(eles[i]); //存入数组
+						}
+					}
+					return arr;
+				}
+			}
+			window.onload = function(){
+				//跳转页面
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					location.href = "cart.html";
+				}
+				//购买
+				var oA = byClassName(document,"buy");
+				for(var i = 0,len = oA.length;i < len;i ++){
+					oA[i].index = 0;
+					oA[i].onclick = function(){
+						//商品编号
+						var goodId = this.parentNode.parentNode.firstChild.firstChild.value;
+						//alert(goodId);
+						//商品名称
+						var goodName = this.parentNode.parentNode.firstChild.lastChild.nodeValue;
+						//alert(goodName);
+						//商品单价
+						var goodPrice = this.parentNode.previousSibling.innerHTML;
+						//alert(goodPrice);
+						//购买数量
+						this.index ++;
+						
+						//"key=value"
+						//key : product_ + goodId
+						//value :
+						/*
+							'{"id":1,"name":"手机","price":1999,"num":3}'
+							'{"id":' + goodId + ',"name":"' + goodName + '","price":' + goodPrice + ',"num":' + this.index + '}'
+						*/
+					   
+					    var date = new Date();
+						date.setDate(date.getDate() + 30000);
+						document.cookie = "product_" + goodId + '=' + '{"id":' + goodId + ',"name":"' + goodName + '","price":' + goodPrice + ',"num":' + this.index + '}' + ';expires=' + date + ";path=/";
+					}
+				}
+			};
+		</script>
+    </head>
+    <body>
+		<table>
+			<tr>
+				<td>商品名</td><td>价格</td><td>操作</td>
+			</tr>
+			<tr><td><input type="hidden" value="1">水杯</td><td>29</td><td><a class="buy" href="javascript:;">购买</a></td></tr>
+			<tr><td><input type="hidden" value="2">电脑</td><td>4999</td><td><a class="buy" href="javascript:;">购买</a></td></tr>
+			<tr><td><input type="hidden" value="3">手机</td><td>1999</td><td><a class="buy" href="javascript:;">购买</a></td></tr>
+		</table>
+		<button id="btn">查看购物车</button>
+    </body>
+</html>

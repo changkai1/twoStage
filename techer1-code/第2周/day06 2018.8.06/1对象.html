@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="按钮" />
+	</body>
+</html>
+<script>
+	//对象 ： var stuObj = {   }
+	//定义几个变量 用来描述一个同学信息
+	//var sname = "jack",sex = "nan",tel = "333",age = 19;
+	//stuObj 就是一个对象   
+	var stuObj = {
+		sname : "jack",
+		sex : "男",
+		tel : "132xxx",
+		age : 19,
+		study : function(){
+			return "学生在学习。。。。";
+		}
+	}
+	console.log( stuObj.sname , stuObj.age );
+	var str = stuObj.study();
+	console.log( str );
+	
+	
+	//描述第二个学生
+	var stuObj2 = {
+		sname : "lily",
+		sex : "女",
+		tel : "133xxx",
+		age : 15,
+		study : function(){
+			return "学生在学习。。。。";
+		}
+	}
+	
+	//为对象添加新的属性 和 方法
+	stuObj2.addr = "上海";
+	stuObj2.eat = function(){
+		return "吃放ing";
+	}
+	
+	console.log( stuObj2.sname );
+	console.log( stuObj2.addr );
+	console.log( stuObj2.eat() );
+	
+	//页面中所有的元素都是一个对象
+	var oBtn = document.getElementById("btn");
+	//为oBtn这个对象添加新的属性  用来记录 oBtn在页面中的下标0
+	oBtn.index = 0;
+	//alert( oBtn.index );
+	
+	/*var num = 90;//不是对象  就不能随意的添加属性
+	num.aa = 80;
+	alert( num.aa );*/
+</script>

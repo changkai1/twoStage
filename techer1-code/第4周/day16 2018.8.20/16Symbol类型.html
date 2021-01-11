@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//定义一个Symbol类型变量 并赋值
+	var sname = Symbol("jack");
+	//console.log( sname );
+	
+	//Symbol类型的变量一般可以作用在json对象上 作为json对象的属性
+	var tel = Symbol();
+	var json = {
+		
+	}
+	//Symbol类型的变量作用在json对象的属性上
+	json[tel] = "18977778888";
+	console.log( json[tel] );
+	
+	//Symbol  类型作用 ： 作为对象的属性  起到保护对象属性的作用
+	var age = Symbol();
+	var json = {
+		"sname":"jack",
+		"tel":13299998888,
+		"addr":"北京"
+	}
+	json[age] = 18;
+	for( var i in json ){
+		console.log( json[i] );
+	}
+</script>

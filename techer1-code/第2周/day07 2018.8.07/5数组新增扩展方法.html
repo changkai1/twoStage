@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//扩展方法
+	// forEach  indexOf   filter  map   reduce
+	
+	//forEach 没有返回值    遍历数组
+	function  fnForEach(){
+		var arr = [45,34,7,8,9];
+		var count = 0;//计算奇数个数
+		arr.forEach( function( item ){
+			if( item%2 ){
+				count ++ ;
+			}
+		} )
+		alert( count );
+	}
+	//fnForEach();
+	
+	//indexOf() 判断一个数在另一个数组中是否存在  
+	//存在  返回这个数在数组中首次出现的下标  不存在返回-1
+	function fnIndexOf(){
+		/*var arr = [23,1,5,6,7,6];
+		var res = arr.indexOf( 6 );
+		alert( res );*/
+		
+		//取出原数组中的某个数  判断在新数组中是否存在
+		var arr = [23,1,5,6,7,6,23,1,5];
+		var brr = [];
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( brr.indexOf( arr[i] ) == -1 ){
+				brr.push( arr[i] );
+			}
+		}
+		return brr;
+	}
+	//var res = fnIndexOf();
+	//alert( res );
+	
+	
+	//filter 过滤  返回满足某个条件的数  将这些数存入到一个新数组中
+	function fnFilter(){
+		var arr = [1,2,3,4,5,6,7,8,9];
+		var brr = arr.filter( function( item ){
+			return item%2==0; //找到数组中的偶数
+		} )
+		alert( brr );
+	}
+	//fnFilter();
+	
+	//map ： 映射    遍历数组--操作数组--返回数组
+	function fnMap(){
+		var arr = [10,20,30,40,50];
+		var brr = arr.map( function( item ){
+			return item*1.3;
+		} )
+		alert( brr );
+	}
+	//fnMap();
+	
+	
+	//reduce : 归并 
+	function fnReduce(){
+		var arr = [1,2,3,4,5,6,7];
+		document.write( "pre--------next<br>" );
+		
+		//res是最后一次操作返回的结果
+		var res = arr.reduce( function( pre , next ){
+			//next 下一个数 除了数组第一个数之外的后面的数
+			// 初始pre值为数组的第一个数   前一个操作返回的结果
+			document.write( pre + "-------" + next + "<br>");
+			return next+1;   
+		} )
+		alert( res );
+	}
+	
+	fnReduce();
+</script>

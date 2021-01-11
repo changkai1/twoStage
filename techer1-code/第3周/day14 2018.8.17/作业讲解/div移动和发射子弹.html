@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>键盘事件和组合键</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#div1{width:40px;
+		height:40px;
+		position:absolute;
+		
+		background:orange;
+		transform:rotate(0deg);
+	}
+	.pd{
+		width:5px;
+		height:15px;
+		border-radius:50%;
+		position:absolute;
+		background:#f06;
+	}		
+</style>
+</head>
+
+<body>
+	<div id="div1" style="top:50px;left:100px"></div>
+</body>
+</html>
+<script>
+	var oDiv = document.querySelector("#div1");
+	document.onkeydown = function(e){
+		var e = e || event;
+		var code = e.keyCode || e.which;
+		switch( code ){
+			case 37 : 
+				oDiv.style.left = oDiv.offsetLeft - 8 + "px";
+				if( oDiv.offsetLeft < 0 ){
+					oDiv.style.left = 0;
+				}
+				break;
+			case 39 :
+				oDiv.style.left = oDiv.offsetLeft + 8 + "px";
+				if( oDiv.offsetLeft > window.innerWidth-oDiv.offsetWidth ){
+					oDiv.style.left =  window.innerWidth-oDiv.offsetWidth + "px";
+				}
+				break;
+			case 38 :
+				oDiv.style.top = oDiv.offsetTop - 8 + "px";
+				break;
+			case 40 :
+				oDiv.style.top = oDiv.offsetTop + 8 + "px";
+				break;
+			case 32 :
+				var bullet = document.createElement("div");
+				bullet.className = "pd";
+				document.body.appendChild( bullet );
+				bullet.style.left = oDiv.offsetLeft+oDiv.offsetWidth/2-bullet.offsetWidth/2 + "px";
+				bullet.style.top = oDiv.offsetTop-bullet.offsetHeight + "px";
+				var timer = setInterval( function(){
+					bullet.style.top = bullet.offsetTop - 5 + "px";
+					if( bullet.offsetTop < -bullet.offsetHeight ){
+						bullet.remove();
+						clearInterval( timer );
+					}
+				},30 )
+		}
+	}
+</script>

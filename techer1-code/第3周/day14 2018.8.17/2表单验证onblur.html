@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="ok.html">
+			用户名   ：  <input type="text" id="uname" /> <span id="s1"></span> <br>
+			密码   ：      <input type="text" id="upwd" /><span id="s2"></span> <br>
+			确认密码   ：      <input type="text" id="qpwd" /> <span id="s3"></span> <br>
+			性别必选 ： <input type="radio" name="sex" id="b"/>男
+					   <input type="radio" name="sex" id="g"/>女 
+					   <span id="s4"></span><br>
+			爱好 ：        
+					<input type="checkbox" name="h" />篮球
+					<input type="checkbox" name="h" />足球
+					<input type="checkbox" name="h" />桌球
+					<span id="s5"></span><br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	//onsubmit事件   在form表单上添加
+	var oForm = document.querySelector("form");
+	oForm.onsubmit = function(){
+		if( flagName && flagPwd && flagQpwd &&checkSex() && checkHobby() ){
+		 	return true;
+		}else{
+			return false;
+		}
+	}
+	
+	//性别必选一项
+	function checkSex(){
+		//判断如果男或女其中有一个被选中 返回true
+		if( $id("b").checked || $id("g").checked ){
+			return true;
+		}else{
+			$id("s4").innerHTML = "必选一项";
+			return false;
+		}
+	}
+	//爱好至少选择两项
+	function checkHobby(){
+		//统计被选中的复选框的个数 大于等于2 返回true
+		var count = 0;
+		var hs = document.getElementsByName("h");
+		for( var i = 0 ; i < hs.length ; i++ ){
+			if( hs[i].checked ){
+				count++;
+			}
+		}
+		if( count >= 2 ){
+			return true;
+		}else{
+			$id("s5").innerHTML = "至少选择两项";
+			return false;
+		}
+	}
+	//失去焦点  先验证用户输入的内容是否符合规范
+	//验证用户名
+	var flagName = null;
+	$id("uname").onblur = function(){
+		var strName = $id("uname").value;
+		var reg = /^1[3578]\d{9}$/;//手机号
+		if( reg.test( strName ) ){
+			//正确
+			flagName = true;
+			$id("s1").innerHTML = "正确";
+		}else{
+			//错误
+			flagName = false;
+			$id("s1").innerHTML = "必须是手机号";
+		}
+	}
+	//验证密码
+	var flagPwd = null;
+	$id("upwd").onblur = function(){
+		var strPwd = $id("upwd").value;
+		var reg = /^.{6,}$/;
+		if( reg.test(strPwd) ){
+			flagPwd = true;
+			$id("s2").innerHTML = "正确";
+		}else{
+			flagPwd = false;
+			$id("s2").innerHTML = "密码不能少于6为字符";
+		}
+	}
+	//验证确认密码
+	var flagQpwd = null;
+	$id("qpwd").onblur = function(){
+		var strPwd = $id("upwd").value;
+		var strQpwd = $id("qpwd").value;
+		if( strQpwd != "" ){
+			if( strPwd == strQpwd ){
+				flagQpwd = true;
+				$id("s3").innerHTML = "正确";
+			}else{
+				flagQpwd = false;
+				$id("s3").innerHTML = "两次密码一致";
+			}
+		}
+	}
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li index = "0">孩子多个1</li>
+			<li index = "1">孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+			<li>孩子多个7</li>
+			<li>孩子多个8</li>
+			<li>孩子多个9</li>
+			<li>孩子多个10</li>
+		</ul>
+	</body>
+</html>
+<script>
+	/*for( var i = 1 ; i <= 2 ; i++ ){
+		function fn(){
+			alert( i );
+		}
+	}
+	fn();*/
+	/*
+	 function fn(){
+	 	alert(i);
+	 }
+	 function fn(){
+	 	alert(i);
+	 }
+	 */
+/*	
+	for( let i = 1 ; i <= 2 ; i++ ){
+		function fn(){
+			alert( i );
+		}
+	}*/
+	//fn();
+	/*
+	 function fn(){
+	 	alert(1);
+	 }
+	 function fn(){
+	 	alert(2);
+	 }
+	 */
+	
+	//let 应用
+	// 点击不同的li得到当前操作的li的下标
+	/*var list = document.getElementsByTagName("li");
+	for( let i = 0 ; i < list.length ; i++ ){
+		list[i].onclick = function(){
+			alert( i );
+		}
+	}*/
+	
+	/*for( var i = 0 ; i < list.length ; i++ ){
+		list[i].aa = i;
+		list[i].onclick = function(){
+			alert( this.aa );
+		}
+	}*/
+	/*var oUl = document.querySelector("ul");
+	oUl.onclick = function(e){
+		var e = e|| event;
+		var target = e.target || e.srcElement;
+		if( target.tagName == "LI" ){
+			alert( target.getAttribute( "index" ) );
+		}
+	}*/
+	
+	//面试题
+	for( var i = 1 ; i <= 2 ; i++ ){
+		setTimeout( function(){
+			console.log( i ); // 3,3
+		},1000 )
+	}
+	console.log(i);// 3
+	
+	/*for( let i = 1 ; i <= 2 ; i++ ){
+		setTimeout( function(){
+			console.log( i );  // 1,2
+		},1000 )
+	}*/
+	
+</script>

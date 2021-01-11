@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            width: 2000px;
+        }
+       .top{
+           position: fixed;
+           right:50px;
+           bottom:100px;
+           display: none;
+       }
+
+    </style>
+     
+    
+</head>
+<body>
+<div id="gotop" class="top">
+    <img src="images/Top.jpg" alt=""/>
+</div>
+ <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+   <p>天王盖地虎，小鸡炖蘑菇</p>
+</body>
+</html>
+<script src="public.js"></script>
+<script type="text/javascript">
+	var oDiv = $id("gotop");
+   //触发滚动条  显示小火箭
+   window.onscroll = function(){
+   		var sTop = document.documentElement.scrollTop;
+   		if( sTop > 10 ){
+   			oDiv.style.display = "block";
+   		}
+   }
+   //点击小火箭  恢复滚动条位置  同时小火箭消失
+   oDiv.onclick = function(){
+   		oDiv.style.display = "none";
+   		document.documentElement.scrollTop = 0;
+   }
+</script>

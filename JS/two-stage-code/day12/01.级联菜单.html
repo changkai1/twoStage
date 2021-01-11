@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <ul>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单
+							<ul>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+							</ul>
+						</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单
+                            <ul>
+                                <li>四级菜单</li>
+                                <li>四级菜单</li>
+                                <li>四级菜单</li>
+                            </ul>
+                        </li>
+                        <li>三级菜单
+                            <ul>
+                                <li>四级菜单</li>
+                                <li>四级菜单</li>
+                                <li>四级菜单</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+    </ul>
+    </body>
+</html>
+<script>
+    /*
+        为每一个li添加一个单击事件
+        如果当前点击的li有子级菜单 ， 判断是否是显示或隐藏的
+     */
+    // 找到所有的li
+    var list = document.getElementsByTagName("li");
+    // 为所有的li添加点击事件
+    for(var i = 0; i < list.length; i++){
+        list[i].onclick = function(e){
+            var e = e || event; //事件对象
+            e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true; //阻止冒泡
+            // 判断当前点击的li又没有子元素
+            if(this.children[0]){
+                // 有子元素的话，判断是不是掩藏
+                if(this.children[0].style.display == "none"){
+                    this.children[0].style.display = "block";
+                }else{
+                    this.children[0].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+</script>

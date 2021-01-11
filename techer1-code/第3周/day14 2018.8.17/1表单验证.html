@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="ok.html">
+			用户名   ：  <input type="text" id="uname" /> <br>
+			密码   ：      <input type="text" id="upwd" /> <br>
+			确认密码   ：      <input type="text" id="qpwd" /> <br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	//onsubmit事件   在form表单上添加
+	var oForm = document.querySelector("form");
+	oForm.onsubmit = function(){
+		//在return true上面 验证每一个表单项
+		//如果其中某个表单项不合法  就return  false
+		//如果没有遇到 return false，说明每一个表单项都是合法的
+		//验证用户名
+		var strName = $id("uname").value;
+		var reg = /^1[3578]\d{9}$/;//手机号
+		if( !reg.test( strName ) ){
+			alert("用户名不合法");
+			return false;
+		}
+		
+		//验证密码
+		var strPwd = $id("upwd").value;
+		var reg = /^.{6,}$/;
+		if( !reg.test( strPwd ) ){
+			alert("密码不合法");
+			return false;
+		}
+		
+		//验证确认密码
+		var strQpwd = $id("qpwd").value;
+		if( strPwd != strQpwd ){
+			alert("两次密码不一致");
+			return false;
+		}
+		
+		
+		return true;
+	}
+</script>

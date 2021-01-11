@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        定时器都是  异步  执行 (定时器下面的代码会先执行)
+    */
+
+    // setTimeout(function(){
+    //     console.log(1)
+    // },3000);
+    // console.log(2);
+
+    var num = 10;
+    setTimeout(function(){
+        console.log(num); //20
+    },1000)
+    num += 10;
+    console.log( num ); //20
+    // 异步：非阻塞模式
+
+
+
+
+
+
+</script>

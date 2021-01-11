@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{
+			height: 1000px;
+		}
+	</style>
+	<body>
+	</body>
+</html>
+<script>
+	//onscroll  滚动条事件
+	window.onscroll = function(){
+		//获取页面滚走的距离
+		console.log( document.documentElement.scrollTop || document.body.scrollTop);
+	}
+	
+	//点击文档  设置滚动条的位置
+	document.onclick = function(){
+		document.documentElement.scrollTop = 400;
+	}
+</script>

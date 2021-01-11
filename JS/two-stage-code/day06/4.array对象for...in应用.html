@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1.定义数组
+    // var arr1 = [23,56,78,90];
+    // console.log(typeof arr1); //object
+
+    // var arr2 = new Array(23,56,78,90);
+    // console.log(typeof arr2); //object
+
+    // var arr3 = new Array(8); //如果括号中只有一个数值类型的数据，该数值表示数组的长度(长度是整数)
+    // console.log(arr3.length); //8
+    // // 为数组赋值
+    // arr3[10] = 100; //为数组下标为10的位置赋值为100;
+    // console.log(arr3.length); //11   下标是10，从0开始，长度为11
+    // console.log(arr3[9]); //undefined   数组定义不赋值，默认值是undefined
+
+
+    // 2.数组的遍历
+    var arr = [45,56,12,34,45,78];
+
+    // 2.1.输出数组的每一个数
+    for(var i = 0; i < arr.length; i++){
+        // document.write(arr[i]+" ");
+    }
+
+    // 2.2.求数组中的和
+    var sum = 0;
+    for(var i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+    // console.log(sum); //270
+
+    // 2.3.遍历 for...in...
+    // for(var 遍历 in 对象){}  特点：1.没有循环条件，从0开始，到length-1结束  2.下标类型：string  3.只能遍历对象  4.遍历数组，建议使用for循环
+    for(var i in arr){
+        console.log(i); //i 代表下标
+        console.log(typeof i); //类型 string
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	3．某个公司要给员工发年终奖，为了奖励老员工，所以工作时间越长，发的越多，规则如下：
+工作满 0 年 发月薪的 1 倍月薪年终奖，如果月薪大于 8000 ，那么就是发 1.2倍
+
+工作满 1 年 发月薪的 1.5 倍月薪年终奖，如果月薪大于 10000 ，那么就是发 1.7倍
+
+工作满 2 年，甚至更多  发月薪的3 倍月薪年终奖，如果月薪大于 12000 ，那么就是发 3.2倍
+	* */
+	/*var year = prompt( "请输入工作年限" );
+	var salary = prompt( "请输入月薪" );
+	if( year < 1 ){
+		if( salary > 8000 ){
+			alert( "年终奖是 ： " + salary*1.2 );
+		}else{
+			alert( "年终奖是 ： " + salary );
+		}
+	}else if( year < 2 ){
+		if( salary > 10000 ){
+			alert( "年终奖是 ： " + salary*1.7 );
+		}else{
+			alert( "年终奖是 ： " + salary*1.5 );
+		}
+	}else{
+		if( salary > 12000 ){
+			alert( "年终奖是 ： " + salary*3.2 );
+		}else{
+			alert( "年终奖是 ： " + salary*3 );
+		}
+	}*/
+	
+	//案例：输入分数，判定成绩等级(if和switch两种写法)
+	/*var score = 89;   
+	switch( parseInt(score/10) ){
+		case 10 : 
+		case 9 : alert("优秀");break;
+		case 8 : 
+		case 7 : alert("良好");break;
+		case 6 : alert("需要多努力");break;
+		case 5 : 
+		case 4 : 
+		case 3 : 
+		case 2 : 
+		case 1 : alert("bye");break;
+	}*/
+	/*var score = 79;
+	switch( true ){
+		case score>=80&&score<=100 : alert("优秀");break;
+		case score>=70&&score<80 : alert("良好");break;
+		case score>=60&&score<70 :alert("需要多努力");break;
+		case score < 60 : alert("bye");break;
+	}*/
+	
+	//输入两个数 ，按照从小到大的顺序输出 ？
+	/*var a = 29 , b = 19;
+	var t = 0;
+	//如果假设不成立  a>b
+	if( a > b ){
+		t = a;
+		a = b;
+		b = t;
+	}
+	//假设法  a<b
+	alert( "这两个数按照从小到大的顺序是：" + a + "," + b );*/
+	
+	//输入任意三个数，输出最大值？
+	//思路 ： 取其中两个数进行比较 得到一个临时最大值 t 
+	//再用 t 和 第三个数进行比较  这两个数中的最大值 就是题目结果
+	var a = 1222, b = 30 , c = 9 ,t;
+	t = a > b ? a : b; //取a 和 b中的最大值
+	var max = t > c ? t : c; // 取t 和 c中的最大值
+	alert( "这三个数中的最大值是 ： " + max );
+</script>

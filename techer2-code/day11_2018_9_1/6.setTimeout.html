@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="start" id="start" value="开始" />
+		<input type="button" name="stop" id="stop" value="停" />
+		<script type="text/javascript">
+			var oStart = document.getElementById("start");
+			var oStop = document.getElementById("stop");
+			var timer = null;
+			oStart.onclick = function(){
+				timer = setTimeout(function(){
+					alert("砰");
+				},5000)
+			}
+			oStop.onclick = function(){
+				clearTimeout(timer);
+			}
+		</script>
+	</body>
+</html>

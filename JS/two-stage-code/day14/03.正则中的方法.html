@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        正则中的方法   修饰符  i-->不区分大小写   g-->表示全局查找
+        var reg = /正则/;
+        1. reg.test( str )          验证str字符串是否符合规则,符合返回true  不符合返回false
+        2. reg.exec( str )          如果 exec() 找到了匹配的文本，则返回一个长度为1的数组。否则，返回 null。不能全局查找
+                                    方法用于检索字符串中的正则表达式的匹配。
+        3. str.search( reg )        返回第一次符合某个正则规范的字符的索引
+        4. str.match( reg )         根据正则规范在字符串中查找，返回一个数组，可以实现全局查找
+        5. str.replace( reg , "*")  替换  返回被替换后的新字符串
+
+    */ 
+
+    // 2.  reg.exec(str)
+    function fnExec(){
+        var str = "科121技454公7657司";
+        var str1 = "科112技454公7657司";
+        var reg = /\d/;  //包含一个数字
+        var reg1 = /\d+/; //包含至少一个数字
+        // 使用正则规范在str中查找  如果有满足正则规范的字符，就返回   返回值是一个数组
+        var arr = reg.exec( str );  //1
+        var arr1 = reg1.exec( str1 ); //112
+        alert( arr); 
+        alert( arr1 );
+
+    }
+    // fnExec();
+
+    // 3. str.search(reg)  返回第一次符合某个正则规范的字符的索引,找不到返回-1
+    function fnSearch(){
+        var str = "科121ad技454公76s57司";
+        // var reg = /\d/;    // 1
+        // var reg = /\d+/g;  // 1
+        // var reg = /[a-z]/ig;  // 4
+        var reg = /[A-Z]/g;  // 找不到返回 -1
+        var index = str.search( reg );
+        console.log( index );
+    }
+    // fnSearch();
+
+    // 4. str.match( reg )  根据正则规范在字符串中查找，返回一个数组，可以实现全局查找
+    function fnMatch(){
+        var str = "科a121s技454dsd公7ASD657司";
+        // var reg = /\d/g;       //全局查找包含数字  1,2,1,4,5,4,7,6,5,7
+        // var reg = /\d+/g;      //121,454,7657
+        // var reg = /[a-z]/ig;   //全局查找不区分大小写  a,s,d,s,d,A,S,D  
+        var reg = /[a-z]+/ig;  //a,s,dsd,ASD
+        var arr = str.match( reg );
+    }
+    // fnMatch();
+
+    // 5.  str.replace(reg,"*")  替换  返回被替换后的新字符串
+    function fnReplace(){
+        var str = "科a121s技454dsd公7ASD657司";
+        // var reg = /\d/g;  //科as技dsd公ASD司
+        // var str = str.replace( reg , "");
+        var reg = /\w/g;  //科技公司    //科*****技******公*******司
+        // var str = str.replace( reg , "");
+        var str = str.replace( reg , "*");
+        console.log(str);
+    }
+    // fnReplace()
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="" />
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<script type="text/javascript">
+			//1.let 不做变量提升
+			//2.let 产生了块级作用域,在块内声明的变量,只能在块内使用
+			//	for循环是一个块级作用域,for循环中的{}是for循环中的子级块作用域
+			//3.let 同一个作用域中,不同重复声明同一个变量.
+			//4.let声明的全局变量不再是window对象的属性.
+// 			alert(a);
+// 			alert(b);
+// 			var a = 3;
+// 			let b = 4;
+
+// 			{
+// 				var a = 3;
+// 				let b = 4;
+// 				alert(b);
+// 			}
+// 			alert(a);
+// 			alert(b);
+// 			var a = 3;
+// 			var a = 4;
+// 			var a = 5;
+// 			alert(a);
+// 			let b = 3;
+// 			let b = 4;
+// 			let b = 5;
+// 			alert(b);
+// 			let i = 10;
+// 			for(let i = 0;i < 5;console.log(i),i ++){
+// 				let i = 5;
+// 				//alert(i);
+// 			}
+			/*
+				i = 5
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+			*/
+// 			for(var i = 0;i < 5;i ++){
+// 				setTimeout(function(){
+// 					console.log(i);
+// 				},1000)
+// 			}
+
+
+			/*
+				i = 0
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				
+				
+				i = 1
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				
+				i = 2
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				
+				i = 3
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				
+				i = 4
+				setTimeout(function(){
+					console.log(i);
+				},1000)
+				
+				 i = 5
+			*/
+// 			for(let i = 0;i < 5;i ++){
+// 				setTimeout(function(){
+// 					console.log(i);
+// 				},1000)
+// 			}
+// 			
+// 			var oA = document.querySelectorAll('a');
+// 			for(var i = 0,len = oA.length;i < len;i ++){
+// 				oA[i].index = i;
+// 				oA[i].onclick = function(){
+// 					alert(this.index);
+// 				}
+// 			}
+// 			
+// 			var num = 3;
+// 			let str = "hehe";
+// 			alert(window.num);
+// 			alert(window.str);
+
+
+			//const :声明常量,好处:一改全改,建议常量名全大写
+			const G = 10;
+			const ARR = [1,2,3,4];
+		
+			ARR[0] = 10;
+			//alert(ARR[0]);
+			for(let i = 0,len = ARR.length;i < len;i ++){
+				console.log(ARR[i]);
+			}
+		</script>
+	</body>
+</html>

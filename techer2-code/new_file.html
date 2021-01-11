@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+				一、
+					f1 = function(){}
+					result1 = 0x10001
+					result2 = 0x10004
+					nAdd = 0x10010
+				二、
+					一、
+						n = 999
+						f2 = function(){}  //0x10001
+						function(){ n+=1} //0x10008
+						
+						
+						
+			
+					一、
+						n = 1000
+						f2 = function(){}  //0x10004
+						function(){ n += 1} //0x10010
+			*/
+			
+// 			function f1(){
+// 				var n=999;
+// 			　	nAdd=function(){
+// 				　　　n+=1
+// 				}
+// 			　　　function f2(){
+// 			　　　　　alert(n);
+// 			　　　}
+// 				return f2;
+// 			}
+// 			var result1=f1();
+// 			var result2=f1();
+// 			result1(); //999
+// 			result2(); //999
+// 			nAdd();
+// 			result1();
+// 			result2();
+
+
+
+
+			switch(parseInt(n / 10)){
+				case 10 : 
+				case 9 : alert("优");break;
+				case 8 : alert("良");break;
+				case 7 : alert("中");break;
+				case 6 : alert("差");break;
+				default : alert("不及格");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			冒泡排序（前——后）从小到大   相邻的两个数比较，符合条件交换位置
+				9   2
+				6   9
+				15  6
+				4   15
+				2   4 
+			*/
+		   
+			var arr = [9,6,15,4,2];
+			function bubbleSort(arr){
+// 				for(var i = 1;i < arr.length;i ++){
+// 					for(var j = 0;j < arr.length - i;j ++){
+// 						if(arr[j] > arr[j + 1]){
+// 							var t = arr[j];
+// 							arr[j] = arr[j + 1];
+// 							arr[j + 1] = t;
+// 						}
+// 					}
+// 				}
+				for(var i = 1;i < arr.length;i ++){
+					for(var j = arr.length - 1;j >= i;j --){
+						if(arr[j] < arr[j - 1]){
+							var t = arr[j];
+							arr[j] = arr[j - 1];
+							arr[j - 1] = t;
+						}
+					}
+				}
+				return arr;
+			}
+		</script>
+	</body>
+</html>

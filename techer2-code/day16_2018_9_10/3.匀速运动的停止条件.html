@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0px;
+			}
+			#span{
+				width: 1px;
+				height: 300px;
+				background: black;
+				position: absolute;
+				left: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="带你飞" />
+		<div id="box">
+			
+		</div>
+		<span id="span">
+			
+		</span>
+		<script src="js/sport_02.js"></script>
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			var oDiv = document.getElementById("box");
+			var timer = null;
+			oBtn.onclick = function(){
+				sport_02(oDiv,400);
+			}
+			
+			/*
+			(一)运动原理
+			(二)边界处理
+			(三)加速减速
+			(四)上下滑动的侧边栏
+			(五)缓冲运动
+			(六)多物体运动
+			(七)多属性运动
+			(八)抛物线运动
+			(九)圆周运动
+			透明度的变换
+			*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="请猜数" id="oBtn" />
+	</body>
+</html>
+<script>
+	//为按钮添加点击事件 
+	//在按钮的点击事件中完成猜数字：
+	//猜数字 ： 用户一共有三次猜数机会  
+	/*
+	 1、系统随机为用户提供一个1--10之间的整数
+	 2、最多三次机会   最多循环次数  3次
+	  当用处猜的数字比 随机数 大 ，提示
+	  当用处猜的数字比 随机数 小 ，提示
+	  当用处猜的数字== 随机数  ，提示   如果用户在3次以内 猜对数字， 退出循环
+	 
+	 如果用户在三次以内没有猜对，提示用户 最终结果
+	 */
+	oBtn.onclick = function(){
+		//系统随机产生一个1--10之间的整数
+		var rand = parseInt( Math.random()*10 + 1 );
+		for( var i = 1 ; i <= 3 ; i++ ){
+			var num = prompt("请输入一个1--10之间的整数");
+			if( num > rand ){
+				alert("您猜大了");
+			}else if( num < rand ){
+				alert("您猜小了");
+			}else if( rand == num ){
+				alert("恭喜您猜对了");
+				break;
+			}
+		}
+		
+		//三次以内都没有猜对 才可以有提示
+		if( i == 4 ){
+			alert( "很抱歉，您没有猜对，最终数字是 ： " + rand );
+		}
+	}
+</script>

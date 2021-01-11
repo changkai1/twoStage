@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+        1.栈：有底无顶，先进后出  定义一个变量时，会在内存中开辟一块存储空间，这个空间用来存放某些变量的值，这个空间就叫做  栈。这个栈空间一般存  基本类型数据(一个值)
+        2.堆：堆中存放的是 引用类型变量的值(可以存储多个值);  堆中的值对应的变量，一改全改
+        3.函数的传递方式：
+            值传递：  单向传递
+            地址传递：双向传递(一改全改)
+    */ 
+    // 1.
+    // var a = 10;
+    // var b = a;
+    // a += 10;
+    // alert(b); //10
+
+    // 2.
+    // var arr = [10,20];
+    // var brr = arr;
+    // arr[0] += 10;
+    // console.log(brr[0]); //20
+
+    // 3.
+    // var obj = {
+    //     sname : "jack"
+    // }
+    // var obj2 = obj;
+    // obj2.sname = "lili";
+    // console.log(obj.sname); // "lili"
+
+    // 4.
+    //  function fn(a){
+    //     a++;
+    //  }
+    //  var a = 10;
+    //  fn(a);
+    //  alert(a);  //10
+
+    // 5.
+    function fn(arr){ //地址传递 ：双向传递
+        arr[0] += 10;
+    }
+    var brr = [10,20];
+    fn(brr);
+    alert(brr[0]); //20
+</script>

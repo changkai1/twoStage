@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//2、	统计一个字符串中大写字母  小写字母  数字以及特殊字符从个数”xdrKJI566$%^”  编程实现
+	/*
+	 思路 ： 
+	  遍历字符串，根据下标取出每一个字符   判断字符的范围
+	 */
+	function fnCount( str ){
+		var big = 0 , small = 0 , num = 0 , other = 0;
+		for( var i = 0 ; i < str.length ; i++ ){
+			var ch = str.charAt(i); // str[i]   charCodeAt()
+			if( ch >= "A" && ch <= "Z" ){
+				big++;
+			}else if( ch >= "a" && ch <= "z" ){
+				small++;
+			}else if( ch >= "0" && ch <= "9" ){
+				num++;
+			}else{
+				other++;
+			}
+		}
+		console.log( big , small , num , other );
+	}
+	
+	//fnCount( "34sAdFtr$%3" )
+</script>

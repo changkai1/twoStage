@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		function Dog(){}
+		//原型属性
+		Dog.prototype.name = '小黑';
+		Dog.prototype.age = 3;
+		//原型方法
+		Dog.prototype.showName = function(){
+			return this.name;
+		}
+		Dog.prototype.showAge = function(){
+			return this.age;
+		}
+		var dog1 = new Dog();
+		var dog2 = new Dog();
+		console.log(dog1.showName === dog2.showName);
+		
+		//原型继承(原型链)
+		//所有的函数都有一个属性:prototype,指向该函数的原型对象
+		//所有的对象都有一个属性:__proto__,指向该对象的原型对象
+		
+		function Huskie(){}
+		//Huskie.prototype = Dog.prototype;
+		//Huskie.prototype = new Dog();    // __proto__
+		for(var key in Dog.prototype){
+			Huskie.prototype[key] = Dog.prototype[key];
+		}
+		var hk = new Huskie();
+		console.log(hk.showName());
+	</script>	
+	</body>
+</html>

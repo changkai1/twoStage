@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t1" />
+		<input type="text" id="t2" />
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	// onkeyup = 抬起
+	// onkeydown = 按下
+	// onkeypres =   onkeyup + onkeydown 
+	$id("t1").onkeyup = function(){
+		//将当前操作的文本框的内容复制到第二个文本框中
+		$id("t2").value = $id("t1").value;
+	}
+</script>

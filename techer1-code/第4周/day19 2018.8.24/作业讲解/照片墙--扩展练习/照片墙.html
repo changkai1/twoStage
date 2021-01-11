@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"/>
+
+<title>照片墙一多实例演示（面向对象版）</title>
+<style type="text/css">
+body,div,h2,ul,li{margin:0;padding:0;}
+body{font:12px/1.5 Arail;}
+.box{width:860px;margin:10px auto;background:#eee;border:1px solid #b8b8b8; height: }
+.title{height:30px;line-height:30px;font-size:14px;padding:0 15px 0 35px;border-bottom:1px solid #b8b8b8;background:#fafafa 5px 50% no-repeat;}
+.title span{float:left;}
+.title a{float:right;color:#06f;outline:none;}
+.title a:hover{color:red;}
+.box ul{width:660px;  height: 400px;margin: 10px auto;/*display:inline-block;*/ padding:0 15px 15px 0;}
+.box li{float:left;width:140px;height:105px;padding:6px;background:#fff;border:1px solid #c3c3c3;display:inline;margin:15px 0 0 15px;list-style:none;}
+.box li img{float:left;width:140px;height:105px;}
+.box li.hig{padding:5px;border:2px dashed #f30;opacity:0.5;filter:alpha(opacity=50);}
+</style>
+<script src="sport6.js"></script>
+</head>
+<body>
+<div class="box" style="">
+    <h2 class="title"><span>一堆90后</span></h2>
+    <ul id="ul1">
+		<li><img src="imgs/1.jpg" alt="" /></li>
+		<li><img src="imgs/2.jpg" alt="" /></li>
+		<li><img src="imgs/3.jpg" alt="" /></li>
+		<li><img src="imgs/4.jpg" alt="" /></li>
+		<li><img src="imgs/5.jpg" alt="" /></li>
+		<li><img src="imgs/6.jpg" alt="" /></li>
+		<li><img src="imgs/7.jpg" alt="" /></li>
+		<li><img src="imgs/8.jpg" alt="" /></li>
+		<li><img src="imgs/9.jpg" alt="" /></li>
+    </ul>
+</div>
+</body></html>
+<script src="public.js"></script>
+<script>
+	//由于每一个图片都需要被拖拽  所以每一个li都需要定位  同时 每一张图片的位置不变
+	//1、取出每一个li的原始位置 （定位之前）， 存储到数组
+	var arr = [];//存放每一张图片的位置
+	var list = document.getElementsByTagName("li");
+	var zIndex = 1;//控制当前操作的图片的层级最高
+	for( var i = 0 ; i < list.length ; i++ ){
+		arr.push( {left: list[i].offsetLeft ,top: list[i].offsetTop} );
+	}
+	//2、由于每一个图片都需要被拖拽  所以每一个li都需要定位  同时 每一张图片的位置不变
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].style.position = "absolute";
+		list[i].style.left = arr[i].left + "px";
+		list[i].style.top = arr[i].top + "px";
+		//将每一个li的margin清空
+		list[i].style.margin = 0;
+		//为每一张图片的li添加一个index属性  记录下标
+		list[i].index = i;
+	}
+	
+	
+	//循环让九张图片都可以被拖拽
+	for( var i = 0 ; i < list.length ; i++ ){
+		drag( list[i] );
+	}
+	//3 拖拽     定义一个函数 
+	function drag(obj){
+		obj.onmousedown = function(e){
+			console.log( obj.index );
+			obj.style.zIndex = ++zIndex;
+			var e = e || event;
+			var disx = e.pageX - obj.offsetLeft;
+			var disy = e.pageY - obj.offsetTop;
+			document.onmousemove = function(e){
+				var e = e || event;
+				obj.style.left = e.pageX - disx + "px";
+				obj.style.top = e.pageY - disy + "px";
+				//判断当前拖拽的obj和哪些图片有碰撞  如果 碰上，改变被碰撞的图片的边框
+				/*for( var i = 0 ; i < list.length ; i++ ){
+					if( pz( obj , list[i]  ) && obj != list[i] ){//排除当前拖拽的元素本身
+						list[i].style.border = "2px solid red";
+					}else{
+						list[i].style.border = "";
+					}
+				}*/
+				//先清空所有的图片边框
+				for( var i = 0 ; i < list.length ; i++ ){
+					list[i].style.border = "";
+				}
+				//拖拽时 ，确定和当前碰撞的img中，哪一个img离obj最近   将该图片标为红色边框
+				var nimg = nearImg(obj);
+				//如果有离obj最近的img，就改变边框样式
+				if( nimg ){
+					nimg.style.border = "2px solid red";
+				}
+				
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				//鼠标抬起  拖拽的元素和离拖拽元素最近的img交换 
+				var nimg = nearImg(obj);
+				//如果存在nimg对象，就交换，否则 obj恢复到初始位置
+				if( nimg ){
+					//交换 
+					//要想知道每一张图片的位置 可以为每一张图片加一个index 
+					//根据图片的index值 就可以得到数组中的每一张图片的坐标
+					startMove( obj , { left : arr[nimg.index].left , top: arr[nimg.index].top}  )
+					startMove( nimg , { left : arr[obj.index].left , top: arr[obj.index].top}  )
+					//清除 nimg边框
+					nimg.style.border = "";
+					//交换nimg和obj的index值
+					[obj.index,nimg.index] = [nimg.index,obj.index];
+				}else{
+					//obj 回到起始位置
+					startMove( obj , { left : arr[obj.index].left , top: arr[obj.index].top}  )
+				}
+			}
+			return false;
+		}
+	}
+	//勾股定义 ： 实现 两张图片之间的距离 （以左上角为准，计算某两张图片之间的距离）
+	function gg(obj1,obj2){
+		var a = obj1.offsetLeft - obj2.offsetLeft;
+		var b = obj1.offsetTop - obj2.offsetTop;
+		return Math.sqrt( a*a + b*b );
+	}
+	//定义一个函数   功能找离当前拖拽的元素最近的图片   
+	function nearImg(obj){//参数obj表示当前拖拽的图片
+		//假设 变量minValue 中存放的是最小值
+		var  minValue = 99999;
+		//假设 最小的图片对应的li标签的下标 是 -1
+		var minIndex = -1;
+		//找最近的img，前提  和某个图片有碰撞  ，实现碰撞检测
+		for( var i = 0 ; i < list.length ; i++ ){
+			if( pz( obj , list[i]  ) && obj != list[i] ){
+				//如果当前拖拽的图片和某个图片有碰撞 计算斜边c
+				var c = gg( obj , list[i] );
+				//判断 假设的minValue的值是否是最小的  如果不是，minValue=c
+				if( minValue > c ){
+					minValue = c;
+					minIndex = i;
+				}
+			}
+		}
+		//循环结束后  如果 minIndex的值不是-1了，说明 找到离当前拖拽图片最近的img
+		if( minIndex != -1 ){
+			return list[minIndex];
+		}else{
+			return false;
+		}
+	}
+</script>

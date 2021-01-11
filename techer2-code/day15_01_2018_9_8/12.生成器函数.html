@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+// 			setTimeout(function(){
+// 				alert(1);
+// 				setTimeout(function(){
+// 					alert(2);
+// 					setTimeout(function(){
+// 						alert(3);
+// 					},1000)
+// 				},2000)
+// 				
+// 			},3000)
+			
+			//定义了一个生成器函数
+			function * fn(){
+				yield 'how';
+				yield 'do';
+				yield 'you';
+				yield 'do';
+				return '!';
+			}
+			var me = fn();
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+			console.log(me.next());
+		</script>
+	</body>
+</html>

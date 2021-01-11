@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//假设你的毕业时间 是 :  2018-11-23
+	//计算距离毕业 还有  （）天？？
+	var now = new Date();
+	var end = new Date("2018-11-23");//毕业时间
+	var t = end.getTime() - now.getTime();
+	var day = t/1000/3600/24;
+	alert( day );
+	
+	//封装时间差函数 ： 
+	function diff(start,end){
+		return (end.getTime()-start.getTime())/1000;
+	}
+	
+</script>

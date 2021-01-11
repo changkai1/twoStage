@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li id="e">孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+			<li>孩子多个7</li>
+			<li>孩子多个8</li>
+		</ul>
+	</body>
+</html>
+<script>
+	// rgb(0-255,0--255,0-255)
+	// #af4563
+	//获取任意区间整数值
+	function rand( min,max ){
+		return Math.round( Math.random()*(max-min) + min )
+	}
+	
+	function getColor(){
+		var str = "0123456789abcdef";
+		//从字符串中随机取出六个字符 进行拼接
+		//下标范围 ： 0--15
+		var color = "#";
+		for( var i = 1 ; i <= 6 ; i++ ){
+			color += str.charAt( rand(0,15) );//根据随机下标得到对应的字符
+		}
+		return color;
+	}
+	
+	/*var oLi =  document.getElementById("e");
+	oLi.style.backgroundColor = getColor();*/
+	//根据标签名查找对应的元素
+	var list = document.getElementsByTagName("li");//返回结果是一个复数  使用时必须加下标
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].style.backgroundColor = getColor();
+	}
+</script>

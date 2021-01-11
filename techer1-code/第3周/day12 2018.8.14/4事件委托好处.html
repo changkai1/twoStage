@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建li" id="btn" />
+		<div>
+			<ul>
+				<li>孩子多个1</li>
+				<li>孩子多个2</li>
+				<li>孩子多个3</li>
+				<li>孩子多个4</li>
+				<li aa="b">孩子多个5aa</li>
+				<li>孩子多个6</li>
+				<li>孩子多个7</li>
+				<li aa="b">孩子多个8aa</li>
+				<li>孩子多个9</li>
+				<li>孩子多个10</li>
+				<li aa="b">孩子多个11aa</li>
+				<li aa="n">孩子多个12aa</li>
+				<li>孩子多个13</li>
+				<li>孩子多个14</li>
+				<li>孩子多个15</li>
+				<li>孩子多个16</li>
+				<li>孩子多个17</li>
+				<li>孩子多个18</li>
+				<li>孩子多个19</li>
+				<li>孩子多个20</li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	//点击按钮 创建li
+	var oBtn = document.querySelector("#btn");
+	var oUl = document.querySelector("ul");
+	oBtn.onclick = function(){
+		var oli = document.createElement("li");
+		oli.innerHTML = "xxx";
+		oUl.appendChild( oli );
+		
+		/*for( var i = 0 ; i < oUl.children.length ; i++ ){
+			oUl.children[i].onclick = function(){
+				this.style.backgroundColor = "red";
+			}
+		}*/
+	}
+	//为所有的li添加单击事件(事件源是li)
+	oUl.onclick = function(e){
+		var e = e || event;
+		//重新获取事件源
+		var target = e.target || e.srcElement;
+		//alert( target.tagName );
+		/*if( target.tagName.toLowerCase() == "li" ){
+			target.style.backgroundColor = "pink";
+		}*/
+		
+		//事件源是具有aa属性的元素
+		if( target.getAttribute("aa") == "b" ){
+			target.style.backgroundColor = "pink";
+		}
+	}
+	 
+</script>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var i = 1;
+	var timer = setInterval( function(){
+		console.log( i++ );
+		if( i == 5 ){
+			clearInterval( timer );
+		}
+	},1000 )
+</script>

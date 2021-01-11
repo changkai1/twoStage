@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1"></p>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	var time = document.getElementById("p1");
+	//  不写这一句的话打开页面会有一秒的空白，写这句话主要是
+	//    打开页面时间能同步
+	var now = new Date();
+	time.innerHTML = dateToString( now );
+	
+	setInterval( function(){
+		var now = new Date();
+		time.innerHTML = dateToString( now );
+	},1000 )
+	
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    // 1.
+    var str = "good good study day day up";
+    var reg = /good/g;
+    var str = str.replace( reg , "best" );
+    console.log(str);  //best best study day day up
+
+    // 2.
+    var str1 = "hello bag , hello bog big bsg";
+    var reg = /b[aois]g/g;
+    var str1 = str1.replace( reg , "bug" );
+    console.log( str1 ); //hello bug , hello bug bug bug
+
+    // 3.
+    // 去除字符串开始位置处的空白字符
+    var str2 = "   hello   bug   "
+    var reg = /^\s+/g;
+    var str2 = str2.replace( reg , "");
+    console.log(str2);
+
+    // 4.
+    // 去除字符串结束位置处的空白字符
+    var str3 = "   hello   bug   "
+    var reg = /\s+$/g;
+    var str3 = str3.replace( reg , "");
+    console.log(str3);
+
+    // 5.
+    // 去除字符串开始、结束位置处的空白字符
+    var str4 = "   hello   bug   "
+    var reg = /(^\s+)|(\s+$)/g;
+    var str4 = str4.replace( reg , "");
+    console.log(str4);
+
+    // 6.
+    // 去除字符串所有位置处的空白字符
+    var str5 = "   hello   bug   "
+    var reg = /\s/g;
+    var str5 = str5.replace( reg , "");
+    console.log(str5);
+
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				Date : 构造函数
+				1.如何创建日期 对象 ？
+					new Date()
+					new Date(year,month,date,hours,minutes,seconds)
+					new Date(year,month,date)
+				2.如何获取？
+					//获取年
+					getYear()
+					getFullYear()
+					//月
+					getMonth()
+					//日
+					getDate()
+					//时
+					getHours();
+					//分
+					getMinutes()
+					//秒
+					getSeconds()
+					//毫秒
+					getMilleseconds()
+					//时间戳 ：从1970年1月1日0时整到现在的毫秒数
+					getTime()
+				3.扩展：如何设置？
+					//年
+					setFullYear()
+					//月
+					setMonth()
+					//日
+					setDate()
+					//时
+					setHours()
+					//分
+					setMinutes()
+					//秒
+					setSeconds()
+					//毫秒
+					setMilliseconds()
+					
+				4. 获取本地格式的日期时间
+				 toLocaleString()
+				 获取本地格式的日期
+				 toLocaleDateString()
+				 获取本地格式的时间
+				 toLocaleTimeString()
+			*/
+		   var date = new Date();
+		   date.setFullYear(1984);
+		   date.setMonth(2);
+		   date.setDate(5);
+		   date.setHours(18);
+		   date.setMinutes(30);
+		   date.setSeconds(50);
+		   date.setMilliseconds(500);
+		   console.log(date);
+		   console.log(date.getYear());
+		   console.log(date.getFullYear());
+		   console.log(date.getMonth());
+		   console.log(date.getDate());
+		   console.log(date.getDay());
+		   console.log(date.getHours());
+		   console.log(date.getMinutes());
+		   console.log(date.getSeconds());
+		   console.log(date.getMilliseconds());
+		   console.log(date.getTime());
+		   
+		   //输出本地格式的日期时间
+		   console.log(date.toLocaleString());
+		   //输出本地格式的日期
+		   console.log(date.toLocaleDateString());
+		   //输出本地格式的时间
+		   console.log(date.toLocaleTimeString());
+		   var now = new Date();
+		   now.setDate(now.getDate() + 3);
+		   console.log(now);
+		   
+		   var date1 = new Date(2018,9,1);
+		   console.log(date1);
+		</script>
+	</body>
+</html>

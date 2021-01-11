@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // switch嵌套，
+    // 1.剪刀  2.石头   3.布
+    var computer = parseInt(Math.random()*3)+1;
+    console.log(computer)
+    var player = parseInt(prompt("请输入1.剪刀、2.石头、3.布"));
+    switch(player){
+        case 1 : { //剪刀
+            switch(computer){
+                case 1 : alert("平局");break; //剪刀
+                case 2 : alert("计算机胜");break; //石头
+                case 3 : alert("玩家胜");break; //布
+            }
+            break;
+        }
+        case 2 : { //石头
+            switch(computer){
+                case 1 : alert("玩家胜");break; //剪刀
+                case 2 : alert("平局");break; //石头
+                case 3 : alert("计算机胜");break; //布
+            }
+            break;
+        }
+        case 3 : { //布
+            switch(computer){
+                case 1 : alert("计算机胜");break; //剪刀
+                case 2 : alert("玩家胜");break; //石头
+                case 3 : alert("平局");break; //布 
+            }
+            break;
+        }
+    }
+
+
+
+
+
+
+
+
+
+</script>

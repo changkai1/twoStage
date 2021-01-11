@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//混合模式
+			function Dog(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Dog.prototype.showName = function(){
+				return this.name;
+			}
+			Dog.prototype.showAge = function(){
+				return this.age;
+			}
+			
+			
+			function Huskie(name,age){
+				Dog.apply(this,arguments);
+			}
+			for(var i in Dog.prototype){
+				Huskie.prototype[i] = Dog.prototype[i];
+			}
+			var hk = new Huskie('小哈',1);
+			console.log(hk.showName());
+		</script>
+	</body>
+</html>

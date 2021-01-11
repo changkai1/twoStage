@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    行：<input type="text" id="r">
+    列：<input type="text" id="c">
+    <input type="button" value="创建表格" id="btn">
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    
+    $id("btn").onclick = function(){
+        $id("container").innerHTML = "";
+        var row = $id("r").value;
+        var col = $id("c").value;
+        // 创建一个表格
+        var oTab = document.createElement("table");
+        // 把表格放到container中
+        $id("container").appendChild(oTab);
+        oTab.border = 1;
+        // 创建行和列
+        for(var i = 1; i <= row; i++){ //控制行
+            var tr = document.createElement("tr");
+            for(var j = 1; j <= col; j++){ //控制列
+                var td = document.createElement("td");
+                td.innerHTML = rand(1,100);
+                td.style.background = getColor();
+                tr.appendChild(td);
+            }
+            var tdEnd = document.createElement("td");
+            tr.appendChild(tdEnd);
+            tdEnd.innerHTML = "<input type='button' value='删除' class='del'>";
+            oTab.appendChild(tr);
+        }
+        // 找到所有的删除按钮，加事件
+        var oDel = document.getElementsByClassName("del");
+        for(var i = 0; i < oDel.length; i++){
+            oDel[i].onclick = function(){
+                if( confirm("确定要删除吗？") ){
+                    this.parentNode.parentNode.remove();
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+</script>

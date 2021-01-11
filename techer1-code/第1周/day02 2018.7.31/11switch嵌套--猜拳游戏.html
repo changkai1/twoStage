@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 设计一个猜拳游戏：
+		假设： 1代表石头   2代表剪刀   3代表 布
+	
+		计算机每次随机出现1—3中的任意一个数（parseInt (Math.random()*3) + 1）
+	
+		玩家也有三种状态，用玩家出的数和计算机出的数进行比对，按照游戏规则比出胜负。
+	 */
+	//console.log( parseInt(Math.random()*3) + 1 );
+	//计算机随机发出一个1--3之间的随机整数
+	var computer = parseInt (Math.random()*3) + 1;
+	console.log( computer );
+	//用户输入一个1--3的整数
+	var player =parseInt( prompt( "请出拳  1代表石头   2代表剪刀   3代表 布" ) );
+	switch( player ){
+		case 1:{
+			switch( computer ){
+				case 1 : alert("平局");break;
+				case 2 : alert("玩家胜出");break;
+				case 3 : alert("计算机胜出");break;
+			}
+			break;
+		}
+		case 2:{
+			switch( computer ){
+				case 1 : alert("计算机胜出");break;
+				case 2 : alert("平局");break;
+				case 3 : alert("玩家胜出");break;
+			}
+			break;
+		}
+		case 3:{
+			switch( computer ){
+				case 1 : alert("玩家胜出");break;
+				case 2 : alert("计算机胜出");break;
+				case 3 : alert("平局");break;
+			}
+			break;
+		}
+	}
+</script>

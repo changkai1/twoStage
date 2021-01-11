@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    获取键盘的按键值 ：
+        keyCode   字母以大写字母的编码值为准   兼容 ： （扩展）  e.keyCode || e.which
+        功能键：ctrlKey 指的是 ctrl键   altKey  指的是 alt键    shiftKey 指的是  shift键   功能键 返回的都是布尔值  按下的是某个功能键 返回true
+    */ 
+    document.onkeyup = function(e){
+        var e = e || event;
+        // alert(e.keyCode);  //输出编码值 字母以大写字母的编码值为准
+        // 按回车和ctrl键发送
+        if( e.keyCode == 13 && e.ctrlKey){
+            alert("发送");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+</script>

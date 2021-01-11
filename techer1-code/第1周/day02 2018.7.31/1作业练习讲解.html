@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 用户输入一个三位数，用程序计算三位数字的和。
+比如：  
+用户输入155，就弹出11
+用户输入316，就弹出10
+用户输入989，就弹出26
+用户输入678，就弹出21
+注意：用户输入数字的有效性、合法性不用考虑。比如，如果用户输入34343、“我爱你”，这种情况我们不要去考虑，你就想像，用户会非常乖，一定会输入3位数的。这是因为我们没有学习if语句。
+	
+	思路 ： 取出这个数的 个位数    十位数  百位数
+	个位数 ： num%10
+	十位数 ：parseInt(num/10)%10
+	百位数 ： parseInt( num/100 );
+	 */
+	/*var num = prompt("请输入一个三位数");
+	//取出这个数的各个位数
+	var digit = num%10;//个位
+	var ten = parseInt( num/10 )%10;
+	var hund = parseInt( num/100 );
+	alert( "这个三位数的各个位数和是:" + (digit + ten + hund) );*/
+	
+	//判断一个年份是闰年还是平年(提示：条件运算符)
+    //闰年条件：  year 能被4整除，不能被100整除，或 可以被400整除
+    //var year = 2010;
+   // alert( year%4==0&&year%100!=0 || year%400==0 );
+  // alert( year%4==0&&year%100!=0 || year%400==0 ? "闰年" : "平年" ) 
+   
+   //奇数条件  num%2 == 1  num%2 != 0    偶数条件  num%2==0   num%2!=1
+   
+   
+   
+   //定义两个数  将这两个数的值 交换
+   var iOne = 1 , iTwo = 3;
+   /*var temp;//定义一个临时变量 
+   temp = iOne;
+   iOne = iTwo;
+   iTwo = temp;*/
+   //不借助第三个变量  完成两个变量的交换
+   iOne = iOne + iTwo;//iOne = 4
+   iTwo = iOne - iTwo;//iTwo = 1
+   iOne = iOne - iTwo;//iOne = 3
+   console.log( "iOne = " + iOne );
+   console.log( "iTwo = " + iTwo );
+</script>

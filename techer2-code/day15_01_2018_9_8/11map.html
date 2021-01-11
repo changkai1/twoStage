@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+// 			var a = [];
+// 			var b = [];
+// 			let obj = {};
+// 			obj[a] = 1;
+// 			obj[b] = 2;
+// 			console.log(obj);
+// 			//map : 的值必须是key : value
+// 			let map = new Map([
+// 				["name","张三"],
+// 				[true,true],
+// 				[[],1],
+// 				[[],2]
+// 				
+// 			])
+// 			console.log(map);
+// 			console.log(map.size);
+
+			let map = new Map();
+			//添加元素
+			map.set("key1","value1").set("key2","value2").set(true,true).set(null,null);
+			//获取元素
+			console.log(map.get("key2"));
+			//判断key是否属于map,返回布尔值     has()
+			console.log(map.has(true));
+			//删除指定key的元素     delete()
+			console.log(map.delete(true));
+			//清空整个map    clear()
+			//map.clear();
+			//获取map中所有的key     keys()
+			//console.log(map.keys());
+			var keys = map.keys();
+			for(let key of keys){
+				console.log(key);
+			}
+			//获取map中所有的value   values()
+			var values = map.values();
+			for(let value of values){
+				console.log(value);
+			}
+			//获取map中所有的key和value   entries()
+			var keyValue = map.entries();
+			for(let [key,value] of keyValue){
+				console.log(key,value);
+			}
+			//遍历   forEach(function(value,key,map){})
+			map.forEach(function(value,key){
+				console.log(key + '=>' + value);
+			})
+			console.log(map);
+			
+		</script>
+	</body>
+</html>

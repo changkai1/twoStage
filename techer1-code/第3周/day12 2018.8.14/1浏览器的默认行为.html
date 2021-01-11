@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1><a href="http://www.baidu.com">浏览器的默认行为</a></h1>
+	</body>
+</html>
+<script>
+	var objA = document.querySelector("a");
+	objA.onclick = function(e){
+		var e = e || event;
+		/*e.preventDefault();
+		e.returnValue = false;*/
+		//e.preventDefault ? e.preventDefault() : e.returnValue = false;
+		alert()
+		
+		return false;
+	}
+	
+	/*objA.addEventListener("click",function(e){
+		alert("hello");
+		
+		e.preventDefault();
+	})*/
+</script>

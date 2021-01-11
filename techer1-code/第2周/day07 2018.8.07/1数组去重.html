@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	2、	编写函数has(arr , num) 判断数组中是否存在num这个元素，返回布尔类型
+	3、	编写函数norepeat(arr) 将数组的重复元素去掉，并返回新的数组 (此题为13K)
+	[1,2,1,34,2,5,6,2]
+	去重后：
+	[1,2,34,5,6]
+	 */
+	function has(arr,num){    
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i] == num ){
+				return true; // 有
+			}
+		}
+		return false;//没有
+	}
+	/*var res = has( [23,45,56] , 56 );
+	alert( res );*/
+	
+	/*思路1 ： 定义一个空数组 ， 遍历原数组，判断原数组中的每一个数在空数组中是否存在，如果不存在 ，就将这个数 存入到 空数组中 */
+	function norepeat( arr ){ //arr就是要去重的数组 （原数组）
+		var newarr = [];//空数组 用来存储去重后的数据
+		for( var i = 0 ; i <arr.length ; i++ ){
+			//var res =  has( newarr,arr[i] );
+			if( !has( newarr,arr[i] ) ){ //不存在
+				newarr.push( arr[i] );
+			}
+		}
+		return newarr;
+	}
+	//var res = norepeat( [34,34,23,34,56,56,23] );
+	//alert( res );
+	
+	/*
+	 思路2 ： 
+	 先将数组按照一定的顺序排好（升序或降序）
+	 用数组相邻的两个数做比较，如果相邻的两个数不相等，就将前一个数存入到新数组中
+	 */
+	function norepeat2( arr ){
+		//先将数组进行排序
+		arr.sort( function(a,b){
+			return a-b>0;
+		} )
+		var newarr = [];//存储去重后的数据
+		//遍历原数组 比较相邻的两个数
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i] != arr[i+1] ){
+				newarr.push( arr[i] );
+			}
+		}
+		return newarr;
+	}
+	
+	var res = norepeat2( [34,2,34,2,45,67,45,67,56,2] );
+	alert( res );
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- <div id="box" title="标题" class="pox" data-pro-id="pro1">
+			<a href="http://www.1000phone.com"><img src="../../day37_2018_7_31/shopping/img/1.jpg"></a>
+		</div> -->
+		
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+// 			var div = document.createElement('div');
+// 			div.id = 'box';
+// 			div.title = '标题';
+// 			div.className = 'pox';
+// 			div.setAttribute('data-pro-id','pro1');
+			
+			var $ele = $(`<div id="box" title="标题" class="pox" data-pro-id="pro1">
+			<a href="http://www.1000phone.com"><img src="../../day37_2018_7_31/shopping/img/1.jpg"></a>
+		</div>`);
+			$ele.appendTo($('body'));
+			$('body').append(`<div id="box" title="标题" class="pox" data-pro-id="pro1">
+			<a href="http://www.1000phone.com"><img src="../../day37_2018_7_31/shopping/img/1.jpg"></a>
+		</div>`)
+			$('body').prepend('<h3>三级标题</h3>');
+			$('<h2>老二</h2>').prependTo($('body'));
+			$('h3').after($('h2'));
+			$('h3').insertAfter($('#box'));
+			$('div').before('<p>我在div的前面</p>');
+			
+			$('<h1>我是老大，我在前面</h1>').insertBefore($("div"));
+		</script>
+	</body>
+</html>

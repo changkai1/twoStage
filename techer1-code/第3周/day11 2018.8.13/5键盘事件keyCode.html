@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	document.onkeyup = function(e){
+		var e = e || event;
+//		alert( e.keyCode );
+		//安装回车键发送  e.keyCode == 13 
+		//安装ctrl+回车键发送
+		if( e.keyCode == 13 && e.ctrlKey ){
+			alert( "发送" );
+		}
+	}
+</script>

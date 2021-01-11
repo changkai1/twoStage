@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				求一个班级的最高成绩、最低成绩、总成绩、平均成绩
+				
+			*/
+		   var num = parseInt(prompt("请输入班级人数："));
+		   var arr = new Array(num);
+		   inputScore(arr);
+		   var max = myMax(arr);
+		   var min = myMin(arr);
+		   var sum = mySum(arr);
+		   var svg = mySvg(sum,num);
+		   function inputScore(arr){
+			   for(var i = 0,len = arr.length;i < len;i ++){
+				   arr[i] = Number(prompt("请输入第" + (i + 1) + "个学生的成绩："));
+			   }
+			   return arr;
+		   }
+		   
+		   //max
+		   function myMax(arr){
+			   var max = arr[0];
+			   for(var i = 0,len = arr.length;i < len;i ++){
+				   if(max < arr[i]){
+					   max = arr[i];
+				   }
+			   }
+			   return max;
+		   }
+		   //min
+		   function myMin(arr){
+			   var min = arr[0];
+			   for(var i = 0,len = arr.length;i < len;i ++){
+				   if(min > arr[i]){
+					   min = arr[i];
+				   }
+			   }
+			   return min;
+		   }
+		   //sum
+		   function mySum(arr){
+			   var sum = 0;
+			   for(var i = 0,len = arr.length;i < len;i ++){
+				   sum += arr[i];
+			   }
+			   return sum;
+		   }
+		   //svg
+		   function mySvg(sum,num){
+			   return sum / num;
+		   }
+		</script>
+	</body>
+</html>

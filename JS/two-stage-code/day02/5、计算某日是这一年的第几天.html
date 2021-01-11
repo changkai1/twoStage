@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    年：<input type="text" id="year"><br/>
+    月：<input type="text" id="month"><br/>
+    日：<input type="text" id="day"><br/>
+    <input type="button" value="计算" id="btn">
+    <input type="button" value="重置" id="reset">
+    这一天是这一年的第 <input type="text" id="days">天
+</body>
+</html>
+<script>
+    // 计算这一天是这一年的第几天,月份倒着写
+    //为按钮添加事件
+    var oBtn = document.getElementById("btn");
+    btn.onclick = function(){
+        var sum = 0;
+        var y = parseInt(year.value);
+        var m = parseInt(month.value);
+        var d = parseInt(day.value);
+        switch(m){
+            case 12 : sum += 30; //11月
+            case 11 : sum += 31; //10月
+            case 10 : sum += 30; // 9月
+            case 9  : sum += 31; // 8月
+            case 8  : sum += 31; // 7月
+            case 7  : sum += 30; // 6月
+            case 6  : sum += 31; // 5月
+            case 5  : sum += 30; // 4月
+            case 4  : sum += 31; // 3月
+            case 3  : {
+                y%4 == 0 && y%100 != 0 || y%400 == 0 ? sum += 29 : sum += 28;   // 2月
+            }
+            case 2  : sum += 31; // 1月
+            case 1  : sum += d ;
+        }
+        days.value = sum;
+    }
+    reset.onclick = function(){
+        year.value = "";
+        month.value = "";
+        day.value = "";
+        days.value = "";
+    }
+
+
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+        button属性 获取鼠标左键，滚轮，右键
+        左键：0
+        滚轮：1
+        右键：2
+    */ 
+    document.onmouseup = function(e){
+        var e = e || event;
+        if( e.button == 0){
+            alert("单机了鼠标左键");
+        }
+
+        // alert(e.button) //左键：0  滚轮：1  右键：2
+    }
+
+
+
+
+
+
+
+
+
+
+</script>

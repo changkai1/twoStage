@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+     <!-- 1.显示隐藏 -->
+    <!-- <input type="button" value="显示" id="btn">
+    <div id="box"></div> -->
+
+    <!-- 2.计算器 -->
+    <input type="text" id="t1">
+    <select name="" id="sel">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id="t2">
+    <input type="button" value="=" id="btn">
+    <input type="text" id="t3">
+</body>
+</html>
+<script>
+    // 1.
+    // var oBtn = document.getElementById("btn");
+    // var oDiv = document.getElementById("box");
+    // var flag = true;// 开关变量，假设为true时，div显示
+    // oBtn.onclick = function(){
+    //     if( flag ){
+    //         oDiv.style.display = "block";
+    //         oBtn.value = "隐藏";
+    //         // flag = false;
+    //     }else{
+    //         oDiv.style.display = "none";
+    //         oBtn.value = "显示";
+    //         // flag = true;
+    //     }
+    //     // 简写
+    //     flag = !flag;
+    // }
+
+    // 2.
+    var t1 = document.getElementById("t1");
+    var t2 = document.getElementById("t2");
+    var t3 = document.getElementById("t3");
+    var oSel = document.getElementById("sel");
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function(){
+        var sign = oSel.value;
+        var num1 = parseInt(t1.value);
+        var num2 = parseInt(t2.value);
+        var res = 0;
+        // switch( sign ){
+        //     case "+" : res = num1 + num2;break;
+        //     case "_" : res = num1 - num2;break;
+        //     case "*" : res = num1 * num2;break;
+        //     case "/" : res = num1 / num2;break;
+        // }
+        // t3.value = res;
+
+        // 第二种方法技巧
+        t3.value = eval(num1 + sign + num2);
+    }
+</script>

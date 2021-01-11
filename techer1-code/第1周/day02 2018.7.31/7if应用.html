@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 2．用户输入自己的考试成绩，提示用户是否及格。如果及格了，弹出警告框“恭喜，你及格了”、“不要骄傲啊”。如果没有及格，那么弹出警告框“很遗憾，你没有及格”、“请继续努力啊”。 然后都弹出“么么哒”。(if)
+	*/
+	/*var score = 50;
+	if( score >= 60 ){
+		alert( "恭喜，你及格了" );
+		alert( "不要骄傲啊" );
+	}else{
+		alert( "很遗憾，你没有及格" );
+		alert( "请继续努力啊" );
+	}
+	
+	alert("么么哒");*/
+	
+	/*
+	 3．根据 BMI （身体质量指数）显示一个人的体型。 ( 多条件 )
+		BMI 指数，就是体重、身高的一个计算公式。公式是：
+		BMI = 体重kg÷身高的平方  身高单位: m米   如：  1.9 
+		条件：
+		过轻：低于 19
+		正常： 19-25
+		过重： 25-28
+		肥胖： 28-32
+		非常肥胖 , 高于32
+			要求：
+		用 JavaScript开发一个程序，让用户先输入自己的体重，然后输入自己的身高（弹出两次 prompt 框）。计算它的 BMI，根据上表，弹出用户的身体情况。比如“过轻” 、 “正常” 、“过重” 、 “肥胖” 、“非常肥胖”。
+	 */
+	var height =parseFloat( prompt("请输入身高m") );
+	var weight = parseFloat( prompt("请输入体重kg") );
+	//Math.pow( m,n ) 计算m的n次方 
+	var BMI = weight / Math.pow( height,2 );
+	if( BMI < 19 ){
+		alert("过轻");
+	}else if( BMI < 25 ){
+		alert("正常");
+	}else if( BMI < 28 ){
+		alert("过重");
+	}else if( BMI < 32 ){
+		alert("过胖");
+	}else{
+		alert("肥胖");
+	}
+</script>

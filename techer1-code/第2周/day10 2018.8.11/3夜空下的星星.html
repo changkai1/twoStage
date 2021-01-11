@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body bgcolor="#000000">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	//页面加载后  在页面上不同位置  间隔一定时间创建不同大小的星星
+	//页面加载 启动定时器
+	window.onload = function(){
+		setInterval( function(){
+			//创建一个图片
+			var oImg = document.createElement("img");
+			//为图片设置路径
+			oImg.src = "star.gif";
+			//将图片添加到body中
+			document.body.appendChild( oImg );
+			
+			//获取随机的宽度和高度  
+			var w = rand(10,30);
+			//设置图片的宽度和高度
+			oImg.width = oImg.height = w;
+			
+			//改变图片的位置  先为图片设置绝对定位
+			oImg.style.position = "absolute";
+			//window.innerWidth  获取浏览器的宽度
+			oImg.style.left = rand(0,window.innerWidth-w) + "px";			
+			oImg.style.top = rand(0,window.innerHeight-w) + "px";			
+		
+			//为创建的元素添加onclick事件
+			oImg.onclick = function(){
+				//this.remove();
+				document.body.removeChild( this );
+			}
+		},1000 )
+	}
+</script>

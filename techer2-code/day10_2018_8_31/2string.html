@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				String:
+				一.如何创建字符串?
+					1. 字面量的方式: ""   ''
+					2. 构造函数方式: new String('')
+				二.属性
+					length : 表示长度
+				三.方法:
+					查:
+						indexOf('字符串',start): 查找子串在父串中第一次出现的下标位置,没有找到,返回-1
+							var str = "中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(str.length);
+							console.log(strNew.indexOf('do',10));
+						lastIndexOf('字符串',start): 查找子串在父串中从右向左第一次出现的下标位置,如果没有找到,返回-1
+							var str = "中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(str.length);
+							console.log(strNew.lastIndexOf('do'));
+						charAt(下标): 通过下标查找指定的字符
+							var str = "中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(str.length);
+							// console.log(strNew.charAt(4));
+							for(var i = 0,len = strNew.length;i < len;i ++){
+								console.log(strNew.charAt(i))
+							}
+						charCodeAt(下标): 查找指定下标位置字符的编码值
+							var str = "中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(str.length);
+							console.log(strNew.charAt(40));
+							for(var i = 0,len = strNew.length;i < len;i ++){
+								console.log(strNew.charCodeAt(i));
+							}
+					替:
+						replace(旧串,新串) : 替换指定的字符串,一次只能替换一个
+							var str = "我你中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(strNew.replace('do','de'));
+						思考:如何替换所有指定的字符串?
+					截:
+						substring(start,end) : 截取指定范围的字符串
+						slice(start,end) :   截取指定范围的字符串
+						substr(start,length) : 截取指定长度的字符串
+						
+							var str = "我你中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(strNew.substring(4,6));
+							console.log(strNew.slice(4,6));
+							console.log(strNew.substr(4,6));
+							
+							var str = "我你中 华人民共和国";
+							var strNew = new String("how do you do");
+							console.log(strNew.substring(6,4)); //"do"
+							console.log(strNew.slice(6,4));    //""
+							console.log(strNew.substr(4,6));  
+							 
+							 var str = "我你中 华人民共和国";
+							 var strNew = new String("how do you do");
+							 console.log(strNew.substring(-6,-4)); //""
+							 console.log(strNew.slice(-6,-4));     //"yo"
+							 console.log(strNew.substr(4,6));
+					转:
+						toUpperCase() : 将小写字母转为大写字母
+						toLowerCase() : 将大写字母转为小写字母
+						split("切割符",length): 将字符串转为数组
+							var str = "我你中 华人民共和国";
+							var strNew = new String("How Do You Do");
+							console.log(strNew.toUpperCase());
+							console.log(strNew.toLowerCase());
+							console.log(strNew.split('o',2));
+				四.静态方法
+					String.fromCharCode() : 将编码转为字符
+				五.字符集的故事
+				4e00    19968
+				9fa5    40869    20902(回文数)
+				
+				var str = '';
+				for(var i = 19968;i <= 40869;i ++){
+					str += String.fromCharCode(i) + ' ';
+				}
+				document.write(str);
+			*/
+		   
+		   
+		</script>
+	</body>
+</html>

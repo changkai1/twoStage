@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        正则
+        1. 定义:reg=/普通字符或特殊字符组成/;
+        2. test()  校验某个字符串是否符合某个字符规范，符合返回true
+        3. [ ] 表示括号内的任意一个字符 [12as]表示1或2或a或s   括号内连续的数字或字母可以这样写[0-9]表示0123456789  [a-z]表示所有小写字母
+        4. [\u4e00-\u9fa5] 表示任意一个中文
+        5. \表示转义字符
+    */ 
+    var reg = /\d{6}/; //只是包含六个数字，不严谨
+    var reg = /^\d{6}$/; //包含6个数字
+    var reg= /^a{3,6}$/; //至少出现3个a，最多出现6个a
+    var reg = /^\w{1,10}$/; //数字，字母，下划线至少1个，最多10个
+    var reg = /^.{6,}$/;  // .表示任意字符，至少出现6次
+    var reg = /^(13|15)\d{9}$/; //表示以13或15开头的手机号
+
+    // 定义一个正则，表示一个5--10位的qq号，不能用0开头
+    var reg = /^[1-9]\d{4,9}$/;
+    // 表示一个姓名的正则
+    var reg = /^[\u4e00-\u9fa5]{2,6}$/;
+    // 表示www.baidu.com  \
+    var  reg = /^www\.baidu\.com$/;
+
+
+
+
+
+
+</script>

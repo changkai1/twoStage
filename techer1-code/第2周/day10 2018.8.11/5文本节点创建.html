@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建" id="btn" />
+	</body>
+</html>
+<script>
+	//定义一个函数 功能返回创建的元素
+	function create( ele ){
+		return document.createElement( ele );
+	}
+	
+	var oBtn = document.getElementById("btn");
+	oBtn.onclick = function(){
+		var oDiv = create("div");
+		
+		//创建一个文本节点
+		var txt = document.createTextNode("div标签的内容");
+		
+		//将创建的文本节点添加到oDiv
+		oDiv.appendChild( txt );
+		
+		//将div添加到body中
+		document.body.appendChild( oDiv );
+	}
+</script>

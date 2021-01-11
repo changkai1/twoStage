@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名 ： <input type="text" id="uname" /> <br>
+		密码 ：   <input type="text" id="upwd" /><br>
+		<input type="button" value="注册" id="btn"/>
+	</body>
+</html>
+<script>
+	//注册功能
+	var saveBtn = document.querySelector("#btn");
+	var txtName = document.querySelector("#uname");
+	var txtPwd = document.querySelector("#upwd");
+	saveBtn.onclick = function(){
+		var strName = txtName.value;
+		var strPwd = txtPwd.value;
+		//存 联系方式
+		document.cookie = "tel=13299900009";
+		//存用户名
+		document.cookie = "username="+strName;
+		//存 联系地址
+		document.cookie = "addr=北京市";
+		//存密码
+		document.cookie = "userpwd="+strPwd;
+		
+		alert("注册成功");
+		location.href = "login2.html";
+	}
+</script>

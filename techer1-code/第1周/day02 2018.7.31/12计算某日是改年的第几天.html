@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//计算这一天是这一年的第几天
+	var y = 2000, m = 12 , d = 2;
+	var sum = 0;
+	
+	// 2
+	// 31 + 2
+	// 31 + 28 + 2
+	// 31 + 28 + 31 + 2
+	//实现累加的过程    让某个变量持续变化，变化过程就是累加 每一月的添加 
+	//为什么月份倒着写 ：   程序从上到下执行的，当计算4月2号是这一年的第几天时，需要得到1月 2月 和3月的天数        按顺序向下查找 
+	//为什么 case 12 ：  累加11月份的天数 ？？？     让程序的可读性更好   可以计算任意年的任一天
+	switch( m ){
+		case 12 : sum += 30;//11月
+		case 11 : sum += 31;  
+		case 10 : sum += 30;
+		case 9 :  sum += 31;
+		case 8 :  sum += 31;
+		case 7 :  sum += 30;  
+		case 6 :  sum += 31;
+		case 5 : sum += 30;
+		case 4 : sum += 31; //3月
+		case 3 : {
+			y%4==0&&y%100!=0||y%400==0 ? sum += 29 : sum += 28;
+		}
+		case 2 : sum += 31; // 1月
+		case 1 : sum += d; 
+	}
+	alert( "这一天是这一年的第"+sum+"天" );
+</script>

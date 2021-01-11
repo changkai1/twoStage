@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+    // 1.取数组中的最值
+    var arr = [34,2,67,5,89,787];
+    // 最小值
+    var min = arr[0];  //假设数组中的第一数最小
+    for(var i = 1; i < arr.length; i++){
+        if( min > arr[i] ){
+            min = arr[i];
+        }
+    }
+    // console.log(min); //2
+
+    // 最大值
+    var max = arr[0]; //假设数组中的最大值是第一个数
+    for(var i = 1; i < arr.length; i++){
+        if( max < arr[i] ){
+            max = arr[i];
+        }
+    }
+    // console.log(max); //787
+
+    // 2.定义一个含有10个元素的数组，计算数组中素数的个数
+    var count = 0;
+    var arr1 = [45,6,7,8,9,23,13,455,67,987];
+    for(var i = 0; i < arr1.length; i++){
+        if(isPrimerNumber(arr1[i])){ //是素数
+            count++;
+        }
+    }
+
+    // function isPrimerNumber(num){
+    //     for( var i = 2; i < num; i++ ){
+    //         if( num % i == 0 ){//不是素数
+    //             return false;
+    //         }
+    //     }
+    //     return true;  //是素数
+    // }
+    // console.log(count); //4
+
+
+    // 3.使用{}形式创建一个对象，该对象存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，该对象包含一个自我介绍的方法，用来输出该对象的所有信息
+    var stuObj = {
+        sid : 1,
+        idCard : "123123123",
+        age : 13,
+        sex : "男",
+        major : "计算机",
+        introduce : function(){
+            // console.log(stuObj.age,stuObj.idCard); //13 "123123123"
+        }
+    }
+    stuObj.introduce();
+
+
+    // 4.已知数组 arr = [23,12],将数组中的两个数交换后输出
+    var arr = [23,12];
+    var t = 0;
+    t = arr[0];
+    arr[0] = arr[1];
+    arr[1] = t;
+    // console.log(arr);
+
+
+    // 5.二维数组  第一个表示行，第二个表示列
+    var arr2 = [[1,2],[4,5],[45,34],[6,7]];
+    for(var i = 0; i < 4; i++){ //行
+        for(var j = 0; j < 2; j++){ //列
+            // document.write(arr2[i][j]+" ");
+        }
+        // document.write("<br>");
+    }
+
+
+    // 6.循环输出5*5的二维数组,为数组赋值
+    var arr3 = [[],[],[],[],[]];
+    var num = 1;
+    for(var i = 0; i < 5; i++){
+        for(var j = 0; j < 5; j++){
+            arr3[i][j] = num;
+            num++;
+        }
+    }
+    // 输出左下面的三角
+    document.write("<table>");
+    for(var i = 0; i < 5; i++){
+        document.write("<td>")
+        for(var j = 0; j < i; j++){
+            document.write("<td>"+ arr3[i][j]+"</td>")
+        }
+        document.write("</tr>")
+    }
+    document.write("</table>");
+
+
+
+
+
+
+
+
+</script>

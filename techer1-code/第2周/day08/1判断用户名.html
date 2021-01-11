@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t" />
+		<input type="button" id="b" value="登录"/>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	/*
+	 2、	已知页面中有个用户名和密码的文本框，一个登录按钮
+当点击登录按钮时，需要对用户名格式进行验证：
+
+	  要求：   长度在6—20 之间，否则alert提示
+			不能用数字开头    否则有alert提示
+			只能包含数字、字母、下划线，都正确，提示 正确，否则输出 只能包含字母数字下划线
+	 */
+	$id("b").onclick = function(){
+		//取出输入的用户名
+		var str = $id("t").value;
+		//长度判断
+		if( str.length < 6 || str.length > 20 ){
+			alert("长度必须在6--20之间");
+			return;
+		}
+		//第一位不能是数字
+		if( str.charAt(0) >= "0" && str.charAt(0) <= "9" ){
+			alert("不能用数字开头");
+			return;
+		}
+		
+		//只能包含数字、字母、下划线
+		/*
+		统计字符串中数字+字母+下划线的总个数 count
+		如果 count === str.length  说明没有特殊字符存在
+		如果不相等  说明有特殊字符存在
+		 */
+		var count = 0;
+		//把所有的大写字母转成小写  统计小写字母条件
+		str = str.toLowerCase();
+		for( var i = 0 ; i < str.length ; i++ ){
+			var ch = str.charAt(i);
+			if( ch>="a"&&ch<="z"||ch>="0"&&ch<="9"||ch=="_" ){
+				count++;
+			}
+		}
+		
+		if( count == str.length ){
+			alert("合法");
+		}else{
+			alert("只能包含字母 数字 下划线");
+		}
+	}
+</script>

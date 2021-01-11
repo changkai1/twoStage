@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+			<!-- <li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li> -->
+		
+		<script type="text/javascript">
+			var oBody = document.body;
+			var oFlag = document.createDocumentFragment(); //创建文档碎片
+			for(var i = 0;i < 5;i ++){
+				var ol = document.createElement('li');
+				ol.innerHTML = i + 1;
+				oFlag.appendChild(ol);
+			}
+			oBody.appendChild(oFlag);
+		</script>
+	</body>
+</html>

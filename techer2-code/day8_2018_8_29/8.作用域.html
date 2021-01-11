@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				script : 作用域
+				只要在script标签作用域中声明的变量，都是全局变量，所有的全局变量都是window对象的属性
+				只要在script标签作用域中声明的函数，都是全局函数，所有的全局函数都是window对象的方法
+				一旦进入作用域，就会启动JS解析器
+				作用域链：当执行函数（子）作用域中的表达式时，如果在当前作用域中没有找到所在执行的变量或函数时，向父级作用域查找，一直查找到script全局作用域，如果找到了，则执行表达式。如果没有找到，则报错。
+				当有多个script标签时，会先执行第一个script（预解析，逐行解读代码），然后依次解析并执行后面的script标签。
+				一、 预解析 var  function 形参  
+					a = 2
+					fn = function(){}
+					
+				二、逐行解读代码
+					1.表达式
+					2.函数调用（作用域）
+						一、预解析 var function 形参
+						
+						二、逐行解读代码
+							1.表达式
+						
+						
+			*/
+			
+			
+			function fn(){ //形参是局部变量    a = 1
+				//alert(a);  //undefined
+				a = 2; //隐式声明的变量属于全局变量
+				alert(a); //2
+			}
+			fn();
+			alert(a); //2
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

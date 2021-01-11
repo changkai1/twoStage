@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<p>通过ajax对象与服务器建立连接，发送请求，请求服务器中的abc.txt文件中的内容</p>
+		<input type="button" name="btn" id="btn" value="请求数据" />
+		<div id="box">
+			
+		</div>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			var oDiv = document.getElementById("box");
+			//alert(a);
+			//加事件
+			oBtn.onclick = function(){
+				ajax('abc.michael',function(str){
+					oDiv.innerHTML = str;
+				})
+			}
+		</script>
+	</body>
+</html>

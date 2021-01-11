@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			(一)保护函数内的变量安全。
+			(二)在内存中维持一个变量。
+			(三)通过闭包返回局部变量
+			(四)使用全局变量进行累加和
+			var num = 3;
+			function fn(){
+				num ++;
+			}
+			fn();
+			alert(num);
+			fn();
+			alert(num);
+			fn();
+			alert(num);
+			(五)使用局部变量进行累加和
+			循环里的匿名函数的取值问题
+			*/
+		   function fn(){
+			   var arr = [];
+			   for(var i = 0;i < 5;i ++){
+				   arr[i] = function(i){
+					   return i;
+				   };
+			   }
+			   return arr;
+		   }
+		 
+		  var list = fn();
+		  for(var i = 0;i < list.length;i ++){
+			  console.log(list[i]()); //5个undefined
+		  }
+		   
+		</script>
+	</body>
+</html>

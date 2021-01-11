@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.dd{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+	<body>
+		<input type="button" value="创建div" id="btn"/>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>
+<script>
+	var oBtn = document.querySelector("#btn");
+	var box = document.querySelector("#container");
+	oBtn.onclick = function(){
+		//创建一个div元素
+		var oDiv = document.createElement("div");
+		//将创建的元素添加到页面的container容器中
+		box.appendChild( oDiv );
+		
+		//为创建的元素添加一个样式类
+		oDiv.className = "dd";
+		//为创建的元素添加内容
+		oDiv.innerHTML = "新创建的div";
+	}
+</script>

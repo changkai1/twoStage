@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="d"></div>
+    <img src="a.jpg" alt="" id="m">
+</body>
+</html>
+<script>
+    var oBtn = document.getElementById("btn");
+    var oDiv = document.getElementById("d");
+    var oImg = document.getElementById("m");
+    oBtn.onclick = function(){
+        oDiv.innerHTML = "好好学习";
+        oDiv.style.color = "white";
+        oDiv.style.backgroundColor = "pink";
+        oDiv.style.textAlign = "center";
+        oDiv.style.fontSize = "20px";
+    }
+    oImg.onmouseenter = function(){
+        oImg.src = "b.jpg";
+    }
+    oImg.onmouseleave = function(){
+        oImg.src = "a.jpg";
+    }
+
+
+
+
+</script>

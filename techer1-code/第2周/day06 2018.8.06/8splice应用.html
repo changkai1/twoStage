@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//10、定义一个含有10个元素的数组，任意输入一个数，判断这个数在数组中是否存在，如果存在，就删除这个数
+	//删除数组中的某个数
+	function delNumber(arr,num){
+		//判断num在数组中是否存在
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i] == num ){
+				//删除i位置处的数 num
+				arr.splice(i,1);
+			}
+		}
+		return arr;
+	}
+	var res = delNumber( [1,2,3,4,5,6,7],3 );
+	alert( res );
+</script>

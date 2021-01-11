@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//计算任意一个数的阶乘 
+	/*function fac(m){
+		if( m == 1 ){
+			return 1;
+		}else{
+			return m*fac(m-1);
+		}
+	}
+	alert( fac(3) );*/
+	
+	//计算1--100的奇数和
+	function fnSum(m){ // m 初始值 
+		if( m == 1 ){ // 终值   递归结束的条件
+			return 1;
+		}else {
+			//m + fnSum(m-2)   循环体
+			return m + fnSum(m-2); // 99 + 97 + 95+...+1  m-2 步长
+		}
+	}
+	var s = fnSum( 99 );
+	alert( s );
+</script>

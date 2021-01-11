@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		
+		
+		
+		//ES5 : 构造函数
+		function Dog(name,age){
+			this.name = name;
+			this.age = age;
+			this.showName = function(){
+				return this.name;
+			}
+			this.showAge = function(){
+				return this.age;
+			}
+		}
+		//ES6
+		class Cat{
+			//构造器
+			constructor(name,age) {
+			    this.name = name;
+				this.age = age;
+				this.showName = function(){
+					return this.name;
+				}
+				this.showAge = function(){
+					return this.age;
+				}
+			}
+		}
+		var dog = new Dog('大黄',5);
+		alert(dog.showName());
+		var cat = new Cat('小花猫',2);
+		alert(cat.showName());
+		
+		class Persian extends Cat{
+			constructor(name,age){
+				super(name,age); //super : 超类/父类/基类
+				
+			}
+		}
+		var ps = new Persian('小波',3);
+		alert(ps.showName());
+	</script>	
+	</body>
+</html>

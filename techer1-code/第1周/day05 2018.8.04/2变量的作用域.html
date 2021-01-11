@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*var a = 10;
+	var b = 20;
+	function fn(m){
+		a += 10;
+		var num = 10;
+	}
+	fn();
+	alert( a );*/
+	
+	
+	/*var a = 10;
+	function fn(){
+		var a;//a是局部变量
+		a = 20;//向上查找  找到了局部变量a  说明此时a就是局部的
+	}
+	fn();
+	alert( a );*/ // 10
+	
+	/*var a = 10;
+	function fn(a){ //a是局部变量
+		a = 20;//操作的是局部变量
+	}
+	fn();
+	alert( a );*/ //10
+	
+	
+	/*var a = 10;
+	function fn(b){
+		a = 20;//操作的是全局变量
+	}
+	fn();
+	alert( a );*/
+	
+ 
+	/*function fn(b){
+		a = 20;
+	}
+	fn();
+	alert( a );*/
+	
+	function fn(){
+		alert(a);
+		var a = 10;
+	}
+	fn();
+	
+</script>

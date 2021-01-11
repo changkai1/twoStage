@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src = "comm.js"></script>
+<script>
+	//假设其中一个数是最小的   min = arr[0]
+	//判断这个假设的值min  是否是最小的   
+	//用 min  和 数组后面的每一个数依次比较  
+	//如果min > arr[i]   min 的值 就会发生变化
+	var arr = [34,2,67,5,89,787];
+	//假设数组中的第一个数是最小的
+	var min = arr[0];
+	//假设数组中的第一个数是最大值
+	var max = arr[0];
+	for( var i = 1; i < arr.length ; i++ ){
+		if( min > arr[i] ){
+			min = arr[i];
+		}
+		if( max < arr[i] ){
+			max = arr[i];
+		}
+	}
+	
+	/*for( var i = 1 ; i < arr.length ; i ++ ){
+		if( max < arr[i] ){
+			max = arr[i];
+		}
+	}*/
+	//alert(min);
+	//alert(max);
+	
+	//定义一个含有10个元素的数组，计算数组中素数的个数
+	var count = 0;
+	var arr = [45,6,7,8,9,23,13,455,67,987];
+	for( var i = 0 ; i < arr.length ; i++ ){
+		if( isPrimerNumber( arr[i] ) ){
+			count++;
+		}
+	}
+	//alert( count );
+	
+	/*
+	 使用{}形式创建一个对象，该对象存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息 
+	 */
+	var stuInfo = {
+		sid : 1,
+		idCard : "211224xxx",
+		age : 13,
+		sex : "男",
+		major : "计算机",
+		introduce : function(){
+			console.log( stuInfo.age , stuInfo.idCard );
+		}
+	}
+	stuInfo.introduce();
+	
+	//已知数组  arr = [23,12],将数组中的两个数交换后输出
+	var arr = [4,3];
+	/*var t;
+	t = arr[0];
+	arr[0] = arr[1];
+	arr[1] = t;*/
+	[arr[0],arr[1]] = [arr[1],arr[0]]
+	console.log( arr );
+</script>

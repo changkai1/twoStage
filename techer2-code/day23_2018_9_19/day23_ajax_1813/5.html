@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let str = '{"name":"张三","age":18}';
+			let evalObj = eval('(' + str + ')');
+			console.log(evalObj.name);
+			let parseObj = JSON.parse(str);
+			console.log(parseObj.name);
+			let funObj = (new Function('return' + str))();
+			console.log(funObj.name);
+		</script>
+	</body>
+</html>

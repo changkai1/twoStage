@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// reg.test()  reg.exec()
+	// str.search(reg)  str.match(reg)   str.replace(reg)
+	
+	//exec()  返回一个长度为1的数组
+	function fnExec(){
+		var str = "千55a34锋6教123育";
+		var reg = /\d+/;
+		//使用正则规范在str中查找 如果有满足正则规范的字符 就返回    返回值是一个数组
+		var arr = reg.exec( str );
+		alert( arr );
+	}
+	//fnExec();
+	
+	//match() 根据正则规范在字符串中查找    返回一个数组
+	function fnMatch(){
+		var str = "千55ab34锋AB6教123Cd育";
+		//var reg = /\d/g;
+		var reg = /[a-z]/gi;
+		var arr = str.match( reg );
+		alert( arr );
+	}
+	//fnMatch();
+	
+	//search() 返回第一次符合某个正则规范的字符的索引
+	// indexOf()
+	function fnSearch(){
+		var str = "千55ab34锋AB6教123Cd育";
+		var reg = /[a-z]/gi;
+		var index = str.search( reg );
+		alert( index );
+	}
+	//fnSearch();
+	
+	//replace() 替换  返回被替换后的新字符串
+	function fnReplace(){
+		var str = "千55ab34锋AB6教123Cd育";
+		var reg = /[a-z]/gi;
+		str = str.replace( reg , "*" );
+		alert( str );
+	}
+	//fnReplace();
+</script>

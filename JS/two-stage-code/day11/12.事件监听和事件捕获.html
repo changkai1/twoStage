@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:100px;
+				height:100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+		//为document绑定一个onclick事件
+		//事件监听
+		document.addEventListener("keyup",function(e){
+				var e = e || event; //事件对象兼容
+				var code = e.keyCode || e.which;
+//				alert(code);
+		})
+	
+		/*
+			事件监听
+			1.可以为多个同类对象添加多个同样的事件
+			2.可以实现事件捕获
+		 
+		*/
+		
+		
+		//1-1. 只输出2，执行一次
+//		document.onclick = function(){
+//			alert(1);
+//		}
+//		document.onclick = function(){
+//			alert(2);
+//		}
+	
+		//1-2. 事件监听，执行两次输出1,2
+//			document.addEventListener("click",function(){
+//					alert(1)
+//			})
+//			document.addEventListener("click",function(){
+//				alert(2)
+//			})
+	
+	
+			//2. 事件捕获
+			var oDiv = document.getElementsByTagName("div")[0];
+			oDiv.addEventListener("click",function(){
+					alert(1);
+			},true)
+			document.body.addEventListener("click",function(){
+					alert(2)
+			},true)
+			document.addEventListener("click",function(){
+					alert(3);
+			},true)
+</script>

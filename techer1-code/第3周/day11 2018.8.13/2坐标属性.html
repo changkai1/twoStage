@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 200px;
+		}
+		body{
+			height: 1000px;
+		}
+	</style>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script>
+	//pageX  pageY   
+	//clientX  clientY 
+	//offsetX  offsetY
+	var oDiv = document.querySelector("div");
+	oDiv.onclick = function(e){
+		//创建事件对象
+		var e = e || event;
+		console.log( e.clientX , e.clientY );
+		console.log( e.pageX , e.pageY );
+		console.log( e.offsetX , e.offsetY );
+	}
+</script>

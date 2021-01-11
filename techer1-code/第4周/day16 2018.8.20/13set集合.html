@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//set 集合
+	//定义一个set集合  
+	/*var set = new Set([3,4,5,6]);
+	set.add(89).add("3").add(5);
+	console.log( set );*/
+	//set 集合自动去重  不会进行类型转换
+	
+	
+	//set集合可以快速完成数组去重
+	//定义一个函数 实现数组去重   返回去重后的数组
+	function norepeat( arr ){
+	/*	var set = new Set( arr );
+		//返回去重后的数组
+		return Array.from( set );*/
+		//return Array.from( new Set(arr) );
+		return [...new Set(arr)];
+	}
+	//console.log( norepeat([23,23,12,23,23,12]) );
+</script>

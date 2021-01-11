@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h5 id="h">距离商品下架时间还有xx小时xx分钟xx秒</h5>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+		var now = new Date();
+		var end = new Date("2019-06-26 10:02:00");
+		var t = (end.getTime() - now.getTime())/1000;
+		var flag = true; //开启定时器  开关变量
+		showTime(); //页面打开加载
+		
+		//倒计时
+		var timer = setInterval(function(){
+			if( flag ){
+				t--;
+				if( t < 0 ){
+					$id("h").innerHTML = "商品已下架";
+					clearInterval(timer);
+				}else{
+					showTime();
+				}
+			}
+		},1000)
+		
+		
+		
+		//剩余多少秒
+		function showTime(){
+			if( t < 0 ){
+				$id("h").innerHTML = "商品已下架";
+				flag = false;
+				return;
+			}
+			var h = parseInt( t/3600 );  //剩余多少小时
+			var m = parseInt( (t-h*3600)/60 );  //剩余多少分钟
+			var s = parseInt(t-h*3600-m*60);  //剩余多少秒
+			$id("h").innerHTML = "距离商品下架时间还有"+ h +"小时"+ m +"分钟"+ s +"秒";				
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

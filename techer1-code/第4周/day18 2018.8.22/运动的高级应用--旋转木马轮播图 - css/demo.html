@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转木马轮播图</title>
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<div class="wrap" id="wrap">
+   <div class="slide" id="slide">
+       <ul>
+           <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+       </ul>
+       <div class="arrow" id="arrow">
+           <a href="javascript:;" class="prev" id="prev"></a>
+           <a href="javascript:void(0);" class="next" id="next"></a>
+       </div>
+   </div>
+</div>
+</body>
+</html>
+<script src="../../public.js"></script>
+<script src="../sport6.js"></script>
+<script>
+   var arr = [
+   		{   //1
+            "width":400,
+            "top":20,
+            "left":750,
+            "opacity":20,
+            "zIndex":2
+        }
+        ,
+        {  // 2
+            "width":600,
+            "top":70,
+            "left":600,
+            "opacity":80,
+            "zIndex":3
+        },
+        {   // 3
+            "width":800,
+            "top":100,
+            "left":200,
+            "opacity":100,
+            "zIndex":4
+        },
+        {  // 4
+            "width":600,
+            "top":70,
+            "left":0,
+            "opacity":80,
+            "zIndex":3
+        },
+        {   // 5
+            "width":400,
+            "top":20,
+            "left":50,
+            "opacity":20,
+            "zIndex":2
+        }      
+	];
+	//页面加载后   获取数组中的数据  将每一个json数据 设置到页面的每一张图片上
+	var list = document.getElementsByTagName("li");
+	showData();
+	function showData(){
+		for( var i = 0 ; i < list.length ; i++ ){
+			startMove( list[i] , arr[i] , function(){
+				//上一次点击 运动完成后 将flag的值变成 true
+				flag = true;
+			} );
+		}
+	}
+	$id("wrap").onmouseover = function(){
+		startMove( $id("arrow") , {"opacity":100} )
+	}
+	$id("wrap").onmouseout = function(){
+		startMove( $id("arrow") , {"opacity":0} )
+	}
+	var flag = true;//为真时  可以点击按钮
+	//右侧箭头  next
+	$id("next").onclick = function(){
+		if( flag ){
+			//pop()删除数组中的最后一个数据  并返回删除的数据
+			//删除数组中的最后一个数据 并放到数组的最前面
+			arr.unshift( arr.pop() );
+		
+			showData();
+			
+			flag = false;
+		}
+	}
+	//左侧箭头  prev
+	$id("prev").onclick = function(){
+		//删除数组中第一个数据 并放到数组的最后面
+		//shift()删除数组的第一个数据  并返回删除的数据
+		arr.push( arr.shift() );
+		
+		showData();
+	}
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 素数：只能被1和其本身整除的数
+    //  方案一：因子一定有两个
+        // var num = 19;
+        // var count = 0;
+        // for(var i = 1; i <= num; i++){
+        //     if(num%i == 0){
+        //         count++;
+        //     }
+        // }
+        // if(count == 2){
+        //     alert(num+"是素数")
+        // }else{
+        //     alert(num+"不是素数")
+        // }
+
+    //  方案二：
+        // var num = 19;
+        // var flag = true; //默认是素数
+        // for(var i = 2; i < num; i++){
+        //     if( num%i == 0 ){
+        //         flag = false;
+        //         break;
+        //     }
+        // }
+        // if(flag && num != 1){ //1不是素数
+        //     document.write(num+"是素数");
+        // }else{
+        //     document.write(num+"不是素数");
+        // }
+
+        // 判断100--200之间素数的个数
+        var count = 0;
+        for( var num = 100; num <= 200; num++){
+            var flag = true;
+            for(var i = 2; i < num; i++){
+                if(num%i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag && num != 1){
+                document.write(num+" ");
+                count++;
+            }
+        }
+        document.write(count)
+</script>

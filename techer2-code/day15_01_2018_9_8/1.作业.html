@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//去空格
+			//  /(^\s+|\s+$)/g      g : 标志位全局匹配
+			var str = '      a    b     ';
+			//var re = /(^\s+|\s+$)/g;
+			var re = /\s+/g;
+			alert('(' +  str.replace(re,"") + ')');
+			
+		</script>
+	</body>
+</html>

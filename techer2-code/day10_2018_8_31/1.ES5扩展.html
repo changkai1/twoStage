@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				一、ES5
+					1. 严格模式
+						"use strict";
+						注：只能加在作用域的开头部分，否则无效
+						建议加在函数作用域的开头部分
+						
+						function fn(){
+						"use strict";
+							a = 3;
+							
+							b = 4;
+						}
+						fn();
+						alert(b); //报错，不允许隐式声明变量。
+					2.数组扩展方法（indexOf/lastIndexOf/forEach()/map()/reduce()/filter())
+					indexOf(元素,start) : 查找元素在数组中第一次出现的下标位置。如果没有找到，返回 -1
+					var arr = [1,2,3,4,5,6,2,3,4,5];
+					alert(arr.indexOf(2,7));
+					lastIndexOf(元素,start) : 查找元素在数组中从右向左第一次出现的下标位置。如果没有找到，返回-1
+					forEach(function(value,index,array){}) : 遍历数组
+					var arr = [1,2,3,4,5,6,2,3,4,5];
+					arr.forEach(function(value,index,array){
+						console.log(index + "--" + value + "---" + array);
+					})
+					//复制数组
+					var arr = [1,2,3,4,5,6,2,3,4,5];
+					var list = [];
+					arr.forEach(function(value,index,array){
+						list.push(value);
+					})
+					map(function(value,index,array){return ...}) : 遍历数组
+					//复制数组
+					var arr1 = arr.map(function(value){
+						return value;
+					})
+					reduce(function(prev,next,index,array){return ...}) : 归并
+					filter(function(value,index,array){return ...})
+				二、String
+					1. 如何创建字符串对象
+					2. 字符串的属性
+					3. 字符串的方法（查、替、截、转）
+					4. 静态方法
+					5. 字符集的故事
+			*/
+//		   var arr = [1,2,3,4,0,6,2,3,4,5];
+		   // var list = [];
+// 		   arr.forEach(function(value,index,array){
+// 			   list.push(value);
+// 		   })
+// 		   var arr1 = arr.map(function(value){
+// 			   return value;
+// 		   })
+// 			var sum = arr.reduce(function(prev,next){
+// 				return prev + next;
+// 			})
+			/*var list = arr.filter(function(value){
+				return value;
+			})
+		   console.log(list);*/
+		  
+		  var arr = [1,2,3,4,5,6,7];
+		  arr.forEach(function(value,index,array){
+		  	console.log(value);
+		  	console.log(index);
+		  
+		  })
+		</script>
+	</body>
+</html>

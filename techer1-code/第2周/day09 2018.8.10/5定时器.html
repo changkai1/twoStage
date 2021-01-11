@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#m{
+			display: none;
+		}
+	</style>
+	<body>
+		<input type="button" value="显示" id="b1"/>
+		<input type="button" value="停止" id="b2" />
+		<br>
+		<img src="5.jpg" alt="" id="m"/>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	//点击显示按钮  3秒后图片显示出来
+	$id("b1").onclick = function(){
+		timer = setTimeout( function(){
+			$id("m").style.display = "block";
+		},3000 )
+	}
+	$id("b2").onclick = function(){
+		clearTimeout( timer );
+	}
+	var i = 1;
+	setTimeout( function(){
+		console.log( i++ );
+	},1000 )
+</script>

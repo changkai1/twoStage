@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 5000px;
+			}
+			div{
+				width: 50px;
+				height: 50px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var flag = document.createDocumentFragment(); //创建文档碎片
+			//循环创建10个div
+			for(var i = 0;i < 10;i ++){
+				var div = document.createElement('div'); //创建div
+				flag.appendChild(div); //放到文档碎片
+			}
+			document.body.appendChild(flag); //将所有div放到body
+			var oDiv = document.getElementsByTagName('div'); //获取页面中所有div
+			//文档区添加移动事件
+			document.onmousemove = function(evt){
+				var e = evt || window.event; //事件对象兼容
+				var n = 100; //毫秒数
+				//遍历所有div
+				for(var i = 0,len = oDiv.length;i < len;i ++){
+					time(oDiv[i],n); //调用函数,将每一个div和对应的毫秒数传过去
+					n += 100; //毫秒累加
+				}
+				//封装延时的函数
+				function time(obj,timer){
+					//启动延时
+					setTimeout(function(){
+						//改变每一个div的坐标值
+						obj.style.left = e.pageX + 'px';
+						obj.style.top = e.pageY + 'px';
+					},timer);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

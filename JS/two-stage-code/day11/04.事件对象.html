@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        事件对象：event  当对页面元素触发某个事件时，会产生一个对象
+                        这个对象就是事件对象
+
+        1.鼠标属性：e.button  获取鼠标左键:0  滚轮:1  右键:2
+        2.坐标属性：
+            2.1.  pageX     pageY       距离body的距离，有滚动条时，加上滚动条滚动的距离
+            2.2.  clientX   clientY     距离body的距离，有滚动条时，不算滚动条
+            2.3.  offsetX   offsetY     元素内部的偏移量
+        3.键盘属性
+            获取键盘的按键值 ：
+            keyCode   字母以大写字母的编码值为准   兼容 ： （扩展）  e.keyCode || e.which
+            功能键：   ctrlKey  -->  ctrl键   
+                      altKey   -->  alt键    
+                      shiftKey -->  shift键   
+                      功能键 返回的都是布尔值  按下的是某个功能键 返回true
+    */ 
+    
+    document.onkeyup = function(e){
+        // console.log(event);
+        // console.log(e);
+    }
+    document.onclick = function(e){
+        // console.log(event);
+        // 兼容：向上兼容---先兼容高版本浏览器   IE只认识event事件对象
+        var evt = e || event;
+        // console.log(e);
+    }
+
+
+
+
+
+
+</script>

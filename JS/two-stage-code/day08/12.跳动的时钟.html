@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="t"></p>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	var now = new Date();
+	//调用日期转时间格式
+	$id("t").innerHTML = dateToString(now);  //防止页面一加载会出现空白
+	
+	//定时器
+	setInterval(function(){
+		var now = new Date();
+		$id("t").innerHTML = dateToString(now);
+	},1000);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

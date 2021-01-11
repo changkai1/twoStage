@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				一、什么是数组？ 存储一组或一系列相关数据的容器。
+				二、使用数组有什么好处？ 可能存储大量数据，集中管理，访问性能高。
+				三、什么时候使用数组？数据的多的时候
+				四、数组的下标？ 从0开始，最大下标是数组长度- 1
+				五、数组的属性： length
+				六、如何定义数组？
+					1. 字面量的方式
+					2.构造函数的方式 注：有且只有一个正整数作为参数时，表示数组长度；小数或负数报错，其它情况表示数组元素。
+				七、数组的方法（增、删、改、截、拼、复、排、转）
+				1. 作用 2.返回值 3.是否改变原数组 4.参数
+				增：
+					前增：unshift('元素') 
+						作用：在数组的首部增加元素
+						返回值：新增后数组的长度
+						是否改变原数组 ： 改变
+						var arr = [1,2,3,4,5,6];
+						console.log(arr.unshift(true,false,['a','b','c']));
+						console.log(arr);
+						console.log(arr.length);
+					后增：push('元素')
+						作用：在数组的尾部增加元素
+						返回值：新增后数组的长度
+						是否改变原数组 ： 改变
+						var arr = [1,2,3,4,5,6];
+						console.log(arr.push(true,false,['a','b','c']));
+						console.log(arr);
+						console.log(arr.length);
+				删：
+					前删：shift()
+						作用：在数组的首部删除元素
+						返回值：被删除的元素
+						是否改变原数组 ： 改变
+						var arr = [7,2,3,4,5,6];
+						console.log(arr.shift());
+						console.log(arr);
+					后删：pop()
+						作用：在数组的尾部删除元素
+						返回值：被删除的元素
+						是否改变原数组 ： 改变
+					注：一次只能删除一个
+					思考：如何删除数组中所有的元素？
+				改：
+					splice(start,length,new1,new2,……)
+						作用：在数组的任意位置添加、删除、修改元素
+						返回值：被删除的元素组成的数组
+						是否改变原数组 ： 改变
+						var arr = [7,2,3,4,5,6];
+						console.log(arr.splice(1,0,[true,false]));
+						console.log(arr);
+						
+						var arr = [7,2,3,4,5,6];
+						console.log(arr.splice(1,2,[true,false]));
+						console.log(arr);
+						
+						var arr = [7,2,3,4,5,6];
+						console.log(arr.splice(1,2));
+						console.log(arr);
+				截：
+					slice(start,end)   注： 包含start,不包含end
+					作用：截取数组中的部分元素
+					返回值：截取后的新数组
+					是否改变原数组 ： 不改变
+					var arr = [7,2,3,4,5,6];
+					console.log(arr.slice(1,2));
+					console.log(arr);
+					
+					var arr = [7,2,3,4,5,6];
+					console.log(arr.slice(2,1)); //[]
+					console.log(arr);
+					
+					var arr = [7,2,3,4,5,6];
+					console.log(arr.slice(-5,-1)); //[2,3,4,5]
+					console.log(arr);
+				拼：
+					concat(元素) 注：如果拼接的元素是数组,将最外层的数组皮剥了
+					作用：在指定的数组末尾拼接新的元素
+					返回值：拼接后的新数组
+					是否改变原数组 ： 不改变
+					var arr = [7,2,3,4,5,6];
+					console.log(arr.concat(-5,-1,[1,2,[3,4]]));
+					console.log(arr);
+				复：
+					var arr = [7,2,3,4,5,6];
+					var list = arr.slice(0);
+					arr[0] = 9;
+					console.log(arr,list);
+					
+					var arr = [7,2,3,4,5,6];
+					var list = arr.concat();
+					arr[0] = 9;
+					console.log(arr,list);
+					
+					var arr = [7,2,3,4,5,6];
+					var list = [];
+					for(var i = 0,len = arr.length;i < len;i ++){
+						list[i] = arr[i];
+					}
+					arr[0] = 9;
+					console.log(arr,list);
+					
+					var arr = [7,2,3,4,5,6];
+					var list = [];
+					for(var i = 0,len = arr.length;i < len;i ++){
+						list.push(arr[i]);
+					}
+					arr[0] = 9;
+					console.log(arr,list);
+				排：
+					reverse()
+					作用：数组逆序
+					返回值：逆序后的数组
+					是否改变原数组 ： 改变
+					sort()
+					作用：在指定的数组末尾拼接新的元素
+					返回值：拼接后的新数组
+					是否改变原数组 ： 不改变
+					sort(function(a,b){return a-b;}) 以数字从小到大排
+					sort(function(a,b){return b-a;}) 以数字从大到小排
+					var arr = [7,2,3,4,100,2,5,6];
+					console.log(arr.sort(function(a,b){return a-b;}));
+					console.log(arr);
+				转
+					toString()
+					作用：将数组转为以逗号分隔的字符串
+					返回值：字符串
+					是否改变原数组 ： 不改变
+					var arr = [7,2,3,4,100,2,5,6];
+					console.log(arr.toString());
+					console.log(arr);
+					join('分隔符')
+					作用：将数组转为以指定分隔符的字符串
+					返回值：字符串
+					是否改变原数组 ： 不改变
+					var arr = [7,2,3,4,100,2,5,6];
+					console.log(arr.join('*'));
+					console.log(arr);
+					
+					
+					八、值传递与引用传递（堆、栈）
+					基本数据类型属于值传递
+					复合数据类型属于引用（地址）传递
+					var a = 3;
+					var b = a;
+					a = 4;
+					console.log(a,b);
+					
+					var arr = [1,2,3,4];
+					var list = arr;
+					arr[0] = 5;
+					//console.log(arr,list);
+					
+					
+					function fnSort(arr){
+						arr[0] = 10;
+						
+					}
+					fnSort(list);
+					console.log(arr,list);
+			*/
+// 		   var num = 80;
+// 		   console.log(num.toString(2));
+// 		   console.log(num.toString(8));
+// 		   console.log(num.toString(16));
+// 		   console.log(num.toString(3));
+		   
+		   
+		   
+		   
+		   
+		   /*
+		   var arr = [5];
+		   var list = new Array(5);
+// 		   console.log(arr[0],list[0])
+// 		   console.log(arr.length,list.length)
+// 		   list[0] = 1;
+// 		   list[1] = 2;
+// 		   list[2] = 3;
+			//遍历数组
+			for(var i = 0,len = list.length;i < len;i ++){
+				list[i] = Number(prompt("请输入" + (i + 1) + '个学生的成绩：',"如：100"));
+			}
+			//求和
+			function mySum(arr){
+				var sum = 0;
+				//遍历数组
+				for(var i = 0,len = arr.length;i < len;i ++){
+					sum += arr[i];
+				}
+				return sum;
+			}
+			alert(mySum(list) / list.length.toFixed(2));
+			*/
+		 
+		 var a = 3;
+		 var b = a;
+		 a = 4;
+		 console.log(a,b);
+		 
+		 var arr = [1,2,3,4];
+		 var list = arr;
+		 arr[0] = 5;
+		 //console.log(arr,list);
+		 
+		 
+		 function fnSort(arr){
+			 arr[0] = 10;
+			 
+		 }
+		 fnSort(list);
+		 console.log(arr,list);
+		</script>
+	</body>
+</html>

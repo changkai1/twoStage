@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: #f3f2f3;
+			}
+			#main {
+				border: 1px solid red;
+				width: 1225px;
+				margin: 0 auto;
+			}
+			.list {
+				width: 245px;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="main">
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+			<div class="list"></div>
+
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			
+			//最小高度列的下标
+			function minHeight($arr){
+				var indexA = 0;
+				let min = $arr.eq(0).outerHeight();
+				$arr.each(function(index,value){
+					if(min > $(value).outerHeight()){
+						min = $(value).outerHeight();
+						indexA = index;
+					}
+				})
+				return $arr.eq(indexA);
+			}
+			//加载图片
+			function loadImg(arr){
+				for(let i = 0,len = arr.length;i <len ;i ++){
+					let str = `<img src='${arr[i].src}' alt='${arr[i].alt}' height='${arr[i].height}' width='245px'>`;
+					minHeight($('#main .list')).append(str);
+					
+				}
+			}
+			//请求json文件
+			$(function(){
+				$.getJSON('pbl.json',function(response){
+					loadImg(response);
+				})
+			})
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: saddlebrown;
+			margin-bottom: 10px;
+			border:2px solid blue;
+			padding: 5px;
+		}
+	</style>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+<script src="sport1.js"></script>
+<script type="text/javascript">
+	//鼠标移入到某个div上  该div的宽度变为300px  离开时恢复100px
+	var divs = document.querySelectorAll("div");
+	for( var i = 0 ; i < divs.length ; i++ ){
+		divs[i].onmouseover = function(){
+			startMove( this , 300,"width" );
+		}
+		divs[i].onmouseout = function(){
+			startMove( this , 100,"width" );
+		}
+	}
+	/*
+	多物体运动 ： 多个物体共用一个定时器   互相影响
+	解决： 让每一个运动的物体都拥有自己的定时器   
+	利用对象的特点 ： 对象都有属性和方法
+	 */
+	
+	
+</script>

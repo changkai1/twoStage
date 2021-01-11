@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#ball{
+			width: 30px;
+			height: 30px;
+			background: red;
+			position: absolute;
+			top: 290px;
+			border-radius:50%;
+		}
+	</style>
+	<body>
+		<input type="button" value="开始飞" id="btn" />
+		<div id="ball"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//重力加速度 ：速度向上越来越慢   向下 越来越快
+	var speedX = 8;
+	var speedY = -19;//向上运动
+	var timer = null;
+	var oBtn = document.getElementById("btn");
+	var ball = document.getElementById("ball");
+	oBtn.onclick = function(){
+		timer = setInterval( function(){
+			ball.style.left = ball.offsetLeft + speedX + "px";
+			ball.style.top = ball.offsetTop + speedY + "px";
+			var maxT = window.innerHeight - ball.offsetHeight;
+			//小球落地后 会反弹
+			if( ball.offsetTop > maxT ){
+				ball.style.top = maxT + "px";
+				speedY *= -0.6;//由于小球落地后会有能量损耗，不能弹回原来的高度
+				
+				//由于能量损耗 横向速度越来越慢
+				speedX--;
+				if( speedX < 0 ){
+					clearInterval( timer );
+				}
+			}
+			speedY++;//重力加速度实现
+		},30 )
+	}
+</script>

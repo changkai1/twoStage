@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    qq号<input type="text" value="请输入qq号码" id="txt"><span id="s"></span>
+</body>
+</html>
+<script>
+    var oTxt = document.getElementById("txt");
+    var oS = document.getElementById("s");
+    oTxt.onfocus = function(){
+        oTxt.value = ""; //获得焦点清空文本框内容
+    }
+    oTxt.onblur = function(){
+        var str = oTxt.value;
+        if(str == ""){
+            oS.innerHTML = "不能为空";
+        }else if(isNaN(str)){ //输入的不是数字
+            oS.innerHTML = "请输入数字";
+        }else if( str.length < 6){
+            oS.innerHTML = "字符串长度必须大于6";
+        }else{
+            oS.innerHTML = "正确";
+        }
+    }
+
+
+</script>

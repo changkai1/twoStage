@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//let ： 块级作用域
+	/*var num = 90;
+	let a = 100;
+	console.log(num,a);*/
+	
+	//let 只能作用在某个代码块内部
+	/*{
+		let num = 90;
+		alert( num );
+	}*/
+	
+	/*if( true ){
+		let num = 90;
+	}
+	alert( num );*/
+	
+	/*for( let i = 1 ; i <= 10 ; i ++ ){
+		
+	}
+	alert( i );*/
+	
+	// let不能被重复声明
+	/*let num = 1;
+	let num = 2;
+	alert( num );*/
+	
+	// let 必须先定义 后使用 
+	// let声明的变量 在声明之前得不到任何值 （报错）
+	//暂时性死区 ： 
+	/*alert( num );
+	let num = 10;*/
+	
+	function fn(){
+		alert( num );//不能实现变量提升
+		let num = 10;
+	}
+	
+	function fun(a){
+		let a = 10;
+		alert( a );
+	}
+	fun(100);
+</script>

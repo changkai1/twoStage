@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="开始" id="s"/>
+		<input type="button" value="停止" id="r"/>
+		<br/>
+		<img src="pic/6.jpg" alt="" id="m"/>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	/*
+		1.定时器
+		var timer = setInterval( 要执行的任务,间隔时间  )  间隔时间毫秒    要执行的任务一般是一个函数
+		clearInterval( 定时器的名字 )  清空定时器   clearInterval( timer );
+	*/
+//	var i = 1;
+//	var timer = setInterval( function(){
+//		console.log( i++ );
+//		if(i == 5){
+//			clearInterval(timer);
+//		}
+//	},1000)
+	
+	//图片切换效果
+	$id("s").onclick = function(){
+		timer = setInterval(function(){
+			$id("m").src = "pic/" + rand(6,9) + ".jpg";			
+		},300);
+	}
+	$id("r").onclick = function(){
+		clearInterval(timer);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    主窗口
+</body>
+</html>
+<script>
+    /*
+        window的open方法，子窗口随主窗口大开和关闭
+        open("url子窗口","新窗口的名称","样式")  名称写不写都可以
+    */ 
+
+
+    // open("sub.html","","width=300,height=400,top=200,left=100"); //主窗口关闭，子窗口不随主窗口关闭
+
+    var subWin = open("sub.html","","width=300,height=400,top=200,left=100"); //主窗口关闭，子窗口随主窗口关闭
+    // 子窗口随主窗口一起关闭
+    window.onunload = function(){
+        subWin.close(); //关闭子窗口
+    }
+
+
+
+
+
+
+</script>

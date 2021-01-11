@@ -1,0 +1,128 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>购物车</title>  
+    <style>  
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+        #addToCart {  
+            position: fixed;  
+            left: 600px;  
+            cursor: pointer;  
+            width: 100px;  
+            height: 40px;  
+            line-height: 40px;  
+            border: 1px solid deeppink;  
+            text-align: center;  
+            color: deeppink;  
+            top:500px;
+        }  
+        #addToCart:hover {  
+            color: #fff;  
+            background-color: deeppink;  
+        }  
+  
+        #shopCart {  
+            position: fixed;  
+            right: 0;  
+            top: 200px;  
+            color: red;  
+        }  
+        #shopNum{
+        	width: 60px;
+        	height: 25px;
+        	background: deeppink;
+        	color:black;
+        	text-align: center;
+        	line-he0ight: 25px;
+        }
+        .good{
+        	width: 30px;
+        	height: 30px;
+        	background: deepskyblue;
+        	border-radius: 50%;
+        	position: absolute;
+        }
+    </style>
+	<body>
+		<div id="addToCart">  
+		   添加到购物车  
+		</div>  	
+		<div id="shopCart">  
+		    购物车  
+		  <p id="shopNum"></p>
+		</div>
+	</body>
+</html>  
+<script src="../public.js"></script>
+<script type="text/javascript">
+ 	/*
+ 	 第一步 ： 确定三点坐标
+ 	 起点  终点  最高点
+ 	 第二步 ： 根据三点坐标确定抛物线方程
+ 	 
+ 	 第三步 ： 创建一个商品
+ 	 第四步 ： 商品运动
+ 	 第五步 ： 根据条件停止商品运动 （商品删除  累加商品个数）
+ 	 */
+ 	var addCart = $id("addToCart"),
+ 		shopCart = $id("shopCart"),
+ 		shopNum = $id("shopNum"),
+ 		num = 0;
+ 		addCart.onclick = function(){
+ 			//第一步 确定三点坐标
+ 			//起始点 
+ 			var startPoint = {
+ 				x : addCart.offsetLeft+addCart.offsetWidth/2,
+ 				y : addCart.offsetTop
+ 			}
+ 			//终点
+ 			var endPoint = {
+ 				x : shopCart.offsetLeft+shopCart.offsetWidth/2,
+ 				y : shopCart.offsetTop
+ 			}
+ 			//最高点
+ 			var topPoint = {
+ 				x : endPoint.x - 120,
+ 				y : endPoint.y - 80
+ 			}
+ 			
+ 			//第二步 ：
+ 			//根据三点坐标确定抛物线的系数
+			var a = ((startPoint.y - endPoint.y) * (startPoint.x - topPoint.x) - (startPoint.y - topPoint.y) * (startPoint.x - endPoint.x)) / ((startPoint.x * startPoint.x - endPoint.x * endPoint.x) * (startPoint.x - topPoint.x)-(startPoint.x * startPoint.x - topPoint.x * topPoint.x) * (startPoint.x - endPoint.x));  
+					
+			var b = ((endPoint.y - startPoint.y) - a * (endPoint.x * endPoint.x - startPoint.x * startPoint.x)) / (endPoint.x - startPoint.x);  
+					
+			var c = startPoint.y - a * startPoint.x * startPoint.x - b * startPoint.x;
+ 			
+ 			//第三步 ： 创建一个商品
+ 			var good = create("div");
+ 			good.className = "good";
+ 			document.body.appendChild(good);
+ 			//设置商品的位置 为起始点坐标
+ 			good.style.left = startPoint.x + "px";
+ 			good.style.top = startPoint.y + "px";
+ 			
+ 			//第四步 ： 商品运动
+ 			//沿着 抛物线的轨迹运动
+ 			// y = a*x*x + b*x + c
+ 			var x = startPoint.x;//小球运动起始的横坐标
+ 			var timer = setInterval( function(){
+ 				//第五步 ： 根据条件停止商品运动 （商品删除  累加商品个数）
+				x += 5;//left
+				y = a*x*x + b*x + c;//top
+				if( x > endPoint.x ){
+					clearInterval( timer );
+					good.remove();
+					shopNum.innerHTML = ++num;
+				}else{
+					good.style.left = x + "px";
+					good.style.top = y + "px";
+				}
+ 			},20 )
+ 		}
+</script>
+

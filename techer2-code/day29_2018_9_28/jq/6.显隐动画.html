@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-top: 10px;
+			}
+			#box{
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+		<div id="box">
+			
+		</div>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			/*$('div').eq(0).click(function(){
+   				$('div:last').hide(5000,function(){
+   // 					alert(this);
+   // 					alert($(this).get(0));
+   					$(this).show(5000);
+   				});
+				//$('div:last').toggle(5000);
+			})*/
+			
+			// show() hide()里不写参数表示直接隐藏，没有动画
+			$("div").eq(0).click(function(){
+				$("div:last").hide();
+			})
+			
+			
+			$("div").eq(0).click(function(){
+				$("div:last").show();
+			})
+			
+		</script>
+	</body>
+</html>

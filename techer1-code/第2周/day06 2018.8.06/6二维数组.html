@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var arr = [ [1,2],[3,5],[45,34],[6,7] ];
+	/*console.log( arr[0][0] );
+	console.log( arr[0][1] );
+	console.log( arr[2][1] );*/
+	for( var i = 0 ; i < 4 ; i++ ){ //行
+		for( var j = 0 ; j < 2 ; j++ ){//列
+			document.write( arr[i][j] + " " );
+		}
+		document.write("<br>");
+	}
+	document.write("<hr>");
+	/*
+	 通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+1   2   3  4   5
+6   7   8  9   10
+11 12   13  14  15
+	 */
+	var arr = [ [],[],[],[],[] ];
+	var num = 1;
+	for( var i = 0 ; i < 5 ; i++ ){
+		for( var j = 0 ; j <5 ; j++ ){
+			arr[i][j] = num;
+			num++;
+		}
+	}
+	document.write("<table>");
+	for( var i = 0 ; i < 5 ; i++ ){
+		document.write("<tr>");
+		for( var j = 0 ; j <= i ; j++ ){
+			document.write("<td>"+arr[i][j]+"</td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table>");
+	
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width:200px;
+			height: 200px;
+			background: pink;
+		}
+	</style>
+	<body>
+		<input type="button" value="变色" id="btn" />
+		<div id="box">pink</div>
+	</body>
+</html>
+<script>
+	//计算星期几   输入年月日  计算星期几
+	function fnGetDay(){
+		var year = "2018" , month = "08" , _date = "10";
+		var d = new Date( year + "-" + month + "-" + _date );
+		var day = d.getDay();
+		var arrDay = ["天","一","二","三","四","五","六"];
+		alert( arrDay[day] )
+	}
+	
+	
+	function $id(id){
+		return document.getElementById(id);
+	}
+	//如下图，点击按钮  实现随机改变div的颜色，五种不同的颜色随机切换，同时颜色值显示到div中
+	var arrColor = ["red","yellow","pink","skyblue","teal"];
+	$id("btn").onclick = function(){
+		var color = arrColor[ rand(0,4) ];
+		$id("box").style.backgroundColor = color;
+		$id("box").innerHTML = color;
+	}
+	
+	//随机抽学生   定义一个含有10个学生姓名的数组，随机抽取五个不重名的学生存放到新数组中并打印出来
+	//定义一个空数组，取出原数组中的某个随机名字，判断这个学生在新数组中是否存在  如果不存在就存入到空数组中，如果存在就重新抽取
+	
+	function rand( min , max ){
+		return Math.round( Math.random()*(max-min) + min );
+	}
+	
+	function getSname( arr ){
+		var brr = [];//存放5个不重复的学生
+		for( var i = 0 ; i < 5 ; i ++ ){
+			var sname = arr[rand(0,9)];
+			if( brr.indexOf( sname )  != -1 ){ // 存在
+				i--;
+			}else{
+				brr.push( sname );
+			}
+		}
+		return brr;
+	}
+	//alert( getSname( [3,4,5,6,7,8,9,1,2,39] ) );
+</script>

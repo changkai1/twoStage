@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	for( var i = 1 ; i <= 50 ; i++ ){
+		//document.write( Math.random() + "<br>" );// [0,1)
+		//document.write( Math.round( Math.random() )  + "<br>" );//[0,1] 得到0或1
+		
+		//document.write( Math.round( Math.random()*5 )  + "<br>" );//[0,5]
+		//document.write( Math.round( Math.random()*5 + 5 )  + "<br>" );//[5,10]
+		//document.write( Math.round( Math.random()*10 + 10 )  + "<br>" );//[10,20]
+		//document.write( Math.round( Math.random()*12 + 8 ) +"<br>")//[8,20]
+		document.write( rand(20,67) + "<br>" );
+	}
+	
+	//获取任意区间整数值
+	function rand( min,max ){
+		return Math.round( Math.random()*(max-min) + min )
+	}
+</script>

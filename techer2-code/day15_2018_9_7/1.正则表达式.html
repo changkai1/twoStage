@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				一、正则表达式？ 一组匹配字符串的规则。常用于表单验证。
+				二、如何定义正则表达式？
+					1. 字面量方式：  /正则表达式/标志位
+					2. 构造函数方式： new RegExp("正则表达式","标志位")
+				三、正则的方法
+					1.正则对象.test(字符串) ： 检测字符串中是否包含正则，如果包含，返回true,否则：返回false
+					
+					var re = /中国/;
+					var str = "中华人民共和国";
+					console.log(re.test(str)); //false
+					
+					var re = /中国/;
+					var str = "中国人民银行";
+					console.log(re.test(str)); //true
+					
+					var re = new RegExp("do");
+					var str = "How Do you Do";
+					console.log(re.test(str)); //false
+					
+					var re = new RegExp("do",'i');  //i : 标志位: 表示不区分大小写
+					var str = "How Do you Do";
+					console.log(re.test(str)); //true
+					
+					var newRe = prompt("请输入您的规则：");
+					var re = new RegExp(newRe,'i');  //i : 标志位: 表示不区分大小写
+					var str = "How Do you Do";
+					console.log(re.test(str)); //true
+					
+					2. 正则表达式对象.exec(str) :它返回的是数组，第一个元素是整个正则表达式匹配的内容，其它元素是小组匹配到的内容。如果没有匹配内容，返回null
+					
+					扩展：
+					字符串的方法：
+					1. 字符串对象.match(正则) ：它返回的是数组，第一个元素是整个正则表达式匹配的内容，其它元素是小组匹配到的内容。如果没有匹配内容，返回null 
+					
+					//没有组没有g的情况
+					var re = /o/;
+					var str = "how do you do"; （exec获取一个）（match获取一个）
+					console.log(re.exec(str)); //["o"]
+					console.log(str.match(re));//["o"]
+					
+					//没有组有g的情况 (exec只获取一个)（match获取所有匹配的内容）
+					var re = /o/g;
+					var str = "how do you do";
+					console.log(re.exec(str));  //["o"]
+					console.log(str.match(re)); //["o", "o", "o", "o"]
+					
+					//有组没有g的情况（exec获取父级和子级）（match获取父级和子级)
+					var re = /(google).+(2018)/;
+					var str = "google已进入2018时代";
+					console.log(re.exec(str));  //["google已进入2018", "google", "2018"]
+					console.log(str.match(re)); //["google已进入2018", "google", "2018"]
+					
+					//有组有g的情况 (exec获取父级和子级)（match只获取父级）
+					var re = /(google).+(2018)/g;
+					var str = "google已进入2018时代";
+					console.log(re.exec(str));  //["google已进入2018", "google", "2018"]
+					console.log(str.match(re)); //["google已进入2018"]
+					
+					2. search() :类似于indexOf() 找正则匹配的内容在字符串第一次出现的下标 位置，没找到，返回-1
+				四、元字符（三三二三个一）
+					三： {} [] ()
+						{} : 表示限定{}前面的一个或一组字符连续出现的次数
+						{m} : 表示限定{}前面的一个或一组字符连续出现m次
+						{m,} : 表示限定{}前面的一个或一组字符连续出现至少m次，即m~无限
+						{m,n} : 表示限定{}前面的一个或一组字符连续出现至少m次，最多n次，即m~n
+							var re = /^do{3}$/;
+							var str = "dooo";
+							console.log(re.test(str));
+							
+							var re = /^do{3,}$/;
+							var str = "doooooooooo";
+							console.log(re.test(str));
+							
+							var re = /^do{3,5}$/;
+							var str = "dooooo";
+							console.log(re.test(str));
+							
+						[] : 表示范围
+						
+						var re = /^[abc]{3,5}$/;
+						var str = "aaa";
+						console.log(re.test(str));
+						
+						var re = /^[abc]{3,5}$/;
+						var str = "abccc";
+						console.log(re.test(str));
+						
+						var re = /^[a-z]{3,5}$/;
+						var str = "how";
+						console.log(re.test(str));
+						
+						var re = /^[a-zA-Z0-9_]{3,5}$/;
+						var str = "H33_";
+						console.log(re.test(str));
+						
+						var re = /^[\u4e00-\u9fa5]{2,4}$/; //中文
+						var str = "天王盖地虎";
+						console.log(re.test(str)); //false
+						
+						() : 表示组
+						
+						var re = /^(中国){2,4}$/;
+						var str = "中国中国中国";
+						console.log(re.test(str)); //true
+					三： *   +  ？
+						* ： 相当于{0,} : 表示*前面的一个或一组字符连续出现0至无限次
+						 
+						var re = /^(中*国){2,4}$/;
+						  var str = "国中中中中中国中国";
+						  console.log(re.test(str)); //true
+						  
+						  var re = /^how (do)* you (do){2,4}$/;
+						  var str = "how dododododo you dodododo";
+						  console.log(re.test(str)); //true
+						  
+						+ : 相当于{1,} : 表示+前面的一个或一组字符连续出现1至无限次
+						
+							var re = /^how (do)+ you (do){2,4}$/i;
+							var str = "How dododododo you dodododo";
+							console.log(re.test(str)); //true
+							
+							var re = /^how (do)+ you (do){2,4}$/i;
+							var str = "How DO you dodododo";
+							console.log(re.test(str)); //true
+						
+						? : 相当于{0,1} : 表示?前面的一个或一组字符连续出现0至1次
+						
+						var re = /^how (do)? you (do){2,4}$/i;
+						var str = "How DO you dodododo";
+						console.log(re.test(str)); //true
+						
+						var re = /^how (do)? you (do){2,4}$/i;
+						var str = "How DOdo you dodododo";
+						console.log(re.test(str)); //false
+						
+						var re = /^how (do)? you (do){2,4}$/i;
+						var str = "How  you dodododo";
+						console.log(re.test(str)); //true
+					二： ^   $
+						^  ：定头 1.用在正则表达式的开头部分，表示限定字符串的开头必须是指定的字符。
+								  2.用在[]的开头部分，表示取反
+						$  ： 定尾表示限定字符串的结尾部分必须是指定的字符。
+						
+						var re = /^do$/;
+						var str = "do";
+						console.log(re.test(str));
+						
+						var re = /^[^\u4e00-\u9fa5]{2,4}$/;
+						var str = "love";
+						console.log(re.test(str)); //true
+					三个一：  .  |   \
+						.  : 表示可以匹配任意一个字符。
+						
+						var re = /^h.{2,4}$/i;
+						var str = "How d";
+						console.log(re.test(str)); //true
+						 | : 表示或者
+						 
+						 var re = /^男|女$/;
+						 var str = "男";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /^男|女$/;
+						 var str = "女";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /^(男|女)$/;
+						 var str = "女";
+						 console.log(re.test(str)); //true
+						 
+						 \ : 转义符
+						 \d : 表示数字  [0-9]
+						 \D : 表示非数字 [^0-9]
+						 \s : 表示空白
+						 \S : 表示非空白
+						 \w : 表示字母数字下划线 [a-zA-Z0-9_]
+						 \W : 表示非字母数字下划线 [^a-zA-Z0-9]
+						 \b : 表示单词边界
+						 \B : 表示非边界
+						 
+						 
+						 var re = /^\.com$/;
+						 var str = ".com";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /^\d{6}$/;
+						 var str = "111111";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /hello\b/;
+						 var str = "howhello";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /hello\b/;
+						 var str = "howhello world";
+						 console.log(re.test(str)); //true
+						 
+						 var re = /\bhello\b/;
+						 var str = "how hello world";
+						 console.log(re.test(str)); //true
+			*/
+		   //邮箱 2222@qq.com
+		   //    ^\w+@\w+\.[a-z]{2,3}(\.[a-z]{2,3})?$
+// 		  var re = /^\w+@\w+\.[a-z]{2,3}(\.[a-z]{2,3})?$/;
+// 		  var str = "hello@163.com.cn";
+// 		  console.log(re.test(str)); //true
+		  //http://www.baidu.com
+		  //https://www.baidu.com
+			
+			var re = /do/g;
+			var str = 'how do you do';
+			console.log(str.search(re));
+			console.log(str.replace(re,'de'));
+			
+			
+			
+			//(购物车(10))    /(\d+)/.exec(str)[1]
+			/^\d{1,2}\/\d{1,2}\/(\d{2}|\d{4})/
+			/^[a-z]\w{2,9}$/i
+		</script>
+	</body>
+</html>

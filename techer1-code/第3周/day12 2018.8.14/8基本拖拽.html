@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			position: absolute;
+			left: 100px;
+			top:200px;
+			cursor: move;
+		}
+	</style>
+	<body>
+		<div id="box">1111111111</div>
+	</body>
+</html>
+<script>
+	// onmousedown ： 记录鼠标当前点击元素的内部偏移量
+	// onmousemove : 设置元素的left和top
+	// onmouseup ：  停止拖拽 取消移动
+	var oDiv = document.querySelector("#box");
+	oDiv.onmousedown = function(e){
+		var e = e || event;
+		//记录内部偏移量
+		var disx = e.offsetX;
+		var disy = e.offsetY;
+		//在文档上移动
+		document.onmousemove = function(e){
+			var e = e || event;
+			var x = e.pageX - disx;
+			var y = e.pageY - disy;
+			//设置div的left和top值 
+			oDiv.style.left = x + "px";
+			oDiv.style.top = y + "px";
+		}
+		
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		
+		return false;
+	}
+</script>

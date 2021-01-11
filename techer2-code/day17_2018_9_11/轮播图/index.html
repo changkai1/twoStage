@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			body{
+				background: #CCCCCC;
+			}
+			#box{
+				width: 400px;
+				margin: 50px auto;
+				height: 426px;
+				overflow: hidden;
+				border: 1px solid yellow;
+			}
+			#top{
+				position: relative;
+				height: 320px;
+				
+			}
+			#top li{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#left{
+				position: absolute;
+				width: 200px;
+				top: 0;
+				left: 0;
+				height: 320px;
+				z-index: 1000;
+			}
+			#right{
+				position: absolute;
+				width: 200px;
+				height: 320px;
+				top: 0;
+				right: 0;
+				z-index: 1000;
+			}
+			#btn_l{
+				position: absolute;
+				background: url(img/btn.gif) no-repeat;
+				height: 60px;
+				width: 60px;
+				left: 10px;
+				top: 130px;
+				z-index: 1001;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			#btn_r{
+				position: absolute;
+				background: url(img/btn.gif) no-repeat 0 -60px;
+				height: 60px;
+				width: 60px;
+				right: 10px;
+				top: 130px;
+				z-index: 1001;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			#bottom{
+				position: relative;
+				
+			}
+			#small_ul{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#small_ul li{
+				float: left;
+			}
+			#small_ul img{
+				height: 90px;
+				width: 120px;
+				padding: 6px;
+			}
+		</style>
+		<script src="sport.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//1.获取大盒子
+				const oBigBox = document.getElementById("box");
+				//2.获取上半部
+				const oTop = document.getElementById("top");
+				//3.获取左遮罩
+				const oLeftMark = document.getElementById("left");
+				//4.获取右遮罩
+				const oRightMark = document.getElementById("right");
+				//5.获取左按钮
+				const oltBtn = document.getElementById("btn_l");
+				//6.获取右按钮
+				const oRtBtn = document.getElementById("btn_r");
+				//7.获取大图
+				const oBigPic = oTop.getElementsByTagName('li');
+				//8.获取下半部
+				const oBottom = document.getElementById("bottom");
+				//9.获取小图UL
+				const oSmallUl = document.getElementById("small_ul");
+				//10.获取小图
+				const oSmallPic = oBottom.getElementsByTagName('li');
+				//11.设置小图UL的宽
+				oSmallUl.style.width = oSmallPic.length * oSmallPic[0].offsetWidth + 'px';
+				//12.给左遮罩及左按钮添加鼠标移入事件
+				
+				oLeftMark.onmouseenter = oltBtn.onmouseenter = function(){
+					sport(oltBtn,{opacity : 100});
+				}
+				//13.给左遮罩及左按钮添加鼠标移出事件
+				oLeftMark.onmouseleave = oltBtn.onmouseleave = function(){
+					sport(oltBtn,{opacity : 0});
+				}
+				//14.给右遮罩及右按钮添加鼠标移入事件
+				oRightMark.onmouseenter = oRtBtn.onmouseenter = function(){
+					sport(oRtBtn,{opacity : 100});
+				}
+				//15.给右遮罩及右按钮添加鼠标移出事件
+				oRightMark.onmouseleave = oRtBtn.onmouseleave = function(){
+					sport(oRtBtn,{opacity : 0});
+				}
+				//16.设置控制图片轮播的下标值
+				let indexA = 0;
+				//17.改变层级的变量
+				let zIndex = 1;
+				//18.计时器变量
+				let timer = null;
+				slider();
+				autoPlay();
+				//19.给左按钮添加点击事件
+				oltBtn.onclick = function(){
+					indexA --;
+					if(indexA === -1){
+						indexA = oBigPic.length - 1;
+					}
+					slider();
+				}
+				//20.给右按钮添加点击事件
+				oRtBtn.onclick = function(){
+					indexA ++;
+					if(indexA === oBigPic.length){
+						indexA = 0;
+					}
+					slider();
+				}
+				//21.给小图添加事件
+				for(let i = 0,len = oSmallPic.length;i < len;i ++){
+					//移入事件
+					oSmallPic[i].onmouseenter = function(){
+						sport(this,{opacity : 100});
+					}
+					//移出事件
+					oSmallPic[i].onmouseleave = function(){
+						if(i != indexA){
+							sport(this,{opacity : 50})
+						}
+					}
+					//点击事件
+					oSmallPic[i].onclick = function(){
+						indexA = i;
+						slider();
+					}
+				}
+				
+				//22.轮播函数
+				function slider(){
+					//大图轮播
+					oBigPic[indexA].style.zIndex = ++ zIndex;
+					//小图轮播
+					if(indexA == 0){
+						sport(oSmallUl,{left : 0});
+					}else if(indexA == oSmallPic.length - 1){
+						sport(oSmallUl,{left : -(oSmallPic.length - 3) * oSmallPic[0].offsetWidth});
+					}else{
+						sport(oSmallUl,{left : -(indexA - 1) * oSmallPic[0].offsetWidth});
+					}
+					//初始化小图的透明度
+					//所有小图透明度为50
+					for(let i = 0,len = oSmallPic.length;i < len;i ++){
+						sport(oSmallPic[i],{opacity : 50})
+					}
+					//当前小图透明度为100
+					sport(oSmallPic[indexA],{opacity : 100});
+				}
+				//23.自动轮播
+				function autoPlay(){
+					timer = setInterval(function(){
+						indexA ++;
+						if(indexA === oBigPic.length){
+							indexA = 0;
+						}
+						slider();
+					},3000)
+					//移入大盒子,自动轮播停止
+					oBigBox.onmouseenter = function(){
+						clearInterval(timer);
+					}
+					//移出大盒子,自动轮播继续
+					oBigBox.onmouseleave = function(){
+						autoPlay();
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="top">
+				<div id="left"></div>
+				<div id="right"></div>
+				<a href="javascript:;" id="btn_l"></a>
+				<a href="javascript:;" id="btn_r"></a>
+				<li style="z-index: 1 ";><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/6.jpg"/></li>
+			</ul>
+			<div id="bottom">
+				<ul id="small_ul">
+					<li><img src="img/1.jpg"/></li>
+					<li><img src="img/2.jpg"/></li>
+					<li><img src="img/3.jpg"/></li>
+					<li><img src="img/4.jpg"/></li>
+					<li><img src="img/5.jpg"/></li>
+					<li><img src="img/6.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

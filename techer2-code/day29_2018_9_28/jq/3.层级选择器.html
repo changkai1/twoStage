@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<span>1<img src="img/1.jpg"/></span>
+			2<img src="img/1.jpg"/>
+		</div>
+		3<img src="img/1.jpg">
+		4<img src="img/1.jpg">
+		<div>
+			5<img src="img/1.jpg">
+		</div>
+		1..main里所有的img设置border: 5px solid red
+		2..main里的子元素img设置border: 5px solid green
+		3..main的相邻元素img设置border:5px solid blue
+		4. .main的所有兄弟元素img设置border:5px solid yellow
+		<script src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			// $('.main img').css('border','5px solid red');
+			// $('.main>img').css('border','5px solid green');
+			//$('.main+img').css('border','5px solid blue');
+			$('.main~img').css('border','5px solid yellow');
+		</script>
+	</body>
+</html>

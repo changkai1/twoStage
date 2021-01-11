@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="" />
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">1</a>
+		<script type="text/javascript">
+			/*
+				一、如何创建set?
+					new Set();
+				二、set的属性：size ：测试set对象的长度
+				三、set的方法：
+					add() : 添加元素
+					delete() : 删除指定元素，返回布尔值
+					has()：判断set对象中是否有指定的元素，返回布尔值
+					clear() : 清空整个set对象
+					keys() : 获取set对象中所有的key
+					values() : 获取set对象中所有的value
+					entries() : 获取set对象中所有的key和value
+					for of
+						格式 ： for(变量名 of 集合){}
+						//for in 中的循环变量表示下标(key)
+						//for in 主要用于遍历对象.
+					for in 
+						格式 ： for(变量名 in 数组/对象){}
+						//for in 中的循环变量表示下标(key)
+						//for in 主要用于遍历对象.
+					forEach(function(value,key,set){})
+			*/
+		  // let set = new Set([1,1,4,"4",new String(),new String(),5,6,5,6]);
+		   let set = new Set([5,2,3,1,1,2,43,2,5,6,7,3,2]);
+		   console.log(set);
+// 		   console.log(set.size);
+// 		   set.add(true).add(false).add(null);
+// 		   set.delete(1);
+// 		   console.log(set.has(4));
+// 		  // set.clear();
+// 		   console.log(set);
+		   
+// 		   for(let key of set.keys()){
+// 			   console.log("key:" + key);
+// 		   }
+// 		   for(let value of set.values()){
+// 			   console.log("value:" + value);
+// 		   }
+// 		   for(let [key,value] of set.entries()){
+// 			   console.log(key + ":" + value);
+// 		   }
+// 		   set.forEach(function(value,key,set){
+// 			   console.log(key + ":" + value + "----" + set);
+// 		   })
+
+
+			//	... : 扩展运算符
+// 			var str = "hello";
+// 			console.log([... str]);
+				console.log([... new Set([3,4,3,4,3,4,2,3,5])]);
+				
+				function noRepeatArray(arr){
+					return [... new Set(arr)];
+				}
+				var list = [true,true,false,null,null,false];
+				console.log(noRepeatArray(list));
+		</script>
+	</body>
+</html>

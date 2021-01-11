@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="u">
+			<li>孩子1</li>
+			<li>孩子2</li>
+			<li id="s">孩子3</li>
+		</ul>
+	</body>
+</html>
+<script>
+	var oUl = document.querySelector("#u");
+	//var list = oUl.children;
+	var list = oUl.childNodes;
+	for( var i = 0 ; i < list.length ; i++ ){
+		if( list[i].nodeType == 1 ){ //操作元素节点的条件
+			console.log( list[i].nodeType );
+		}
+	}
+	
+	//查找ul的第一个孩子
+	oUl.children[0].style.color = "red"  
+	//oUl.firstElementChild.nextElementSibling.style.color = "red"  
+	//var oul = document.querySelector("#s").parentNode
+	//alert( oul.nodeName );
+</script>

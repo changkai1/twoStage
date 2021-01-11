@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function mySort( arr ){
+		var t = 0;
+		//外层循环控制比较了几轮
+		for( var i = 0 ; i < arr.length - 1 ; i++ ){
+			//里层循环控制 每一轮 比较的次数
+			for( var j = i+1 ; j<=arr.length - 1 ; j++  ){
+				if( arr[i] > arr[j] ){
+					t = arr[i];
+					arr[i] = arr[j];
+					arr[j] = t;
+				}
+			}
+		}
+		
+		return arr;
+	}
+	
+	alert( mySort( [34,2,56,4,7,8,9] ) );
+</script>

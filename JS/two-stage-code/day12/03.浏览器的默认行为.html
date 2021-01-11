@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="http://www.baidu.com">浏览器的默认行为<a></h1>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        1.1阻止超链接跳转  两种方式
+            1. e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            2. return false;  注意：1. 加在代码最后面，不然会阻止代码继续执行  2.不支持使用监听的方式阻止跳转
+        
+    */ 
+
+
+
+    var a = document.querySelector("a");
+    // a.onclick = function(e){
+    //     var e = e || event;
+    //     // 阻止超链接跳转，会用到事件对象 第一种方式
+    //     // e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    //     alert("阻止跳转");
+    //     // 阻止超链接跳转，第二种方式，不用事件对象
+    //     return false;
+    // }
+
+        a.addEventListener("click",function(e){
+            var e = e || event;
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            alert("阻止跳转");
+
+            // return false; 不支持监听的方式阻止跳转
+        })
+
+
+
+
+
+
+
+
+</script>

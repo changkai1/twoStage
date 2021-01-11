@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				Math.PI :圆周率
+				Math.abs() : 求绝对值
+				Math.round() : 四舍五入
+				注:如果是负数:  <= 0.5  舍去     >0.5 进一
+					console.log(Math.PI);
+					console.log(Math.abs(-34));
+					console.log(Math.round(4.5)); //5
+					console.log(Math.round(4.4));  //4
+					console.log(Math.round(-4.5)); //-4
+					console.log(Math.round(-4.5000001));  //-5
+					console.log(Math.round(-4.9)); //-5
+				Math.ceil() : 向上取整
+					console.log(Math.ceil(4.9)); //5
+					console.log(Math.ceil(4.1)); //5
+					console.log(Math.ceil(-4.1)); //-4
+					console.log(Math.ceil(-4.9));  //-4
+				Math.floor() : 向下取整
+				
+					console.log(Math.floor(4.9)); //4
+					console.log(Math.floor(4.1)); //4
+					console.log(Math.floor(-4.1)); //-5
+					console.log(Math.floor(-4.9));  //-5
+				Math.max() : 最大值
+				Math.max.apply(null,数组)
+					var arr = [4,2,1,4,3,2];
+					console.log(Math.max.apply(null,arr));
+				Math.min() : 最小值
+				Math.min.apply(null,数组)
+					var arr = [4,2,1,4,3,2];
+					console.log(Math.min.apply(null,arr));
+				Math.random() : 随机数
+				Math.floor(Math.random() * (max - min + 1) + min);
+				Math.pow(m,n) 求m的n次方
+				console.log(Math.pow(2,10));
+				Math.sqrt(n) 求开方
+				console.log(Math.sqrt(9));
+
+			*/	
+		  
+		   function randomInt(min,max){
+			   if(min > max){
+				   var t = min;
+				   min = max;
+				   max = t;
+			   }
+			   return Math.floor(Math.random() * (max - min + 1) + min);
+		   }
+		  
+		</script>
+	</body>
+</html>

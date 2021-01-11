@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: goldenrod;
+			display: none;
+		}
+	</style>
+	<body>
+		<input type="button" value="显示" />
+		<div id="box"></div>
+	</body>
+</html>
+<script>
+	var oBtn = document.getElementsByTagName("input")[0];
+	var oDiv = document.getElementsByTagName("div")[0];
+	//点击按钮 显示 div
+	oBtn.onclick = function(e){
+		var e = e || event;
+		//e.stopPropagation();
+		//e.cancelBubble = true;
+		//alert( e.stopPropagation );
+		/*if( e.stopPropagation ){
+			e.stopPropagation();
+		}else{
+			e.cancelBubble = true;
+		}*/
+		e.stopPropagation? e.stopPropagation() : e.cancelBubble = true;
+		oDiv.style.display = "block";
+	}
+	//点击文档 隐藏div
+	document.onclick = function(){
+		oDiv.style.display = "none";
+	}
+	
+	
+	/*function fn(){
+		alert();
+	}
+	alert( window.fn );*/
+</script>

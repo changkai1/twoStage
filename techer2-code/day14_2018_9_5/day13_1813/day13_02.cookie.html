@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+	<script src="js/cookie.js"></script>
+	<script type="text/javascript">
+// 		var date = new Date();
+// 		date.setDate(date.getDate() + 10);
+// 		document.cookie = "user=Michael;expires=" + date + ";path=/";
+// 		document.cookie = "url=www.1000phone.com;expires=" + date + ";path=/";
+// 		document.cookie = "email=zhangzhilin@1000phone.net;expires=" + date + ";path=/";
+// 		alert(document.cookie)
+		//$cookie("test","abc",2);
+		removeCookie('email');
+		$cookie('url',"",-2);
+		alert(getCookie('email'))
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					alert(oBtn.value);
+				}
+				
+			}
+			jQuery(function(){
+				var $btn = jQuery("#btn");
+				$btn.click(function(){
+					alert($btn.val());
+				})
+				
+			})
+			
+			//window.onload === $(function(){}) : 加载
+			/*
+				window.onload : 页面（图片、音频、视频、等）加载完成后，执行函数
+				$(function(){}) : 文档加载完成后，执行回调函数，速度更快
+				
+				window.onload 在页面中只能写一个
+				$(function(){}) ： 在页面可以出现无数个
+				
+				
+				
+				$ 是jQuery的别名
+			*/
+		</script>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="按钮" />
+	</body>
+</html>

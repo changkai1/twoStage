@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>打字游戏</title>
+        <!--引入animate.css动画库-->
+        <link rel="stylesheet" href="animate.css">
+        <style>
+            body{
+                margin: 0;
+                /*开启弹性布局，并让弹性布局中的子元素
+                水平居中对齐，垂直居中对齐*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*文字居中*/
+                text-align: center;
+                /*设置背景颜色的经像渐变*/
+                background: radial-gradient(circle,#444,#111,#000);
+            }
+            #char{
+                font-size: 400px;
+                color: lightgreen;
+                /*设置文字阴影*/
+                /*text-shadow: 水平位置 垂直位置 模糊距离 阴影颜色*/
+                /*位置可以为负值*/
+                text-shadow: 0 0 50px #666;
+            }
+            #result{
+                font-size: 20px;
+                color: #888;
+            }
+            /*找到id为char及类名为error的div元素*/
+            #char.error{
+                color: red;
+
+            }
+        </style>
+    </head>
+    <body>
+        <mian>
+            <div id="char">A</div>
+            <div id="result">请在按键上按下屏幕上显示的字母</div>
+        </mian>
+    </body>
+</html>
+<script src="../../public.js"></script>
+<script>
+	// 按键正确： "animated zoomIn";
+	// 按键错误： "animated shake error";
+    /*
+    1、页面加载后  随机出现一个大写字母
+    2、当按下键盘的某个按键时，判断按下的是否是页面显示的字母
+       	如果按键正确，统计正确个数   
+       		再次随机出现一个大写字母
+       		添加  "animated zoomIn"  动画类名
+       	如果按键错误 ， 统计错误个数
+       		添加 "animated shake error" 动画的类名
+    */
+    
+    //定义一个函数 功能 获取随机大写字母
+    function showBigLetter(){
+    	code = rand(65,90);//随机获取大写字母的ASCII码值
+    	var ch = String.fromCharCode( code ); //获取code对应的大写字母
+    	$id("char").innerHTML = ch ;//将大写字母显示到页面上
+    }
+    showBigLetter();
+    
+    var okCount = 0 , errCount = 0;
+    //添加键盘按下事件  
+    document.onkeydown = function(e){
+    	var e = e || event;
+    	var keycode = e.keyCode || e.which; //获取当前按下键的keyCode值
+   		if( code == keycode ){
+   			okCount++;
+   			$id("char").className = "animated zoomIn";
+   			showBigLetter();
+   		}else{
+   			errCount++;
+   			$id("char").className = "animated shake error";
+   		}
+   		//动画完成后  将class清空
+     	setTimeout( function(){
+   			$id("char").className = "";
+     	},800 )
+     	
+     	//正确率
+     	$id("result").innerHTML = "正确"+okCount+"个，错误"+errCount+"个，正确率是 ： " + ( 100*okCount/(okCount+errCount) ).toFixed(2) + "%";
+    }
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background:red;
+        }
+        #d{
+            width:100px;
+            height:100px;
+            background:blue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <br/>
+    <input type="button" value="显示" id="btn">
+    <div id="d"></div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    // 事件流
+    var oDiv = document.getElementsByTagName("div")[0];
+    oDiv.onclick = function(e){
+        var e = e || event; //事件对象
+        e.stopPropagation(); //阻止事件冒泡,需要用到事件对象
+        alert("div被点击了");
+    }
+    document.body.onclick = function(){
+        // alert("body被点击了");
+    }
+    document.onclick = function(){
+        // alert("document被点击了");
+    }
+    window.onclick = function(){
+        // alert("window被点击了");
+    }
+
+    // 1.  点击按钮显示div，点击document隐藏
+        var oDiv = $id("d");
+        var oBtn = $id("btn");
+        oBtn.onclick = function(e){
+            var e = e || event; //事件对象
+            e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true; //阻止事件冒泡
+            oDiv.style.display = "block";
+        }
+        document.onclick = function(){
+            oDiv.style.display = "none";
+        }
+
+
+
+
+
+
+</script>

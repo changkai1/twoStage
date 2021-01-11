@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: saddlebrown;
+			margin-bottom: 10px;
+			border:2px solid blue;
+			padding: 5px;
+		}
+	</style>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//鼠标移入到某个div上  该div的宽度变为300px  离开时恢复100px
+	var divs = document.querySelectorAll("div");
+	//alert( window.getComputedStyle(divs[0])["width"] );
+	//alert( divs[0].currentStyle["height"] );
+	/*if( window.getComputedStyle ){
+		alert( window.getComputedStyle( divs[0] )["backgroundColor"] );
+	}else{
+		alert( divs[0].currentStyle["height"] );
+	}*/
+	
+	//封装一个函数  获取非行内元素样式值
+	function getStyle(obj,attr){
+		if( window.getComputedStyle ){
+			return window.getComputedStyle( obj )[attr];
+		}else{
+			return obj.currentStyle[attr];
+		}
+	}
+	alert( getStyle( divs[0] , "height" ) );
+</script>

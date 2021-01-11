@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//使用while循环 输出1--100   1 2 3 4 5 6 7..
+	/*var i = 1;
+	while( i<=100 ){
+		document.write( i + " " ); 
+		i++;
+	}*/
+	
+	//输出1---100之间的奇数
+	/*var i = 1;
+	while( i<=100 ){
+		document.write( i + " " ); 
+		i+=2;
+	}*/
+	
+	/*var i = 1;
+	while( i <= 100 ){
+		//判断i如果是奇数 就输出
+		if( i%2 ){ // i%2 == 1  i%2 != 0
+			document.write(i + " ");
+		}
+		i++;
+	}*/
+	
+	/*var i = 1;
+	while( i <= 100 ){
+		//判断i如果是偶数   就输出
+		if( !(i%2) ){ // i%2 == 0  i%2 != 1   !(i%2)
+			document.write(i + " ");
+		}
+		i++;
+	}*/
+	
+	//输出水仙花数   100---999
+	//水仙花数 ： 是一个三位数   各个位数的立方和 ==  这个数
+	//153 === 1*1*1 + 5*5*5 + 3*3*3
+	//判断一个数是不是水仙花数 ？？？
+	//思路 ： 取出个位  十位  百位  求立方和 
+	// 判断： 如果  立方和  === 这个数 是水仙花数
+	
+	var num = 100;
+	while( num <= 999 ){
+		//取出个位  十位  百位
+		var digit = num%10;
+		var ten = parseInt(num/10)%10;
+		var hund = parseInt( num/100 );
+		//计算立方和
+		var s = Math.pow(digit,3) + Math.pow(ten,3) + Math.pow(hund,3);
+		//判断
+		if( s == num ){
+			document.write( num + "是水仙花数<br>" );
+		}
+		
+		num++;
+	}
+	
+	
+</script>

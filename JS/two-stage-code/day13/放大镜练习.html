@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            margin:200px;
+            position:relative;
+            width:350px;
+            height:350px;
+        }
+        #small{
+            border:1px solid blue;
+            width:350px;
+            height:350px;
+        }
+        #mask{
+            width: 175px;
+            height:175px;
+            background:pink;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            position:absolute;
+            top:0;
+            left:0;
+            cursor: move;
+            display:none;
+        }
+        #big{
+            width:400px;
+            height:400px;
+            border:1px solid blue;
+            overflow: hidden;
+            position: absolute;
+            top:0;
+            left:360px;
+            display:none;
+        }
+        #bigImg{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 注意：大图的显示区的宽高 / mask的宽高 === 大图的实际宽高 / 小图的实际宽高 -->
+    <div id="box">
+        <div id="small">
+            <img src="001.jpg" alt="" id="smallImg">
+            <div id="mask"></div>
+        </div>
+        <div id="big">
+            <img src="0001.jpg" alt="" id="bigImg">
+        </div>
+    </div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    // 1. 鼠标移到small上，大图,显示隐藏
+    var small = $id("small");
+    var big = $id("big");
+    var mask = $id("mask");
+    small.onmouseover = function(){
+        big.style.display = "block";
+        mask.style.display = "block";
+    }
+    small.onmouseout = function(){
+        big.style.display = "none";
+        mask.style.display = "none";
+    }
+    // 2. 鼠标移动，mask跟随
+    small.onmousemove = function(e){
+        var e = e || event;
+        x = e.pageX - box.offsetLeft - mask.offsetWidth/2;
+        y = e.pageY - box.offsetTop - mask.offsetHeight/2;
+        var maxL = box.offsetWidth - mask.offsetWidth;
+        var maxT = box.offsetHeight - mask.offsetHeight;
+        // 边界处理
+        x = x < 0 ? 0 : ( x > maxL ? maxL : x );
+        y = y < 0 ? 0 : ( y > maxT ? maxT: y );
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+
+        // 大图的left/mask的left = 大图的实际宽高/小图的实际宽高
+        var bigImgLeft = x*(bigImg.offsetWidth)/smallImg.offsetWidth;
+        var bigImgTop = y*(bigImg.offsetHeight)/smallImg.offsetHeight;
+        
+        bigImg.style.left = -bigImgLeft + "px";
+        bigImg.style.top = -bigImgTop + "px";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

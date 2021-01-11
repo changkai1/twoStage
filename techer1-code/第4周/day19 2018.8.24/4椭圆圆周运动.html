@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#ball{
+			width: 30px;
+			height: 30px;
+			background-color: red;
+			position: absolute;
+			left: 500px;
+			top: 100px;
+			border-radius:50% ;
+		}
+	</style>
+	<body>
+		<div id="ball"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var a = 200;//短轴
+	var b = 400;//长轴
+	var deg = 90;//初始角度
+	//获取小球运动轨迹的圆心坐标
+	var centerPoint = {
+		x : ball.offsetLeft + ball.offsetWidth/2,
+		y : ball.offsetTop+ball.offsetHeight+a
+	}
+	var timer = null;
+	timer = setInterval( function(){
+		ball.style.left = centerPoint.x + b*Math.cos(deg*Math.PI/180) + "px";
+		ball.style.top = centerPoint.y - a*Math.sin(deg*Math.PI/180)+"px";
+		deg-=3;
+	},30 )
+</script>

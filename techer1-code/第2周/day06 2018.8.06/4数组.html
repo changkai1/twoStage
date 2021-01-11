@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var arr = new Array(8); //长度是整数，不能是8.8 ，小数   数组长度不固定，这样给值(8)没有意义
+	//为数组赋值，数组名[下标]
+	arr[10] = 100;  //为数组下标为10的位置赋值为100
+	alert( arr[9] );  //数组为下标为9的位置的值是多少？输出undefined,数组定义了没给值的情况下为undefined,
+	alert(arr.length);
+	
+	//解构赋值还可以实现两个变量的交换
+	var [x,y] = [1,3];
+	[x,y] = [y, x];//交换两个变量的值
+	console.log(x,y);
+</script>

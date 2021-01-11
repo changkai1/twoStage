@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="qx"/>全选
+		<input type="checkbox" name="fx"/>反选
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h" />
+	</body>
+</html>
+<script>
+	var qx = document.getElementsByName("qx")[0];
+	var fx = document.getElementsByName("fx")[0];
+	var hs = document.getElementsByName("h");
+	//点击全选按钮，控制后面所有的复选框的选中状态
+	//让后面的复选框的checked属性值和点击的全选按钮checked值保持一致
+	qx.onclick = function(){
+		//alert( this.checked );
+		for( var i = 0 ; i < hs.length ; i++ ){
+			hs[i].checked = this.checked;
+		}
+	}
+	
+	//反选 ： 判断哪些复选框有被选中，如果被选中，就取消选中状态 
+	fx.onclick = function(){
+		for( var i = 0 ; i < hs.length ; i++ ){
+			if( hs[i].checked ){//判断某个复选框是否被选中
+				hs[i].checked = false;
+			}else{
+				hs[i].checked = true;				
+			}
+		}
+	}
+</script>

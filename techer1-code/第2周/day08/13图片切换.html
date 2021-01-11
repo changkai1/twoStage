@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="找找你的他" id="s"/>
+		<input type="button" value="看看他是谁" id="r"/>
+		<br>
+		<img src="img/6.jpg" alt="" width="300" id="m"/>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	//点击 找找你的他  开始切换图片
+	$id("s").onclick = function(){
+		timer = setInterval( function(){
+			$id("m").src = "img/"+ rand(1,8) +".jpg";
+		},3000 )
+	}
+	$id("r").onclick = function(){
+		clearInterval( timer );
+	}
+</script>

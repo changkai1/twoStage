@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="4.jpg" alt="" id="m" width="200" height="200"/>
+	</body>
+</html>
+<script>
+	//鼠标移入到图片上  改变图片 离开时 恢复
+	var oImg = document.getElementById("m");
+	oImg.onmouseenter = function(){
+		oImg.src = "8.jpg";
+	}
+	oImg.onmouseleave = function(){
+		oImg.src = "4.jpg";
+	}
+</script>

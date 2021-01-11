@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>777</h1>
+	</body>
+</html>
+<script>
+	//输出100---200之间素数个数
+	var count = 0;//计数器
+	
+	for( var num = 100 ; num <= 200 ; num++ ){
+		var flag = true;//假设变量  值为true 是素数 
+		for( var i = 2 ; i < num ; i++ ){
+			if( num % i == 0 ){//满足这个条件  说明有因子了  不是素数
+				flag = false;//不是素数
+				break;
+			}
+		}
+		//如果假设成立  
+		if( flag && num != 1 ){ //1不是素数
+			document.write( num + "是素数<br>" );
+			count++;
+		}
+	}
+	
+	alert( count );
+</script>

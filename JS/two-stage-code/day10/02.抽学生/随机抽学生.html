@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			border: 2px solid saddlebrown;
+			text-align: center;
+			line-height: 300px;
+			font-size: 60px;
+		}
+		input{
+			width:100px;
+			height: 35px;
+		}
+	</style>
+	<body>
+		<input type="button" id="btn" value="开始"/><br/><br/><br/>
+		<div id="box"></div>
+		<img src="image/1.jpg" alt="" id="m1"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>		
+	</body>
+</html>
+<script src="../../public.js"></script>
+<script type="text/javascript">
+	// 获得随机数
+	function rand(min,max){
+		return Math.round( Math.random() * ( max - min ) + min );
+	}
+	var arr = [1,2,3,4,5,6,7,8,9,10,11,12];
+	var flag = true; //开关变量
+	var timer = null;
+	$id("btn").onclick = function(){
+		if( flag ){
+			timer = setInterval(function(){
+				var index = rand(0,11);
+				$id("m1").src = "image/"+ (index+1) +".jpg";
+				$id("box").innerHTML = arr[index];
+			},50);
+			this.value = "停止";
+		}else{
+			// 停止计时器
+			this.value = "开始";
+			clearInterval(timer);
+		}
+		flag = !flag;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

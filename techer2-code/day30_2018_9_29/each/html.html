@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+		<script src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			let $lis = $('ul li');
+// 			$lis.each(function(index,value){
+// 				//console.log(index,$(value).html())
+// 				$(value).mouseenter(function(){
+// 					$(this).css('background','red');
+// 				})
+// 				$(value).mouseleave(function(){
+// 					$(this).css('background','');
+// 				})
+// 			})
+			$.each($lis,function(index,value){
+				$(value).mouseenter(function(){
+					$(this).css('background','yellow');
+				})
+				$(value).mouseleave(function(){
+					$(this).css('background','');
+				})
+			})
+		</script>
+	</body>
+</html>

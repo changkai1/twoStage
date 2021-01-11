@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.a{
+			width: 200px;
+			height: 100px;
+			background: #336699;
+			display: none;
+		}
+		.show{
+			display: block;
+		}
+	</style>
+	<body>
+		<input type="button" value="显示" id="btn" />
+		<div class="a" style="width: 200px;"></div>
+	</body>
+</html>
+<script>
+	var oBtn = document.querySelector("#btn");
+	var oDiv = document.querySelector(".a");
+	var flag = true;//值为true 显示div
+	oBtn.onclick = function(){
+		if( flag ){
+			oDiv.className = "a show";//样式操作
+			this.value = "隐藏";
+		}else{
+			oDiv.className = "a";//取消display：block 保留原来的颜色
+			this.value = "显示";
+		}
+		flag = !flag;
+	}
+</script>

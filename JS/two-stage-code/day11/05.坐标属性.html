@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+            left:100px;
+            top:100px;
+        }
+        body{
+            height:3000px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        坐标属性
+        1.  pageX     pageY       距离body的距离，有滚动条时，加上滚动条滚动的距离
+        2.  clientX   clientY     距离body的距离，有滚动条时，不算滚动条
+        3.  offsetX   offsetY     元素内部的偏移量
+    */
+
+    // 1.鼠标跟随
+    var oDiv = document.querySelector("div");
+    document.onmousemove = function(e){
+        var e = e || event;
+        oDiv.style.left = e.pageX + "px";
+        oDiv.style.top = e.pageY + "px";
+
+        // oDiv.style.left = e.clientX + "px";
+        // oDiv.style.top = e.clientY + "px";
+    }
+    
+
+
+
+
+
+
+
+
+
+</script>

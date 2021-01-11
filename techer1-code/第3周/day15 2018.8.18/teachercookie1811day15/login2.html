@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名 ： <input type="text" id="uname" /> <br>
+		密码 ：   <input type="text" id="upwd" /><br>
+		<input type="button" value="登录" id="btn"/>
+	</body>
+</html>
+<script>
+	var loginBtn = document.querySelector("#btn");
+	var txtName = document.querySelector("#uname");
+	var txtPwd = document.querySelector("#upwd");
+	loginBtn.onclick = function(){
+		//取出cookie数据
+		var str = document.cookie;//tel=13299900009; username=admin; addr=北京市; userpwd=admin
+		//str = str.replace( /\s/g,"" );
+		//console.log( str );
+		var arr = str.split("; ");//字符串拆分成数组
+		//["tel=13299900009","username=admin","addr=北京市","userpwd=admin"]
+		for( var i = 0 ; i < arr.length ; i++ ){
+			var item = arr[i].split("=");
+			if( item[0] == "username" ){//取用户名
+				cookieName = item[1];
+			}
+			if( item[0] == "userpwd" ){//取密码
+				cookiePwd = item[1];
+			}
+		}
+		//获取用户输入的用户名和密码 :
+		var tname = txtName.value;
+		var tpwd = txtPwd.value;
+		
+		if( cookieName == tname && cookiePwd == tpwd ){
+			alert("登录成功");
+		}else{
+			alert("用户名或密码错误");
+		}
+	}
+</script>

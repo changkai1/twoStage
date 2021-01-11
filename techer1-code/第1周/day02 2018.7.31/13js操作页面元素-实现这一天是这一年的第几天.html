@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		年：<input type="text" id="oTxtYear"/><br>
+		月：<input type="text" id="oTxtMonth"/><br>
+		日：<input type="text" id="oTxtDate"/><br>
+		这一天是这一年的第 <input type="text" id="oTxtDay"/> 天<br>
+		<input type="button" value="计算" id="oBtnSave"/>
+		<input type="button" value="重置" id="oBtnClear"/>
+	</body>
+</html>
+<script>
+	//要做事  先找人
+	//如何查找到要操作的页面元素  ？    
+	//第一步   ：  根据id查找   在页面元素上为每一个标签添加 不同的id
+	//第二步 ： 为按钮添加单击事件 
+	oBtnSave.onclick = function(){
+		var sum = 0;//一个变量用于累加数时，初始值为 0
+		//第三步 ； 获取用户输入的年  月  日   
+		var y = oTxtYear.value;
+		var m =parseInt( oTxtMonth.value );
+		var d = parseInt( oTxtDate.value );
+		switch( m ){
+			case 12 : sum += 30;//11月
+			case 11 : sum += 31;  
+			case 10 : sum += 30;
+			case 9 :  sum += 31;
+			case 8 :  sum += 31;
+			case 7 :  sum += 30;  
+			case 6 :  sum += 31;
+			case 5 : sum += 30;
+			case 4 : sum += 31; //3月
+			case 3 : {
+				y%4==0&&y%100!=0||y%400==0 ? sum += 29 : sum += 28;
+			}
+			case 2 : sum += 31; // 1月
+			case 1 : sum += d; 
+		}
+		//第四步 ：将计算的结果 回填到结果文本框中
+		oTxtDay.value = sum;
+	}
+	
+	//清空文本框
+	oBtnClear.onclick = function(){
+		oTxtDay.value = "";
+		oTxtYear.value = "";
+		oTxtMonth.value = "";
+		oTxtDate.value = "";
+	}
+</script>

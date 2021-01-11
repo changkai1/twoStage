@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//文件夹
+			function Folder(name){
+				this.name = name;
+				this.files = [];
+			}
+			//接收文件
+			Folder.prototype.addFile = function(file){
+				this.files.push(file); 
+			}
+			//输出文件
+			Folder.prototype.scan = function(){
+				console.log("文件夹：" + this.name);
+				for(var i = 0,files = this.files,file;file = files[i ++];){
+					file.scan();
+				}
+			}
+			//文件
+			function File(name){
+				this.name = name;
+			}
+			File.prototype.addFile = function(file){
+				alert("文件中不参添加任何文件或文件夹！");
+			}
+			File.prototype.scan = function(){
+				console.log("文件：" + this.name);
+			}
+			
+			let folder = new Folder("学习资料");
+			let folder1 = new Folder('JQ');
+			let folder2 = new Folder('JS');
+			
+			let file = new File('计算机算法与应用');
+			let file1 = new File('锋利的jQuery');
+			let file2 = new File('JavaScript中的DOM艺术');
+			
+			folder1.addFile(file1);
+			folder2.addFile(file2);
+			folder.addFile(folder1);
+			folder.addFile(folder2);
+			folder.addFile(file);
+			
+			folder.scan();
+		</script>
+	</body>
+</html>

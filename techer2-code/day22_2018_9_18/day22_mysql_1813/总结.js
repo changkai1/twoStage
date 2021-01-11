@@ -1,0 +1,10 @@
+1.register.html
+2.register.php
+3.login.html
+4.login.php
+5.scoreList.php
+6.add.html——>7
+7.add.php——>5
+8.delete.php——>5
+9.update.php(查询)——>10
+10.updateDoing.php(修改后转到5)

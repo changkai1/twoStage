@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				script : 作用域
+				一旦进入作用域，就会启动JS解析器
+				
+				当有多个script标签时，会先执行第一个script（预解析，逐行解读代码），然后依次解析并执行后面的script标签。
+				一、 预解析 var  function 形参  
+					fn = function fn(){ alert(1)}
+					a = 2
+					
+					//当变量与函数同名时，保留函数，丢弃变量
+				二、逐行解读代码
+					1.表达式
+					2.函数调用（作用域）
+						一、预解析 var function 形参
+						二、逐行解读代码
+							1.表达式
+						
+						
+			*/
+			
+		//alert(a); 
+		function fn(){
+			alert(1); //1
+		}
+			
+		</script>
+		<script type="text/javascript">
+			var a = 2;
+			fn();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

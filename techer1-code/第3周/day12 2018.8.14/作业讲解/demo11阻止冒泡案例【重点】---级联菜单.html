@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <ul>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单
+							<ul>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+							</ul>
+						</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+    </ul>
+    </body>
+</html>
+<script>
+    /*
+        为每一个li添加一个单击事件    
+        如果当前点击的li有子级菜单 ， 判断是否是显示或隐藏的
+     */
+    var list = document.getElementsByTagName("li");
+    for( var i = 0 ; i < list.length ; i++ ){
+    	list[i].onclick = function(e){
+    		var e = e || event;
+    		e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
+    		if( this.children[0] ){//说明当前点击的li有子级
+    			if( this.children[0].style.display == "none" ){
+    				this.children[0].style.display = "block";
+    			}else{
+    				this.children[0].style.display = "none";
+    			}
+    		}
+    	}
+    }
+</script>

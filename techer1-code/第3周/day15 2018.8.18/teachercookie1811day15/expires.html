@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="存cookie" id="btn"  />
+		<input type="button" value="删除cookie" id="btn2"  />
+	</body>
+</html>
+<script>
+	//点击按钮 存储cookie数据 并设置生存期
+	var oBtn = document.querySelector("#btn");
+	var oBtnDel = document.querySelector("#btn2");
+	oBtnDel.onclick = function(){
+		//删除cookie
+		// 将键对应 的值设置为 ""  或 将生存期设置为 -1
+		document.cookie = "uname=''";
+	}
+	oBtn.onclick = function(){
+		var now = new Date();
+		//设置三天后的时间
+		now.setDate( now.getDate() + 3 );
+		document.cookie = "uname=jack;expires="+now;
+	}
+</script>

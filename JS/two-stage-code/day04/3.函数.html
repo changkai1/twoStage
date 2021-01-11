@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1. 定义一个函数
+    // fn();
+    function fn(){
+        alert("hehe")
+    }
+    // fn(); //调用可以在函数定以前或定以后调用
+
+    // 2.定义一个函数 
+    var fun = function(){ //函数是匿名函数
+        alert("hello");
+    }
+    // fun(); //必须在函数定以后调用
+
+    // 3.定义一个函数，打印5行6列的表格
+    function fnTable(numTr,numTd){
+        document.write("<table border=1>");
+            for(var i = 1; i <= numTr; i++){
+                document.write("<tr>");
+                    for(var j = 1; j <= numTd; j++){
+                        document.write("<td>111</td>");
+                    }
+                document.write("</tr>");
+            }
+        document.write("</table>");
+    }
+    // fnTable(3,4);
+
+    // 4.打印1--100中（7的倍数和带7得数除外）得数
+        function fnPrint(){
+            for(var i = 1; i <= 100; i++){
+                if(i%7 == 0 || i%10 == 7 || parseInt(i/10) == 7){
+                    continue;
+                }else{
+                    document.write(i+" ");
+                }
+            }
+        }
+        // fnPrint();
+
+    // 5.求任意两个数的加减乘除
+    function jsq(m,n,sign) { 
+        switch(sign){
+            case "+" : console.log(m+n);break;
+            case "-" : console.log(m-n);break;
+            case "*" : console.log(m*n);break;
+            case "/" : console.log(m/n);break;
+        }
+     }
+    //  jsq(5,2,"*"); //10
+
+    // 6.定义一个函数，输出m--n之间的闰年
+    function year(m,n){
+        var t = 0;
+        if(m > n){
+            t = m;
+            m = n;
+            n = t;
+        }
+        for(var i = m; i <= n; i++){
+            if(i%4 == 0 && i%100 != 0 || i%400 == 0){
+                document.write(i+" ");
+            }
+        }
+    }
+    // year(1991,2019);
+
+    // 7. 顺序输出三个数
+    function fnSort(a,b,c){
+        // 三种情况
+        // a > b, a > c, b > c
+        var t = 0;
+        if(a > b){
+            t = a;
+            a = b;
+            b = t;
+        }
+        if(a > c){
+            t = a;
+            a = c;
+            c = t;
+        }
+        if(b > c){
+            t = b;
+            b = c;
+            c = t;
+        }
+        document.write(a+" ",b+" ",c+" ");
+    }
+    fnSort(130,12,6);
+    fnSort(130,1,6);
+
+</script>

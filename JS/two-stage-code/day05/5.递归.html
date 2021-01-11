@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // function fac(m){
+    //     if( m == 1 ){
+    //         return 1;
+    //     }else{
+    //         return m*fac(m-1);
+    //     }
+    // }
+    // alert( fac(3) )  //3*2*1s
+
+    // 1.计算1--100的奇数和
+    function fnSum(m){
+        if( m == 1){
+            return 1;
+        }else{
+            return m + fnSum(m-2);
+        }
+    }
+    alert(fnSum(99));
+</script>

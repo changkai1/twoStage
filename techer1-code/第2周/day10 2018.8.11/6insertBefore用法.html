@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="u">
+			<li>白富美</li>
+			<li>高富帅</li>
+			<li>高富帅媳妇</li>
+		</ul>
+	</body>
+</html>
+<script>
+	var oUl = document.querySelector("#u");
+	var oLi = document.createElement("li");
+	oLi.innerHTML = "xxx";
+	oUl.insertBefore( oLi , oUl.children[2] );
+</script>

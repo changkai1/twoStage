@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#ul1{
+				width: 200px;
+				height: 28px;
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#ul1 li{
+				width: 27px;
+				height: 28px;
+				float: left;
+				background: url(star.gif) no-repeat 0 0;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				let oLi = document.getElementById("ul1").getElementsByTagName('li');
+				let clicked = false; //没点过
+				let checked = -1;
+				let arr = ["差","一般","好","很好","非常好"];
+				let oDiv = document.getElementById("box");
+				for(let i = 0,len = oLi.length;i < len;i ++){
+					oLi[i].onmouseenter = function(){
+						if(clicked){ //点过
+							if(i >= checked){
+								for(let a = 0,len = oLi.length;a < len;a ++){
+									oLi[a].style.background = "url(star.gif) no-repeat 0 0";
+								}
+								for(let k = 0;k <= i;k ++){
+									oLi[k].style.background = "url(star.gif) no-repeat 0 -28px";
+								}
+							}
+						}else{ //没点过
+							for(let a = 0,len = oLi.length;a < len;a ++){
+								oLi[a].style.background = "url(star.gif) no-repeat 0 0";
+							}
+							for(let k = 0;k <= i;k ++){
+								oLi[k].style.background = "url(star.gif) no-repeat 0 -28px";
+							}
+						}
+					}
+					oLi[i].onclick = function(){
+						clicked = true;
+						checked = i;
+						oDiv.innerHTML = arr[i];
+						for(let a = 0,len = oLi.length;a < len;a ++){
+							oLi[a].style.background = "url(star.gif) no-repeat 0 0";
+						}
+						for(let k = 0;k <= i;k ++){
+							oLi[k].style.background = "url(star.gif) no-repeat 0 -28px";
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="u">
+			
+		</ul>
+	</body>
+</html>
+<script>
+	//字符串模板 ：  解决字符串拼接的问题
+	// `  `
+	
+	var json = {
+		prolist : [
+					{"pid":1,"pname":"iPhone","price":6788},
+					{"pid":2,"pname":"ipad","price":5788},
+					{"pid":3,"pname":"huawei","price":7788}
+				  ]
+	}
+	var str = "";
+	for( var  i = 0 ; i < json.prolist.length ; i++ ){
+		var item = json.prolist[i];
+		str += `<li>编号:${ item.pid }--名称 : ${ item.pname }--价格:${ item.price }</li>`;
+	}
+	var oUl = document.querySelector("#u");
+	oUl.innerHTML = str;
+	
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="" />
+		<script type="text/javascript">
+			var str = '{"id":1,"name":"手机","price":3999}';
+			var jsonEval = eval('(' + str + ')');
+			var json = JSON.parse(str);
+			alert(json.price);
+			var newStr = JSON.stringify(json);
+			alert(newStr);
+		</script>
+	</body>
+</html>

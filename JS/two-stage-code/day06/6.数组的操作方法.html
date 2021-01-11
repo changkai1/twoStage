@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 数组的操作方法
+    /*
+        改变原数组
+        1.push     数组尾部增加元素
+        2.pop      数组尾部删除元素
+        3.unshift  数组头部增加元素
+        4.shift    数组头部删除元素
+        5.splice   在数组的任意位置添加、删除、修改元素
+        6.sort     数组排序
+        7.reverse  翻转数组
+    */ 
+    // 1.push  向数组的尾部添加一个或多个元素
+    function fnPush(){
+        var arr = [3,4,5,6,7];
+        arr.push(80,90);
+        console.log(arr); //[3, 4, 5, 6, 7, 80, 90]
+
+        // var arr = new Array(8);
+        // arr.push(90);
+        // console.log(arr.length); //9
+    }
+    // fnPush();
+
+   // 2.pop  数组的尾部删除元素
+    function fnPop(){
+        var arr = [3,4,5,6,7];
+        arr.pop();
+        console.log(arr); //[3,4,5,6];
+    }
+    // fnPop();
+
+    // 3.shift  数组的头部删除元素
+   function fnShift(){
+        var arr = [3,4,5,6,7];
+        arr.shift();
+        console.log(arr); //[4, 5, 6, 7]
+    }
+    // fnShift();
+
+    // 4.unshift  数组的头部增加元素
+    function fnUnshift(){
+        var arr = [3,4,5,6,7];
+        arr.unshift(1,2);
+        console.log(arr); //[1, 2, 3, 4, 5, 6, 7]
+    }
+    // fnUnshift(); 
+
+    /*
+    5.splice  在数组的任意位置添加、删除、修改元素
+      splice(start,length,new1,new2...);
+            第一个参数：从哪开始（下标）
+            第二个参数：删除多少个
+            第三个参数：新增的元素
+
+            一个参数表示从哪个下标开始，删除后面的多个元素
+    */ 
+    function fnSplice(){
+        var arr = [34,56,7,8,9,1,2,3];
+        arr.splice(2);
+        // arr.splice(2,3);
+        // arr.splice(2,1,20);
+        // arr.splice(2,1,20,30);
+        // arr.splice(2,0,20);
+        // console.log(arr.splice(2)); 
+        console.log(arr); 
+        // [34, 56]
+        // [34, 56, 1, 2, 3]
+        // [34, 56, 20, 8, 9, 1, 2, 3]
+        // [34, 56, 20, 30, 8, 9, 1, 2, 3]
+        // [34,56,20,7,8,9,1,2,3]
+    }
+    fnSplice();
+
+    /*
+      6.sort()  数组排序  改变原数组
+    */ 
+    function fnSort(){
+        // var arr = ["a","f","afs","df","w","u"]; //默认按字符排序
+        // console.log( arr); //["a", "afs", "df", "f", "u", "w"];
+
+        var arr = [100,56,12,89,76,35,4];
+        // arr.sort(function(x,y){return x-y}); //升序
+        // console.log(arr); //[4, 12, 35, 56, 76, 89, 100]
+
+        arr.sort(function(x,y){ //降序
+            return y-x;
+        })
+        console.log(arr); //[100, 89, 76, 56, 35, 12, 4]
+    }
+    // fnSort();
+
+    /*
+        7.reverse()  翻转数组
+    */ 
+      function fnReverse(){
+          var arr = [1,2,3,4,5];
+          arr.reverse();
+          console.log(arr); //[5, 4, 3, 2, 1]
+      }
+    //   fnReverse();
+
+
+
+    /*
+      数组方法：不会改变原数组，了解返回值
+      1.concat()  在指定的数组末尾拼接新的元素
+      2.join()    将数组转为字符串
+      3.slice()   截取数组中的部分元素
+
+    */
+    /*
+      1.concat() 在指定的数组末尾拼接新的元素
+    */ 
+    function fnConcat(){
+        var arr = [2,3,4];
+        var brr = [7,8,9];
+        var newArr = arr.concat(brr);
+        console.log(newArr); //[2, 3, 4, 7, 8, 9]
+    }
+    // fnConcat();
+
+    /*
+      2.join()  将数组转为字符串
+    */ 
+    function fnJoin(){
+        var arr = [1,2,3,4,5,6];
+        //    var str = arr.join("");  //转成字符串  用空串拼接
+        //    console.log(str); // 123456
+        //    var str = arr.join("-");  //转成字符串  用"-"拼接
+        //    console.log(str); // 1-2-3-4-5-6
+        var str = arr.join("$$");  //转成字符串  用"$$"拼接
+        console.log(str); // 1$$2$$3$$4$$5$$6 
+    }
+    // fnJoin();
+
+    /*
+    3.截取数组中的部分元素 (不改变原数组)
+        slice(start,end)  注意：包含start(下标)，不包含end(下标)
+        支持负数
+    */
+    function fnSlice(){
+        var arr = [34,56,7,8,9,1,2,3];
+        // arr.slice(2); 
+        arr.slice(2,5);
+        // console.log(arr);  // [34,56,7,8,9,1,2,3]
+        // console.log(arr.slice(2));  // [7, 8, 9, 1, 2, 3]
+        console.log(arr.slice(2,5));  //  [7, 8, 9]
+    }
+    // fnSlice();
+
+    /*
+      4.扩展方法  forEach  indexOf   filter   map   reduce   不会改变原数组
+        forEach 没有返回值，遍历数组
+    */ 
+    function fnForEach(){
+        var arr = [45,34,7,8,9];
+        var count = 0; //计算奇数的个数
+        arr.forEach(function(item,index,array){ //第一个参数：值  第二个参数：下标   第三个参数：数组本身
+            // console.log(item);
+            // console.log(index);
+            // console.log(array);
+            if(item % 2 != 0){
+                count++;
+            }
+        })
+        console.log(count); //3
+    }
+    // fnForEach();
+
+    /*
+      5.indexOf()  判断一个数在另一个数组中是否存在
+                   存在，返回这个数在数组中首次出现的下标。
+                   不存在返回-1。
+    */ 
+    function fnIndexOf(){
+        var arr = [45,34,7,8,9,7];
+        // var res = arr.indexOf(6);  //-1
+        var res = arr.indexOf(7);     //2
+        console.log(res);
+    }
+    // fnIndexOf();
+
+    /*
+      6.filter  过滤，返回满足某个条件的数，将这些数存入到一个新的数组中   有返回值,返回数组
+    */
+    function fnFilter(){
+        var arr = [1,2,3,4,5,6,7,8,9];
+        var brr = arr.filter(function(item,index){  //参数：第一个参数：值    第二个参数：下标
+            // console.log(item);
+            // console.log(index);
+            // return item > 4;     //[5, 6, 7, 8, 9]
+            return item%2 == 0;     //[2, 4, 6, 8]
+        })
+        console.log(brr); 
+    }
+    // fnFilter();
+
+    /*
+      7.map()  映射   遍历数组--操作数组--返回数组
+    */ 
+    function fnMap(){
+        var arr = [10,20,30,40,50];
+        var brr = arr.map(function(item,index){ //参数：第一个参数：值    第二个参数：下标
+            return item*1.3;
+        })
+        console.log(brr); //[13, 26, 39, 52, 65]
+    }
+    // fnMap();
+
+    
+</script>

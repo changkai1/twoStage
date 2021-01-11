@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="" /><input type="button" name="" id="" value="百度一下" />
+		<ul></ul>
+		<script type="text/javascript">
+			let oUl = document.querySelector('ul');
+		window.onload = function(){
+			//jsonP 的原理: 动态创建script标签,利用script中的src跨域属性,通过对方接口,将请求发过去,找到数据之后通过回调函数将数据返回.
+			//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaaa&cb=
+			//https://dd-search.jd.com/?key=aaaa&callback=
+		
+			let oTxt = document.getElementById("txt");
+			
+			oTxt.onkeyup = function(){
+				oUl.innerHTML = '';
+				//创建script
+				let sc = document.createElement('script');
+				//设置src
+				//sc.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + this.value + "&cb=fn";
+				sc.src = "https://dd-search.jd.com/?key=" + this.value + "&callback=fn";
+				//加入head标签
+				document.querySelector('head').appendChild(sc);
+			}
+			
+		}
+		//必须是全局函数
+			function fn(data){
+				//console.log(data.s);
+				for(let i = 0,len = data.s.length;i < len;i ++){
+					let li = document.createElement('li');
+					li.innerHTML = data.s[i];
+					oUl.appendChild(li);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

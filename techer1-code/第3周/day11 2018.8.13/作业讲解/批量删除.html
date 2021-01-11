@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t"/>
+		<input type="button" id="btn" value="留言" />
+		<input type="button" id="btn2" value="批量删除" />
+		<ul id="u">
+			
+		</ul>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	$id("btn").onclick = function(){
+		//获取留言内容
+		var content = $id("t").value;
+		
+		//创建 li
+		var oli = create("li");
+		
+		oli.innerHTML = content;
+		
+		$id("u").insertBefore( oli , $id("u").children[0] );
+	
+		//判断ul的第六个孩子li是否存在  如果存在就删除
+		if( $id("u").children[5] ){
+			$id("u").children[5].remove();
+		}
+		
+		$id("t").value = "";
+		
+		//找到所有被创建的li
+		var list = document.getElementsByTagName("li");
+		for( var i = 0 ; i < list.length ; i++ ){
+			list[i].onclick = function(){
+				if( this.style.backgroundColor ){ //有颜色
+					this.style.backgroundColor = "";
+				}else{
+					this.style.backgroundColor = "pink";
+				}
+			}
+		}
+	}
+	
+	//批量删除
+	$id("btn2").onclick = function(){
+		//遍历所有的li  查看哪些有背景颜色 
+		//如果有 就删除
+		var list = document.getElementsByTagName("li");
+		for( var i = 0 ; i < list.length ; i++ ){
+			if( list[i].style.backgroundColor ){
+				list[i].remove();
+				i--;
+			}
+		}
+	}
+</script>

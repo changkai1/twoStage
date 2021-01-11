@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="register.php" method="get">
+			用户名 ： <input type="text" name="uname" id="uname"/><br>
+			密码 ：    <input type="text" name="upwd"/><br>
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
+<script type="text/javascript">
+	// 表单的name属性 用来向服务器提交表单数据
+	
+	//使用正则表达式验证用户输入的合法性
+	var oForm = document.querySelector("form");
+	oForm.onsubmit = function(){
+		//验证用户名 
+		var reg = /^1[3587]\d{9}$/;
+		var str = uname.value;
+		if( !reg.test( str ) ){
+			alert("用户名不合法");
+			return false;
+		}
+		
+		return true;
+	}
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script src="../public.js"></script>
+<script>
+	//计算时间差  getTime()
+		var now = new Date();
+		var end = new Date("2019-11-23"); //毕业时间
+		var t = end.getTime() - now.getTime();  // 时间差
+		console.log(t/1000/3600/24);
+	
+	//封装时间差函数
+	function diff(start,end){
+		 return (end.getTime() - start.getTime())/1000;
+	}
+	var start = new Date("2019-6-25");
+	var end   = new Date("2020-6-25");
+	var time = diff(start,end)/3600/24;
+	console.log(time);
+	
+	
+	var start1 = new Date();  
+	console.log(start1.getTime()/1000/3600/24/365);  //计算现在的时间到1970年时间
+	
+	
+	
+	
+	
+</script>

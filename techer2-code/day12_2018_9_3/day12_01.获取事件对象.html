@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="按钮" />
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			oBtn.onclick = function(evt){
+				evt = evt || window.event;
+				//console.log(evt);
+				//alert(window.event);
+			alert(evt);
+			}
+		</script>
+	</body>
+</html>

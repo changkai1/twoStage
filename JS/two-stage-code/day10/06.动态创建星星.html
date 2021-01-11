@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{background: black;}
+        li{
+            font-size: 30px;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li time = "30">疯狂创建</li>
+        <li time = "1000">正常创建</li>
+    </ul>
+</body>
+</html>
+<script src="../public.js"></script>
+<script>
+    /*
+        获取浏览器的宽度高度
+        window.innerWidth    宽度
+        window.innerHeight   高度
+    */ 
+    // var li = document.getElementsByTagName("li");
+    var li = document.querySelectorAll("li");
+    for(var i = 0; i < li.length; i++){
+        li[i].onclick = function(){
+            var time = this.getAttribute("time");
+            this.parentNode.remove();
+            createStar(time);
+        }
+    }
+
+    function createStar(time){
+        setInterval(function(){
+            var oImg = document.createElement("img");
+            document.body.appendChild(oImg);
+            oImg.src = "star.gif";
+            var w = rand(10,30);
+            oImg.style.width = oImg.style.Height = w + "px";
+            oImg.style.position = "absolute";
+            oImg.style.top = rand(0,window.innerHeight-w) + "px";
+            oImg.style.left = rand(0,window.innerWidth-w) + "px";
+
+            // 单机创建出来的星星删除
+            oImg.onclick = function(){
+                this.remove();
+            }
+        },time)
+    }
+
+
+
+
+
+
+
+
+</script>

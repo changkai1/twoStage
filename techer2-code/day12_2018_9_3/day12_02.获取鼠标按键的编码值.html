@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="按钮" />
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			oBtn.onmousedown = function(evt){
+				//evt = evt || window.event;
+				//alert(evt.button);
+				//标准浏览器:左键: 0   滚动键:1  右键 2
+				//IE              1         4        2
+				alert(getButton(evt));
+			}
+			
+			function getButton(evt){
+				var e = evt || window.event;
+				if(evt){
+					return e.button;
+				}else if(window.event){
+					switch(e.button){
+						case 1 : return 0;
+						case 4 : return 1;
+						case 2 : return 2;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

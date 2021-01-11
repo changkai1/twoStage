@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+		 	  
+	   *
+	  * *
+	 *   *
+	*     *
+	 *   *
+	  * *
+	   *
+	 
+	 */
+	//每一行的第一列和最后一列打印图形
+	for( var i = 1 ; i <= 3 ; i++ ){
+		for( var j = 1 ; j <= 4-i ; j++ ){
+			document.write("&ensp;");
+		}
+		for( var j = 1 ; j <= 2*i - 1 ; j++ ){
+			if( j == 1 || j == 2*i-1 ){
+				document.write("*");
+			}else{
+				document.write("&ensp;");
+			}
+		}
+		document.write("<br>");
+	}
+	for( var i = 1 ; i <= 4 ; i++ ){
+		for( var j = 1 ; j <= i-1 ; j++ ){
+			document.write("&ensp;");
+		}
+		for( var j = 1 ; j <= 9-2*i; j++ ){
+			if( j == 1 || j == 9-2*i ){
+				document.write("*");
+			}else{
+				document.write("&ensp;");
+			}
+		}
+		document.write("<br>");
+	}
+	
+	//1、	函数实现：输出1—3之间能组成的奇数个数，并输出这些数
+	/*要求 ： 组成的数是一个两位数，个位数！=十位数
+	组成： 13  21   23  31  共4个*/
+	function fnOddCount(){
+		var count = 0;
+		for( var i = 1 ; i <= 3 ; i++ ){ //十位
+			for( var j = 1 ; j <= 3 ; j++ ){ //个位
+				if( i != j ){ //个位  ！= 十位
+					//组合十位数和个位数 
+					var num = i + "" + j;  
+					if( num%2 ){
+						//输出这个奇数
+						console.log(num);
+						count ++;
+					}
+				}
+			}
+		}
+		return count;
+	}
+	/*var c = fnOddCount();
+	alert( c );*/
+	
+	//2、	编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，调用函数求1+1/3+...+1/n 
+	function fnSum(n){
+		var i;
+		if( n%2 == 0 ){
+			i = 2
+		}else{
+			i = 1;
+		}
+		var sum = 0;
+		while( i <= n ){
+			sum += 1/i;
+			i += 2;
+		}
+		return sum;
+	}
+	/*var s = fnSum(3);
+	alert( s );*/
+	
+	/*
+	 如果一个数恰好等于它的因数之和，则称该数为“完全数” perfect number。
+例如：
+第一个完全数是6，它有因数1、2、3、6，除去它本身6外，其余3个数相加，1+2+3=6。第二个完全数是28，它有因数1、2、4、7、14、28，除去它本身28外，其余5个数相加，1+2+4+7+14=28。
+第三个完全数是496，有约数1、2、4、8、16、31、62、124、248、496，除去其本身496外，其余9个数相加，1+2+4+8+16+31+62+124+248=496。
+函数实现：	请列出2~10000的所有完全数
+	 */
+	 //判断一个数是否是完美数
+	function isPerfectNumber(num){
+		//累加因子和  因子不包括本身
+		var sum = 0;
+		for( var i = 1 ; i < num ; i++ ){
+			if( num % i == 0 ){
+				sum += i;
+			}
+		}
+		if( num == sum ){ //完数
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	//列出所有的完数
+	function fnPerfectNumber(){
+		for( var i = 2 ; i <= 10000; i++ ){
+			var res = isPerfectNumber(i);
+			if( res ){
+				document.write( i + " " );
+			}
+		}
+	}
+	//fnPerfectNumber();
+	
+	/*
+	 编写一个函数 ：实现计算任意一个数的各个位数的和 
+		例如 ：  234  位数和为  9
+	 */
+	function fnSum(num){
+		var sum = 0;
+		while( num != 0 ){
+			sum += num%10;//取出个位数
+			num = parseInt(num/10);
+		}
+		return sum;
+	}
+	var s = fnSum(234);
+	alert(s);
+</script>

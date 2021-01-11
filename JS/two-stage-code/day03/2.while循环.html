@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // while循环
+        // while(条件){
+        //     循环体
+        // }
+        var i = 1;
+        while( i <= 100 ){
+            i++;
+            console.log("*")
+        }
+        console.log(i)
+
+
+    // 输出1--100之间的奇数
+          var i = 1;
+          while( i <= 100 ){
+            // 判断i是否为奇数
+            if( i%2 != 0){
+                document.write(i+" ");
+            }
+            i++;
+          }
+          document.write("<br>")
+
+    // 输出1--100之间的偶数
+          var i = 1;
+          while( i <= 100){
+            //判断是否为偶数
+            if( i%2 == 0){
+                document.write(i+" ");
+            }
+            i++;
+          }
+        document.write("<br>"); 
+        
+    // 输出水仙花数
+    var num = 100;
+    while(num <= 999){
+        var digit = num%10;
+        var ten = parseInt(num/10)%10;
+        var hund = parseInt(num/100);
+        var s = Math.pow(digit,3) + Math.pow(ten,3) + Math.pow(hund,3);
+        if(s == num){
+            document.write(num+"是水仙花数"+"<br>");
+        }
+        num++;
+    }
+
+
+
+
+</script>

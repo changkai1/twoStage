@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//解构赋值：解析结构 进行赋值
+	//解构赋值可以一次性定义多个变量
+	/*var [x,y,z] = [1,2,3];
+	var {age,sname} = {sname:"jack",age:"19"}
+	console.log( sname,age );*/
+	
+	//解构赋值还可以实现两个变量的交换
+//	var [x,y] = [1,3];
+//	[x,y] = [y,x];//交换两个变量的值
+//	console.log(x,y);
+	
+	//解构赋值 还可以让一个函数返回多个值
+	
+	//定义一个函数 计算1--100的和及奇数个数
+	function fn(){
+		var sum = 0;
+		var count = 0;
+		for( var i = 1 ; i <= 100; i++ ){
+			sum += i;
+			if( i%2 ){
+				count++;
+			}
+		}
+		return [sum,count];
+	}
+	var res = fn();
+	console.log( res[0],res[1] );
+	
+	var [s,c] = fn();
+	console.log( s,c );
+	
+	//解构赋值还可以作用在函数的参数上
+//	function fn({age,sname}){
+//		console.log( sname,age );
+//	}
+//	fn( { sname : "lily" , age : 10 } );
+	
+	//课后练习 ： 
+	/*
+	1、冒泡排序（交换时  使用解构赋值） 
+	2、定义一个函数  计算一个数组中素数个数和所有素数的和  
+		函数返回素数个数和素数和
+	*/
+</script>

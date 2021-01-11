@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="comm.js"></script>
+<script>
+	/*
+	4、	编写一个函数，功能判断任意一个数是否是素数，如果是返回true  否则返回false
+	5、	 计算 100—200之间所有素数的和。
+	6、	输出：100 可以拆成哪两个素数的和？
+	 */
+	// isNaN()  判断非数字
+	
+	
+	//alert( isPrimerNumber(13) );
+	
+	//计算 100—200之间所有素数的和。
+	function fnSum(){
+		var sum = 0;
+		for( var i = 100 ; i <= 200 ; i++ ){
+			var res = isPrimerNumber( i );
+			if( res ){
+				sum += i;
+			}
+		}
+		return sum;
+	}
+	var s = fnSum();
+	//alert( s );
+	
+	//输出：100 可以拆成哪两个素数的和？
+	//100 : 3   97  
+	function fnPrint(){
+		for( var i = 1 ; i <= 50; i++ ){
+			/*var res1 = isPrimerNumber(i);
+			var res2 = isPrimerNumber(100-i);*/
+			if( isPrimerNumber(i) && isPrimerNumber(100-i) ){
+				//执行if语句表示 是素数
+				console.log( "100可以拆成"+i+"和"+(100-i)+"的和" );
+			}
+		}
+	}
+	fnPrint();
+</script>
